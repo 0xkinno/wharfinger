@@ -56,5 +56,9 @@ First paid vessel answer, with its signal: [SIGNAL LINK, added after the first p
 Repo: github.com/0xkinno/wharfinger
 ```
 
+### Draft 3: tutorial post (ready; the tutorial exists and was run live)
+
+`TUTORIAL.md` and `examples/buy-a-fact.ts` (9 lines) are in the repository. A post linking them, disclosing the hackathon and prize incentive and tagging `@Telegraphprotoc`, waits for approval. Independent reproduction by another developer is the evidence that earns points; none yet.
+
 Open questions for Kinnoski before posting: the exact repo URL once public; whether to include a screenshot of the first
 signal page; the account to post from (`@0xkinno`).

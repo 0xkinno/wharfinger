@@ -3,24 +3,31 @@
 Self-judging after each phase (build instruction section 18). A "no" stops polishing. Scored honestly; nothing is
 built yet, so most answers describe the design.
 
-## After Phase 0 and Phase 1 (2026-11-25)
+## After Phase 4 and the statement core (2026-11-25, 107 tests)
 
 | # | Question | Answer | Basis |
 |---|---|---|---|
-| 1 | Can a non-technical person repeat the problem after 10 seconds of the landing page? | not applicable yet | No UI. `BEAT.md` language is ready |
-| 2 | Does a real Telegraph purchase happen autonomously, unattended, and move a priced hour? | **no** | No paid ask has been made. The probe wallet is unfunded |
-| 3 | Does Mira do something software cannot (attach the SOF, resolve REVIEW, sign)? | design only | `MOMENT.md` and `THESIS.md` are Phase 2 |
-| 4 | Does the owner recompute a statement without trusting us, online and offline? | partly | The signal hash recompute works offline on a real signal. Statement recompute is Phase 6 |
-| 5 | Is every sponsor feature named only where it is called, with file:line in `SDK_SURFACE.md`? | not applicable yet | No product code calls Telegraph. `SDK_SURFACE.md` starts in Phase 4 |
-| 6 | Is every headline number from FACTS or a live endpoint, with misses named? | not applicable yet | No headline numbers exist. Every number in the probe docs is traceable to a file in `evidence/probe/` |
-| 7 | Can a judge see a real corroborated fact with receipts in 60 seconds? | **no** | Nothing is deployed |
-| 8 | Are spend paths capped by the escrow itself, and is the drain test recorded? | **no** | `setMyChargeLimit` exists on chain; the drain test (B4) needs funds |
-| 9 | Did the last red-team round come back clean? | not applicable yet | First round is Phase 10 |
-| 10 | Is any competitor name anywhere in tracked files? | **no, none** | `scripts/check-clean.ts` passes; positive and negative tests recorded in the Phase 1 report |
-| 11 | Is any claim impossible for the deployed app to demonstrate? | none claimed yet | `LANE_MAP.md` and `JUDGE_TASTE.md` mark everything planned |
-| 12 | Rubric self-score against the strongest sample | not meaningful yet | `reference/ABSORB.md` 18A table is all "open" |
+| 1 | Non-technical person repeats the problem in 10 seconds of the landing page | not applicable yet | No UI |
+| 2 | Real Telegraph purchase, autonomous, unattended, moves a priced hour | **partly** | Live tick bought 4 answers with receipts and corroborated a berth zone. Not unattended and not yet driving an hour in a deployed app |
+| 3 | Mira does something software cannot (SOF, resolve REVIEW, sign) | yes in the engine and statement | The sample resolves one REVIEW interval and carries both signatures; no screen yet |
+| 4 | Owner recomputes without trusting us, online and offline | offline yes | `pnpm verify` passes the sample and fails 8 tamper cases. Browser recompute not built |
+| 5 | Sponsor features named only where called, with file:line | yes | `SDK_SURFACE.md`, drift test |
+| 6 | Every headline number from FACTS or a live endpoint, misses named | partly | No FACTS.json yet. Every number in the docs traces to `evidence/` |
+| 7 | Judge sees a corroborated fact with receipts in 60 seconds, no login, on a phone | **no** | Nothing deployed |
+| 8 | Spend capped by the escrow itself; drain test recorded | partly | Escrow balance and charge limit refusals recorded live; the 0.05 USDC drain run (B4) is only a fake-node test |
+| 9 | Last red-team round clean | not applicable yet | |
+| 10 | Competitor name in tracked files | **no, none** | `check:clean` in CI |
+| 11 | Claim the deployed app cannot demonstrate | none claimed | No app is claimed |
+| 12 | Rubric score | not meaningful yet | Growth, adoption and UI are the large gaps |
 
-Answers 2, 7 and 8 are "no" by construction at this stage. They gate polishing in later phases, not Phase 2.
+Answers 2, 4 (browser), 7 and 8 (live drain) gate Phase 7 polishing.
+
+## Honest gaps found by building
+
+- Position corroboration is across operators that share one upstream feed (`ONE_UPSTREAM`), and the one other source was stale.
+- The Kotka port queue cannot be bought correctly; zone geometry is a draft.
+- Hourly weather is not purchasable; the weather exception is daily plus an SOF line.
+- Epoch proof of receipts arrives hours later.
 
 ## Probe wallets (testnet, throwaway)
 
