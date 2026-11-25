@@ -5,7 +5,7 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
-const EXEMPT = [/^RULES_EXTRACT\.md$/, /^evidence\//, /^reference\//, /^docs\/FACTS\.json$/, /^pnpm-lock\.yaml$/, /^scripts\/check-copy\.ts$/, /^LICENSE$/, /\.(png|jpg|jpeg|gif|woff2?|ico|pdf|mp3|mp4)$/i];
+const EXEMPT = [/^docs\/sources\//, /^RULES_EXTRACT\.md$/, /^evidence\//, /^reference\//, /^docs\/FACTS\.json$/, /^pnpm-lock\.yaml$/, /^scripts\/check-copy\.ts$/, /^LICENSE$/, /\.(png|jpg|jpeg|gif|woff2?|ico|pdf|mp3|mp4)$/i];
 const TEXT_TARGETS = [/\.md$/, /\.(ts|tsx|json|yml|yaml|html|css|svg)$/];
 const PRODUCT_COPY = [/^README\.md$/, /^apps\/web\/(app|components|lib|content)\//];
 

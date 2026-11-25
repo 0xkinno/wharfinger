@@ -1,0 +1,18 @@
+VESSEL_TELEMETRY_VERIFY_GENERAL    params [vessel:string]  time-capable: none
+LIVE_PORT_CONGESTION_GENERAL       params [port:string]  time-capable: none
+WEATHER_FORECAST_GENERAL           params [location:string, window_hours:integer]  time-capable: none
+WEATHER_FORECAST_VERIFY_GENERAL    params [location:string, date:date]  time-capable: date (daily date only)
+
+Escrow authorization template (what a paid answer is bound to):
+Telegraph Escrow Payment
+
+Wallet: {from}
+Pay To: 0x72a70e949362670bf8bcead24efc5b8f950aa08b
+Network: eip155:11155111
+Amount: 10000 uUSDC
+Resource: /v1/ask
+Nonce: {nonce}
+Valid After: {validAfter}
+Valid Before: {validBefore}
+
+The authorization window is at most 2 minutes and the nonce is single use, so a paid answer is bound to the minute it was bought.

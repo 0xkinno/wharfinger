@@ -1,0 +1,101 @@
+[
+ {
+  "id": "marcura-demurrage-size",
+  "source": "Marcura, Demurrage claims leakage",
+  "url": "https://marcura.com/blog/demurrage-claims-leakage",
+  "quote": "dry bulk alone accounts for $8–10 billion in demurrage fees annually, roughly 6–8% of total freight spend",
+  "figures": [
+   "$8–10 billion",
+   "6–8%"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "marcura-rates",
+  "source": "Marcura, Demurrage claims leakage",
+  "url": "https://marcura.com/blog/demurrage-claims-leakage",
+  "quote": "At rates of $15,000–$30,000 per day",
+  "figures": [
+   "$15,000–$30,000"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "marcura-manual",
+  "source": "Marcura, Demurrage claims leakage",
+  "url": "https://marcura.com/blog/demurrage-claims-leakage",
+  "quote": "99% of statements of facts (SOFs) are still processed manually across the industry, consuming an estimated 12 million hours per year",
+  "figures": [
+   "99%",
+   "12 million hours"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "marcura-timebar",
+  "source": "Marcura, Demurrage claims leakage",
+  "url": "https://marcura.com/blog/demurrage-claims-leakage",
+  "quote": "One real portfolio documented $450,000 in time bar failures in a single year.",
+  "figures": [
+   "$450,000"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "voyager-weather",
+  "source": "Voyager, The Basics of Bulk Shipping Demurrage",
+  "url": "https://www.voyagerportal.com/the-basics-of-demurrage-a-guide-for-commodity-traders/",
+  "quote": "A single miscategorised six-hour weather event on a vessel with a $20,000/day demurrage rate changes the claim by $5,000.",
+  "figures": [
+   "$20,000/day",
+   "$5,000"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "hellenic-sof",
+  "source": "Hellenic Shipping News, quoting Voyager",
+  "url": "https://www.hellenicshippingnews.com/manually-processing-demurrage-is-costing-charterers-millions/",
+  "quote": "in the non-containerised sector of the maritime transportation industry, 99% of SoFs are still created using a clipboard, pen, and paper.",
+  "figures": [
+   "99%"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "hellenic-events",
+  "source": "Hellenic Shipping News, quoting Voyager",
+  "url": "https://www.hellenicshippingnews.com/manually-processing-demurrage-is-costing-charterers-millions/",
+  "quote": "an estimated 120 million events are manually logged by captains, agents, terminals and surveyors all over the world",
+  "figures": [
+   "120 million"
+  ],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ },
+ {
+  "id": "reed-smith-timebar",
+  "source": "Reed Smith, Ship Law Log, demurrage time bar and supporting documents",
+  "url": "https://www.reedsmith.com/our-insights/blogs/ship-law-log/102k6lf/demurrage-time-bar-the-importance-of-providing-supporting-documents-in-demurrage/",
+  "quote": null,
+  "figures": [],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": false,
+  "note": "Page not fetchable from the build environment; its existence and subject come from a web search excerpt. Not quoted until Kinnoski or a later session reads it."
+ },
+ {
+  "id": "case-amalie-essberger",
+  "source": "Amalie Essberger Tankreederei GmbH & Co KG v Marubeni Corporation, England and Wales High Court (Commercial Court)",
+  "url": "https://caselaw.nationalarchives.gov.uk/ewhc/comm/2019/3402",
+  "quote": "The laytime permitted under the Charterparty was “48hrs shinc ttl”.",
+  "figures": [],
+  "retrieved": "2026-11-25",
+  "verbatim_checked": true
+ }
+]

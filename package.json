@@ -5,13 +5,16 @@
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@10.28.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "check:clean": "tsx scripts/check-clean.ts",
     "check:copy": "tsx scripts/check-copy.ts",
     "probe:paid": "NODE_USE_ENV_PROXY=1 tsx scripts/probe-paid.ts",
     "probe:auth": "NODE_USE_ENV_PROXY=1 tsx scripts/probe-auth.ts",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "probe:wallet": "tsx scripts/gen-probe-wallet.ts"
   },
   "dependencies": {
@@ -19,7 +22,9 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "fast-check": "^4.11.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^5.1.1"
   }
 }
