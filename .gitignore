@@ -1,0 +1,23 @@
+# private and third-party material
+reference/
+.env*
+!.env.example
+evaluator/private/
+scorer/champions/
+evidence/probe/catalogue/
+keys/
+*.pem
+
+# build output
+node_modules/
+.next/
+dist/
+coverage/
+.turbo/
+.vercel/
+*.log
+.DS_Store
+playwright-report/
+test-results/
+__pycache__/
+*.pyc

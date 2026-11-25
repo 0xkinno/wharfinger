@@ -1,0 +1,37 @@
+name: Block Claude attribution
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  no-claude-attribution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reject Claude authors and trailers
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          python3 - <<'PY'
+          import os, re, subprocess, sys
+          base, head = os.environ["BASE_SHA"], os.environ["HEAD_SHA"]
+          rng = f"{base}..{head}" if base and not set(base) <= {"0"} else head
+          shas = subprocess.check_output(["git", "rev-list", rng], text=True).split()
+          bad = False
+          for sha in shas:
+              raw = subprocess.check_output(["git", "show", "-s", "--format=%an%n%ae%n%cn%n%ce%n%B", sha], text=True, errors="replace")
+              parts = raw.split("\n", 4)
+              if len(parts) < 5: continue
+              a, ae, c, ce, msg = parts
+              if re.search(r"claude|anthropic", " ".join([a, ae, c, ce]), re.I) or re.search(
+                  r"(?im)^\s*(co-authored-by:.*(claude|anthropic)|claude-session:.*|.*generated with.*claude code)", msg):
+                  print(f"FAIL: {sha} carries Claude/Anthropic identity or attribution."); bad = True
+          if bad: sys.exit(1)
+          print("PASS: no Claude commit attribution found.")
+          PY

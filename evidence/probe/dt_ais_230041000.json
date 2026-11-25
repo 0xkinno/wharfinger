@@ -1,0 +1,24 @@
+{
+  "type" : "FeatureCollection",
+  "dataUpdatedTime" : "2026-11-25T06:16:54Z",
+  "features" : [ {
+    "mmsi" : 230041000,
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ 22.218922, 60.433753 ]
+    },
+    "properties" : {
+      "mmsi" : 230041000,
+      "sog" : 0.0,
+      "cog" : 297.0,
+      "navStat" : 0,
+      "rot" : 0,
+      "posAcc" : true,
+      "raim" : false,
+      "heading" : 288,
+      "timestamp" : 51,
+      "timestampExternal" : 1795587413485
+    }
+  } ]
+}

@@ -1,0 +1,62 @@
+{
+ "at": "2026-11-25T06:37:16.180Z",
+ "voyageAddress": "0xfD29108e9Df6B3d89931d39Df3a9037f9dEe4937",
+ "house": {
+  "address": "0x2D62433a1C398CaE11Ae98Dbd5CCCE3645A95540",
+  "eth": "0.03",
+  "usdc": "0",
+  "chargeLimit": "1000000000",
+  "ledger": {
+   "active_root": {
+    "balance": "0",
+    "charged": "0",
+    "credited": "0",
+    "cutoff": 1795580004,
+    "epoch_id": 52,
+    "seq": 52
+   },
+   "address": "0x2d62433a1c398cae11ae98dbd5ccce3645a95540",
+   "available": "0",
+   "balance": "0",
+   "charge_limit": "1000000000",
+   "charged": "0",
+   "charged_this_block": "0",
+   "credited": "0",
+   "deposited": "0",
+   "request": {
+    "status": "none"
+   },
+   "unbilled": "0",
+   "withdrawn": "0"
+  }
+ },
+ "voyage": {
+  "address": "0xfD29108e9Df6B3d89931d39Df3a9037f9dEe4937",
+  "eth": "0",
+  "usdc": "0",
+  "chargeLimit": "1000000000",
+  "ledger": {
+   "active_root": {
+    "balance": "0",
+    "charged": "0",
+    "credited": "0",
+    "cutoff": 1795580004,
+    "epoch_id": 52,
+    "seq": 52
+   },
+   "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+   "available": "0",
+   "balance": "0",
+   "charge_limit": "1000000000",
+   "charged": "0",
+   "charged_this_block": "0",
+   "credited": "0",
+   "deposited": "0",
+   "request": {
+    "status": "none"
+   },
+   "unbilled": "0",
+   "withdrawn": "0"
+  }
+ }
+}

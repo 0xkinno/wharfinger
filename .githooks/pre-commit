@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Runs the house checks before every commit. Skipped quietly until dependencies are installed.
+if [ -x node_modules/.bin/tsx ]; then
+  node_modules/.bin/tsx scripts/check-clean.ts && node_modules/.bin/tsx scripts/check-copy.ts
+fi

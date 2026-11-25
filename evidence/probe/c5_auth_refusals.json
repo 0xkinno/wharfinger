@@ -1,0 +1,72 @@
+{
+ "at": "2026-11-25T06:23:49.946Z",
+ "node": "https://devnode.telegraphprotocol.com",
+ "throwawayAddress": "0x14Cea2C513A832AC23A82C11B8BFf04d13e5F9f4",
+ "results": [
+  {
+   "label": "a valid authorization, no funds",
+   "status": 402,
+   "reason": "insufficient escrow for delivery: unbilled=0 μUSDC + price=10000 μUSDC > balance=0 μUSDC"
+  },
+  {
+   "label": "b window 300 s (limit 120 s)",
+   "status": 402,
+   "reason": "authorization is valid for 5m5s; the maximum is 2m0s"
+  },
+  {
+   "label": "c value 9999 (quote 10000)",
+   "status": 402,
+   "reason": "this route costs 10000 uUSDC, authorization offers 9999"
+  },
+  {
+   "label": "d value 10001",
+   "status": 402,
+   "reason": "this route costs 10000 uUSDC, authorization offers 10001"
+  },
+  {
+   "label": "e wrong recipient",
+   "status": 402,
+   "reason": "escrow pays the diamond at 0x72a70e949362670bf8bcead24efc5b8f950aa08b, not \"0x000000000000000000000000000000000000dEaD\""
+  },
+  {
+   "label": "f replay of (a)",
+   "status": 402,
+   "reason": "authorization.nonce has already been used"
+  },
+  {
+   "label": "g checksummed from",
+   "status": 402,
+   "reason": "signature is from 0x0aBe0c59822b93E0714006A12Bf298B1841941C5, not authorization.from 0x14Cea2C513A832AC23A82C11B8BFf04d13e5F9f4"
+  },
+  {
+   "label": "h expired validBefore",
+   "status": 402,
+   "reason": "authorization expired at 2026-11-25T06:18:48Z"
+  },
+  {
+   "label": "i not yet valid",
+   "status": 402,
+   "reason": "authorization is not valid yet"
+  },
+  {
+   "label": "j message names another chain",
+   "status": 402,
+   "reason": "signature is from 0xe838cB402a2B0742f76DB67bc6dCd7D7D8F81132, not authorization.from 0x14cea2c513a832ac23a82c11b8bff04d13e5f9f4"
+  },
+  {
+   "label": "k envelope network mismatch",
+   "status": 402,
+   "reason": "escrow pays on eip155:11155111, not eip155:1"
+  },
+  {
+   "label": "l nonce reused with fresh signature",
+   "status": 402,
+   "reason": "insufficient escrow for delivery: unbilled=0 μUSDC + price=10000 μUSDC > balance=0 μUSDC"
+  },
+  {
+   "label": "m same nonce again",
+   "status": 402,
+   "reason": "authorization.nonce has already been used"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "0xf3f44d54": "setMyChargeLimit(uint256)",
+ "0x5ff4983b": "chargeLimitOf(address)",
+ "0x71f99353": "ledgerAccount(address)",
+ "0xf385deea": "activeLedgerRoot()",
+ "0x3db7343b": "ledgerRoot(uint64)"
+}

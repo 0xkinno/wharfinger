@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Blocks any AI attribution trailer. Authorship is the human author only.
+if grep -Eiq '^(co-authored-by:.*(claude|anthropic)|claude-session:|.*generated with.*claude code)' "$1"; then
+  echo "Commit message carries AI attribution. Remove it." >&2
+  exit 1
+fi

@@ -1,0 +1,566 @@
+{
+ "0x7a0ed627": [
+  "facets()"
+ ],
+ "0xadfca15e": [
+  "facetFunctionSelectors(address)"
+ ],
+ "0x52ef6b2c": [
+  "facetAddresses()"
+ ],
+ "0xcdffacc6": [
+  "facetAddress(bytes4)"
+ ],
+ "0x791723c0": null,
+ "0x8da5cb5b": [
+  "owner()"
+ ],
+ "0xe30c3978": [
+  "pendingOwner()"
+ ],
+ "0xf2fde38b": [
+  "transferOwnership(address)",
+  "_SIMONdotBLACK_(int8[],uint256,address,bytes8,int96)"
+ ],
+ "0x79ba5097": [
+  "acceptOwnership()"
+ ],
+ "0x1d5ec885": [
+  "setEntryFees(address[],uint256[])"
+ ],
+ "0xab29d3fd": [
+  "setStartChain(string)"
+ ],
+ "0xd097cee2": [
+  "setChainType(string,bool)"
+ ],
+ "0xe7a764ef": [
+  "setDistributionContract(address)"
+ ],
+ "0x4f781c59": [
+  "setPriceMapping(string,string,uint256)"
+ ],
+ "0x1f931c1c": [
+  "diamondCut((address,uint8,bytes4[])[],address,bytes)"
+ ],
+ "0x8297ea37": [
+  "setMachina(address)"
+ ],
+ "0x43b93c21": null,
+ "0x93aab9d5": [
+  "protocolParams()"
+ ],
+ "0xb7fc2361": null,
+ "0x9d3b8517": null,
+ "0x09aa3388": null,
+ "0x02f9dced": null,
+ "0x27548c8c": null,
+ "0xeb36b275": null,
+ "0xffb1372e": null,
+ "0xf3143102": null,
+ "0xbc9c5c99": null,
+ "0x20457b6f": null,
+ "0xa1d4dae5": null,
+ "0x1d2067ae": null,
+ "0x4f65dd82": [
+  "getOutboundTransaction(uint256)"
+ ],
+ "0x0b219c4d": [
+  "getInboundTransaction(uint256)"
+ ],
+ "0xec43ba6f": [
+  "getSubnetRequest(uint256)"
+ ],
+ "0x026cd651": [
+  "determineFeeInCoin(string)"
+ ],
+ "0x36a09096": [
+  "validationRead(string,address,address,(address[],uint256[],string[],bool[]),address)"
+ ],
+ "0xd5f50582": [
+  "isValidSigner(address)"
+ ],
+ "0xdb5c448e": [
+  "entryFees(address)"
+ ],
+ "0x9a8a0592": [
+  "chainId()"
+ ],
+ "0x736c0d5b": [
+  "signers(address)"
+ ],
+ "0xdc5fbe14": [
+  "signersArr(uint256)"
+ ],
+ "0xd50a1857": [
+  "nodeStartTime()"
+ ],
+ "0x488ec3e8": [
+  "outboundIndex()"
+ ],
+ "0x80aafedd": [
+  "isMainnet(string)"
+ ],
+ "0x5a4528c2": [
+  "distributionContract()"
+ ],
+ "0x2616dec5": [
+  "priceMapping(string,string)"
+ ],
+ "0x0c77ad32": [
+  "getERC20Allowance(address,address)"
+ ],
+ "0x11eac855": [
+  "usdcToken()"
+ ],
+ "0x52255959": [
+  "machinaToken()"
+ ],
+ "0xc31c9c07": [
+  "swapRouter()"
+ ],
+ "0x1eab62a9": [
+  "swapSlippageBPS()"
+ ],
+ "0x01ffc9a7": [
+  "supportsInterface(bytes4)"
+ ],
+ "0xd2bb5722": [
+  "jobBasePrice()"
+ ],
+ "0x876b2422": [
+  "registerMiner(string,bytes32,address,uint256,string[])"
+ ],
+ "0x382b131c": [
+  "deregisterMiner(uint256)"
+ ],
+ "0x3cc8f306": [
+  "getMiner(uint256)"
+ ],
+ "0x6d1da431": [
+  "minerCount()"
+ ],
+ "0xb86424b7": [
+  "getDeregisteredIdCount()"
+ ],
+ "0xd5fc2584": [
+  "getDeregisteredIdAtIndex(uint256)"
+ ],
+ "0xbf643e59": [
+  "getCanonicalIntents()"
+ ],
+ "0xeb807a07": [
+  "isCanonicalIntent(string)"
+ ],
+ "0xe38cd8a0": [
+  "canonicalIntentCount()"
+ ],
+ "0x014b833a": [
+  "removeIntent(string)"
+ ],
+ "0xd3dd60b7": [
+  "getCanonicalIntentsWithDescriptions()"
+ ],
+ "0xc3e35965": [
+  "updateMiner(uint256,string,bytes32,address,uint256,string[])"
+ ],
+ "0x634a6bc1": [
+  "getIntentDescription(string)"
+ ],
+ "0xe20cc8f6": [
+  "MIN_PRICE_USDC()"
+ ],
+ "0x72d9ab64": [
+  "registerMinerFor(address,string,bytes32,address,uint256,string[],uint256,uint256,bytes)"
+ ],
+ "0x6f8ee6fd": [
+  "deregisterMinerFor(address,uint256,uint256,bytes)"
+ ],
+ "0xf1abc9f2": [
+  "setMinerBondParams((uint64,uint64,uint64,uint32,uint32))"
+ ],
+ "0x57e4c2c1": [
+  "minerBondParams()"
+ ],
+ "0xc17a8722": [
+  "quoteMinerBond(uint256)"
+ ],
+ "0x692030d4": [
+  "minerBond(uint256)"
+ ],
+ "0x19746904": [
+  "releasedMinerBond(address)"
+ ],
+ "0xad6ac905": [
+  "withdrawMinerBond()"
+ ],
+ "0x67ec03c1": [
+  "updateMinerFor(address,uint256,string,bytes32,address,uint256,string[],uint256,uint256,bytes)"
+ ],
+ "0x5143be6f": [
+  "setRegistrationApprover(address)"
+ ],
+ "0xcf8aa942": [
+  "registrationApprover()"
+ ],
+ "0x02edd494": [
+  "importMiners((uint256,address,string,bytes32,address,uint256,string[])[])"
+ ],
+ "0xb03d67fe": [
+  "closeMigration()"
+ ],
+ "0x98c8bece": [
+  "migrationOpen()"
+ ],
+ "0x18a93d60": [
+  "minerBondOf(address)"
+ ],
+ "0x2bab1540": [
+  "getPrefixes()"
+ ],
+ "0xe19d19a3": [
+  "prefixKind(string)"
+ ],
+ "0x0de394cc": [
+  "intentKind(string)"
+ ],
+ "0xe0f4467e": [
+  "addPrefix(string,uint8)"
+ ],
+ "0x483c47ae": [
+  "addPrefixes(string[],uint8[])"
+ ],
+ "0xa2c9f196": [
+  "removePrefix(string)"
+ ],
+ "0xe11c55de": [
+  "setIntentKinds(string[],uint8[])"
+ ],
+ "0x1f52fe06": null,
+ "0xc4feb8ed": null,
+ "0x59134d1c": null,
+ "0xa3e38e8f": null,
+ "0x9115c7e5": null,
+ "0x29555fe4": null,
+ "0x9d87a613": null,
+ "0xaeff2f60": null,
+ "0xc79e81d0": null,
+ "0x80ec4369": null,
+ "0xe7010c72": [
+  "ENTITY_MINER()"
+ ],
+ "0x99ffcd51": null,
+ "0x0d850c39": null,
+ "0xc4736c63": null,
+ "0xaf608515": null,
+ "0x5b6ba22e": null,
+ "0x698e1908": null,
+ "0x1df32f49": null,
+ "0x2fc71e1d": null,
+ "0xe4b4f996": null,
+ "0xc6be672f": null,
+ "0xcb7814b7": null,
+ "0x3b44051c": null,
+ "0xf688bcfb": [
+  "depositUSDC(uint256)"
+ ],
+ "0x68ce4e62": [
+  "depositUSDCFor(address,uint256)"
+ ],
+ "0x745400c9": [
+  "requestWithdraw(uint256)"
+ ],
+ "0x84b76824": [
+  "cancelWithdraw()"
+ ],
+ "0x6c438297": null,
+ "0xf3f44d54": null,
+ "0x451cadef": null,
+ "0x70ad3d72": null,
+ "0x0f5a9d01": [
+  "setUSDCToken(address)"
+ ],
+ "0x23f9ded5": null,
+ "0x71f99353": null,
+ "0x0964c95b": [
+  "pendingWithdrawal(address)"
+ ],
+ "0x059fc354": [
+  "withdrawalStatus(address)"
+ ],
+ "0x3db7343b": null,
+ "0xf385deea": null,
+ "0xc0d81a8e": null,
+ "0xb80d445f": null,
+ "0x63035a27": null,
+ "0x5ff4983b": null,
+ "0xbdf405f6": null,
+ "0xfb9f6115": null,
+ "0xf56b042e": null,
+ "0x65a183b5": null,
+ "0xb3896013": null,
+ "0x0ba8aee9": null,
+ "0x999b8074": null,
+ "0x3bf7fcc4": [
+  "epochSettled(uint256)"
+ ],
+ "0xb9cfe3b1": [
+  "epochMerkleRoot(uint256)"
+ ],
+ "0xf1eca1e3": [
+  "epochTotalUSDC(uint256)"
+ ],
+ "0x309a0339": null,
+ "0x5001daaa": null,
+ "0xa79049d5": null,
+ "0x7f9c7c25": [
+  "setSettlementOracle(address)"
+ ],
+ "0x26e18e59": [
+  "settlementOracle()"
+ ],
+ "0x3ab05926": null,
+ "0xe7e2d10f": [
+  "nextEpochToSettle()"
+ ],
+ "0xf4e3c041": null,
+ "0x6c4f6ba9": [
+  "latestBlockHash()"
+ ],
+ "0xf5ae2fa3": [
+  "stateSequence()"
+ ],
+ "0x16c38b3c": [
+  "setPaused(bool)"
+ ],
+ "0x5c975abb": [
+  "paused()"
+ ],
+ "0xf46b7d68": null,
+ "0x912d5d6f": null,
+ "0x62441bf6": [
+  "blacklistWallet(address)"
+ ],
+ "0xfe575a87": [
+  "isBlacklisted(address)"
+ ],
+ "0x5b34bc41": [
+  "unblacklistWallet(address)"
+ ],
+ "0xa609cb4a": [
+  "receiveProtocolFee(uint256,uint256)"
+ ],
+ "0xf0f44260": [
+  "setTreasury(address)"
+ ],
+ "0x3b19e84a": [
+  "getTreasury()"
+ ],
+ "0xb2118a8d": [
+  "rescueERC20(address,address,uint256)"
+ ],
+ "0xa82cec77": [
+  "rescuableBalance(address)"
+ ],
+ "0xe63ea408": [
+  "emergencyWithdraw(address,address,uint256)"
+ ],
+ "0x9b788504": [
+  "emergencyWithdrawNative(address,uint256)"
+ ],
+ "0x4a7d0369": [
+  "claimProtocolFees()"
+ ],
+ "0x552e6f76": [
+  "protocolFeesOwed()"
+ ],
+ "0x3451c923": [
+  "obligations(address)"
+ ],
+ "0xfce99037": [
+  "createJob(bytes32,(address[],uint256[],string[],bool[]),address)"
+ ],
+ "0x1dffa3dc": [
+  "cancelJob(uint256)"
+ ],
+ "0x07098705": null,
+ "0x8f41f30e": [
+  "setJobBasePrice(uint256)"
+ ],
+ "0xbf22c457": [
+  "getJob(uint256)"
+ ],
+ "0xa44eafe1": [
+  "getJobOutput(uint256)"
+ ],
+ "0xa52ea199": [
+  "jobsByAgent(address)"
+ ],
+ "0x4c5d8a0f": [
+  "jobCount()"
+ ],
+ "0xd971c5d4": [
+  "getJobBasePrice()"
+ ],
+ "0x1dfed9d1": null,
+ "0x55f1bbf9": [
+  "MSA__ZeroAddress()"
+ ],
+ "0xd53f5858": null,
+ "0x43b2a808": null,
+ "0x53c641f2": null,
+ "0x2c060ba7": null,
+ "0x67847648": null,
+ "0x45956219": null,
+ "0xf7ae92b7": null,
+ "0x85da717b": null,
+ "0x105362d9": null,
+ "0xacce1265": [
+  "gasReserveBalance(address)"
+ ],
+ "0x80546b6a": [
+  "fundGasSubsidyPool()"
+ ],
+ "0xa52f886f": [
+  "gasSubsidyPoolBalance()"
+ ],
+ "0x2cc019fa": [
+  "reimburseFromSubsidy(address,uint256)"
+ ],
+ "0xc02e4216": null,
+ "0xc786b980": null,
+ "0x0a284ad0": [
+  "setGasRefundOverhead(uint256)"
+ ],
+ "0xbd05a6b1": [
+  "gasRefundOverhead()"
+ ],
+ "0x55db75a0": null,
+ "0x32819a45": null,
+ "0x9de70258": [
+  "getActiveValidators()"
+ ],
+ "0x40550a1c": [
+  "isActiveValidator(address)"
+ ],
+ "0x2f54205e": [
+  "pubkeyOf(address)"
+ ],
+ "0xcfc4af55": [
+  "tau()"
+ ],
+ "0xbcca340c": null,
+ "0xfd6aad25": [
+  "indexOf(address)"
+ ],
+ "0xee1a60fd": null,
+ "0x39761b8d": [
+  "initiateUnbond()"
+ ],
+ "0xfe40c4bf": [
+  "cancelUnbond()"
+ ],
+ "0x3ccfd60b": [
+  "withdraw()",
+  "XD060DE5A(uint256,address)"
+ ],
+ "0x441048bc": [
+  "pendingUnbond(address)"
+ ],
+ "0x50974e31": [
+  "validatorSetId()"
+ ],
+ "0x37234c25": null,
+ "0xf3e560b5": null,
+ "0x5cf12d3d": null,
+ "0xd21afcc0": [
+  "proposeManager(address)"
+ ],
+ "0x3ebcbf2b": [
+  "acceptManager(address)"
+ ],
+ "0xec920618": null,
+ "0x98250fc9": null,
+ "0x43533356": null,
+ "0x1538faf2": [
+  "validatorMinStake()"
+ ],
+ "0x5709bf84": null,
+ "0x0ee46334": null,
+ "0x02301bdf": null,
+ "0x19d520a0": null,
+ "0x59bcef1e": null,
+ "0x23ab949e": null,
+ "0x85e976d8": [
+  "withdrawProposal(string)"
+ ],
+ "0x5bdf3c4c": null,
+ "0x57ab896f": null,
+ "0x52786128": null,
+ "0x894d69c7": null,
+ "0xac026e1e": null,
+ "0x7a14ea50": null,
+ "0xd1e931ae": null,
+ "0xf6dbabdd": null,
+ "0x6348f310": null,
+ "0x62463266": null,
+ "0x76a6c6fa": null,
+ "0x7a9b6c66": null,
+ "0x33d4170c": null,
+ "0x62e6c81d": null,
+ "0xdab4fe89": null,
+ "0x5fd408c4": null,
+ "0x93b5ef50": null,
+ "0x8f3d7052": null,
+ "0xab285d6d": null,
+ "0xc04333b5": null,
+ "0xdc1bd63b": null,
+ "0x7f197519": [
+  "periodCount()"
+ ],
+ "0xfc207c8f": [
+  "periodAt(uint256)"
+ ],
+ "0x3ef62adc": null,
+ "0xe2a6bf77": null,
+ "0xff5f463b": null,
+ "0x8719a327": null,
+ "0x7f297df3": null,
+ "0x9193e2a4": null,
+ "0x923843ec": null,
+ "0x27eb5e2b": null,
+ "0xf48cfce3": null,
+ "0x2046d0ec": null,
+ "0xe59ddc38": null,
+ "0x9c0359ce": [
+  "setDemandTiers(uint256[4],uint256[4])"
+ ],
+ "0x43496516": [
+  "getDemandMultiplier(uint256)"
+ ],
+ "0x71c60372": [
+  "getSignalPrice(uint256,uint256)"
+ ],
+ "0xb5b92275": [
+  "getDemandTiers()"
+ ],
+ "0x7d164b78": [
+  "setIntentVolumes(bytes32[],uint256[])"
+ ],
+ "0xac798b6b": [
+  "getIntentVolume(bytes32)"
+ ],
+ "0x1477603e": [
+  "setVolumeOracle(address)"
+ ],
+ "0x694d3740": [
+  "volumeOracle()"
+ ],
+ "0xc070a214": null,
+ "0x50e0c52e": null,
+ "0xed9596e9": null,
+ "0xc0239dc6": null,
+ "0x4b7242c7": null,
+ "0x39d1882d": null,
+ "0x4fbc9f2c": null
+}

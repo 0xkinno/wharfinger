@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-25T06:16:28.369Z",
+ "probeAddr": "0x0000000000000000000000000000000000000001",
+ "usdcToken": "0xcc194e1a843B658526D0D5C431f670028582Ae17",
+ "jobBasePrice": "1000000",
+ "ledgerAccount": [
+  "0",
+  "0",
+  "0",
+  "0"
+ ],
+ "chargeLimitOf": "1000000000",
+ "activeLedgerRoot": {
+  "error": "ContractFunctionExecutionError: Number \"18490726462831712144882586829970792997614949502167295586052413833164494467599n\" is not in safe integer range (-9007199254740991 to 9007199254740991)"
+ },
+ "minerBondParams": [
+  "1000000",
+  "100000",
+  "70000",
+  "9",
+  "172800"
+ ],
+ "entityBonds": [
+  "100000",
+  "1000000",
+  "100000",
+  "1000000"
+ ],
+ "paused": false,
+ "nextEpochToSettle": "53",
+ "withdrawalStatus": [
+  "0",
+  "0",
+  0
+ ],
+ "usdcDecimals": 6,
+ "usdcSymbol": "USDC",
+ "usdcTotalSupply": "1010000000001018826541322",
+ "usdcCodeLen": 8422
+}

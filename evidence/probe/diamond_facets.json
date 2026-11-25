@@ -1,0 +1,373 @@
+{
+ "rpc": "https://ethereum-sepolia-rpc.publicnode.com",
+ "diamond": "0x72a70e949362670Bf8bceAd24eFC5b8f950aa08b",
+ "at": "2026-11-25T06:15:31.393Z",
+ "blockNumber": "12207737",
+ "code": 576,
+ "facets": [
+  {
+   "facet": "0xB64eFFa3084df186367a1f92E300Dbf65e1d5b7F",
+   "selectors": [
+    "0x7a0ed627",
+    "0xadfca15e",
+    "0x52ef6b2c",
+    "0xcdffacc6"
+   ]
+  },
+  {
+   "facet": "0xeB00697b48D939f1b43F3027aee9347cBDA5B089",
+   "selectors": [
+    "0x791723c0",
+    "0x8da5cb5b",
+    "0xe30c3978",
+    "0xf2fde38b",
+    "0x79ba5097",
+    "0x1d5ec885",
+    "0xab29d3fd",
+    "0xd097cee2",
+    "0xe7a764ef",
+    "0x4f781c59",
+    "0x1f931c1c",
+    "0x8297ea37",
+    "0x43b93c21",
+    "0x93aab9d5"
+   ]
+  },
+  {
+   "facet": "0xe7A12980DC6f13D42C7B53914A86Dbb7d81aa875",
+   "selectors": [
+    "0xb7fc2361",
+    "0x9d3b8517",
+    "0x09aa3388",
+    "0x02f9dced",
+    "0x27548c8c",
+    "0xeb36b275",
+    "0xffb1372e",
+    "0xf3143102",
+    "0xbc9c5c99",
+    "0x20457b6f",
+    "0xa1d4dae5",
+    "0x1d2067ae"
+   ]
+  },
+  {
+   "facet": "0x1801D887785Fac6790bC7d6d4D941A70278924a1",
+   "selectors": [
+    "0x4f65dd82",
+    "0x0b219c4d",
+    "0xec43ba6f",
+    "0x026cd651",
+    "0x36a09096",
+    "0xd5f50582",
+    "0xdb5c448e",
+    "0x9a8a0592",
+    "0x736c0d5b",
+    "0xdc5fbe14",
+    "0xd50a1857",
+    "0x488ec3e8",
+    "0x80aafedd",
+    "0x5a4528c2",
+    "0x2616dec5",
+    "0x0c77ad32",
+    "0x11eac855",
+    "0x52255959",
+    "0xc31c9c07",
+    "0x1eab62a9",
+    "0x01ffc9a7",
+    "0xd2bb5722"
+   ]
+  },
+  {
+   "facet": "0xbbc37Acef939Ca406ee76562184D8f29f66f5183",
+   "selectors": [
+    "0x876b2422",
+    "0x382b131c",
+    "0x3cc8f306",
+    "0x6d1da431",
+    "0xb86424b7",
+    "0xd5fc2584",
+    "0xbf643e59",
+    "0xeb807a07",
+    "0xe38cd8a0",
+    "0x014b833a",
+    "0xd3dd60b7",
+    "0xc3e35965",
+    "0x634a6bc1",
+    "0xe20cc8f6",
+    "0x72d9ab64",
+    "0x6f8ee6fd",
+    "0xf1abc9f2",
+    "0x57e4c2c1",
+    "0xc17a8722",
+    "0x692030d4",
+    "0x19746904",
+    "0xad6ac905",
+    "0x67ec03c1",
+    "0x5143be6f",
+    "0xcf8aa942",
+    "0x02edd494",
+    "0xb03d67fe",
+    "0x98c8bece",
+    "0x18a93d60",
+    "0x2bab1540",
+    "0xe19d19a3",
+    "0x0de394cc",
+    "0xe0f4467e",
+    "0x483c47ae",
+    "0xa2c9f196",
+    "0xe11c55de"
+   ]
+  },
+  {
+   "facet": "0x5d31E420DA5551F93BF4c16a6Da8E9cc895363c1",
+   "selectors": [
+    "0x1f52fe06",
+    "0xc4feb8ed",
+    "0x59134d1c",
+    "0xa3e38e8f",
+    "0x9115c7e5",
+    "0x29555fe4",
+    "0x9d87a613",
+    "0xaeff2f60",
+    "0xc79e81d0",
+    "0x80ec4369",
+    "0xe7010c72",
+    "0x99ffcd51",
+    "0x0d850c39",
+    "0xc4736c63",
+    "0xaf608515",
+    "0x5b6ba22e",
+    "0x698e1908",
+    "0x1df32f49",
+    "0x2fc71e1d",
+    "0xe4b4f996",
+    "0xc6be672f",
+    "0xcb7814b7",
+    "0x3b44051c"
+   ]
+  },
+  {
+   "facet": "0xF4A97a1BC6F213fa30a79E17eD5336A9762399a8",
+   "selectors": [
+    "0xf688bcfb",
+    "0x68ce4e62",
+    "0x745400c9",
+    "0x84b76824",
+    "0x6c438297",
+    "0xf3f44d54",
+    "0x451cadef",
+    "0x70ad3d72",
+    "0x0f5a9d01",
+    "0x23f9ded5",
+    "0x71f99353",
+    "0x0964c95b",
+    "0x059fc354",
+    "0x3db7343b",
+    "0xf385deea",
+    "0xc0d81a8e",
+    "0xb80d445f",
+    "0x63035a27",
+    "0x5ff4983b",
+    "0xbdf405f6",
+    "0xfb9f6115",
+    "0xf56b042e",
+    "0x65a183b5",
+    "0xb3896013",
+    "0x0ba8aee9"
+   ]
+  },
+  {
+   "facet": "0x5ddF88405A0E84C006f35Ad54E0F3FCD9a7E6501",
+   "selectors": [
+    "0x999b8074",
+    "0x3bf7fcc4",
+    "0xb9cfe3b1",
+    "0xf1eca1e3",
+    "0x309a0339",
+    "0x5001daaa",
+    "0xa79049d5",
+    "0x7f9c7c25",
+    "0x26e18e59",
+    "0x3ab05926",
+    "0xe7e2d10f",
+    "0xf4e3c041",
+    "0x6c4f6ba9",
+    "0xf5ae2fa3",
+    "0x16c38b3c",
+    "0x5c975abb",
+    "0xf46b7d68",
+    "0x912d5d6f"
+   ]
+  },
+  {
+   "facet": "0xf7eAab9A286aB9f993acF7b2a0c7617102F258A7",
+   "selectors": [
+    "0x62441bf6",
+    "0xfe575a87",
+    "0x5b34bc41"
+   ]
+  },
+  {
+   "facet": "0xf1B2A2dC4B5217Fc6D9019d7dC78BA54A4d74951",
+   "selectors": [
+    "0xa609cb4a",
+    "0xf0f44260",
+    "0x3b19e84a",
+    "0xb2118a8d",
+    "0xa82cec77",
+    "0xe63ea408",
+    "0x9b788504",
+    "0x4a7d0369",
+    "0x552e6f76",
+    "0x3451c923"
+   ]
+  },
+  {
+   "facet": "0x38E5e61aD9C85343F176e4e4BB47FfC511cEe791",
+   "selectors": [
+    "0xfce99037",
+    "0x1dffa3dc",
+    "0x07098705",
+    "0x8f41f30e",
+    "0xbf22c457",
+    "0xa44eafe1",
+    "0xa52ea199",
+    "0x4c5d8a0f",
+    "0xd971c5d4",
+    "0x1dfed9d1",
+    "0x55f1bbf9",
+    "0xd53f5858",
+    "0x43b2a808",
+    "0x53c641f2",
+    "0x2c060ba7",
+    "0x67847648",
+    "0x45956219",
+    "0xf7ae92b7",
+    "0x85da717b",
+    "0x105362d9"
+   ]
+  },
+  {
+   "facet": "0x1819356dda5aBE81a0F1FfF1E76c02D2EF508145",
+   "selectors": [
+    "0xacce1265",
+    "0x80546b6a",
+    "0xa52f886f",
+    "0x2cc019fa",
+    "0xc02e4216",
+    "0xc786b980",
+    "0x0a284ad0",
+    "0xbd05a6b1"
+   ]
+  },
+  {
+   "facet": "0x7810f0080943Eeee45336dcA78b26B4baF24fC6c",
+   "selectors": [
+    "0x55db75a0",
+    "0x32819a45",
+    "0x9de70258",
+    "0x40550a1c",
+    "0x2f54205e",
+    "0xcfc4af55",
+    "0xbcca340c",
+    "0xfd6aad25",
+    "0xee1a60fd",
+    "0x39761b8d",
+    "0xfe40c4bf",
+    "0x3ccfd60b",
+    "0x441048bc",
+    "0x50974e31",
+    "0x37234c25",
+    "0xf3e560b5",
+    "0x5cf12d3d",
+    "0xd21afcc0",
+    "0x3ebcbf2b",
+    "0xec920618",
+    "0x98250fc9",
+    "0x43533356",
+    "0x1538faf2"
+   ]
+  },
+  {
+   "facet": "0x52AE4fA0d6d1ba99443B606522627B8704D4b622",
+   "selectors": [
+    "0x5709bf84",
+    "0x0ee46334",
+    "0x02301bdf",
+    "0x19d520a0",
+    "0x59bcef1e",
+    "0x23ab949e",
+    "0x85e976d8",
+    "0x5bdf3c4c",
+    "0x57ab896f",
+    "0x52786128",
+    "0x894d69c7",
+    "0xac026e1e",
+    "0x7a14ea50",
+    "0xd1e931ae",
+    "0xf6dbabdd",
+    "0x6348f310",
+    "0x62463266",
+    "0x76a6c6fa",
+    "0x7a9b6c66",
+    "0x33d4170c",
+    "0x62e6c81d",
+    "0xdab4fe89",
+    "0x5fd408c4",
+    "0x93b5ef50",
+    "0x8f3d7052",
+    "0xab285d6d",
+    "0xc04333b5"
+   ]
+  },
+  {
+   "facet": "0xB7d77B4a2d61B9d07850efb4971B6bD17e7904DF",
+   "selectors": [
+    "0xdc1bd63b",
+    "0x7f197519",
+    "0xfc207c8f",
+    "0x3ef62adc",
+    "0xe2a6bf77",
+    "0xff5f463b",
+    "0x8719a327",
+    "0x7f297df3"
+   ]
+  },
+  {
+   "facet": "0xcdDB2CF17C7E704D3D869E59B2dE0493599da814",
+   "selectors": [
+    "0x9193e2a4",
+    "0x923843ec",
+    "0x27eb5e2b",
+    "0xf48cfce3",
+    "0x2046d0ec",
+    "0xe59ddc38"
+   ]
+  },
+  {
+   "facet": "0x8E02e0554FF9623FeA12C8C4734e078488F01a99",
+   "selectors": [
+    "0x9c0359ce",
+    "0x43496516",
+    "0x71c60372",
+    "0xb5b92275",
+    "0x7d164b78",
+    "0xac798b6b",
+    "0x1477603e",
+    "0x694d3740",
+    "0xc070a214",
+    "0x50e0c52e"
+   ]
+  },
+  {
+   "facet": "0x8461c5BE186BBa6b261145813d5DDBE9C64816be",
+   "selectors": [
+    "0xed9596e9",
+    "0xc0239dc6",
+    "0x4b7242c7",
+    "0x39d1882d",
+    "0x4fbc9f2c"
+   ]
+  }
+ ]
+}
