@@ -15,6 +15,7 @@
     "probe:auth": "NODE_USE_ENV_PROXY=1 tsx scripts/probe-auth.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "verify": "tsx scripts/verify.ts",
     "probe:wallet": "tsx scripts/gen-probe-wallet.ts"
   },
   "dependencies": {
