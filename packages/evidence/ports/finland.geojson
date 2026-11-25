@@ -1,0 +1,151 @@
+{
+ "type": "FeatureCollection",
+ "wharfingerGeometryVersion": "0.1-draft-derived",
+ "note": "DRAFT. Boxes derived from observed AIS positions of vessels at berth, not from published port limits or nautical charts. Digitraffic publishes no port area polygons (geometry is null for every port area). There is no ANCHORAGE or port-limits polygon yet, so only BERTH can be classified; everything else is OUTSIDE or unknown. Replace with chart-derived limits before any statement relies on PORT_LIMITS.",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "port": "FIKTK",
+    "zone": "BERTH",
+    "name": "Mussalo (container and dry berths)",
+    "basis": "AIS positions of two moored vessels on 2026-11-25 (Digitraffic), padded"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       26.885,
+       60.412
+      ],
+      [
+       26.925,
+       60.412
+      ],
+      [
+       26.925,
+       60.432
+      ],
+      [
+       26.885,
+       60.432
+      ],
+      [
+       26.885,
+       60.412
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "port": "FIKTK",
+    "zone": "BERTH",
+    "name": "Lakulahti and Palokangas",
+    "basis": "AIS positions of two moored vessels on 2026-11-25 (Digitraffic), padded"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       27.16,
+       60.527
+      ],
+      [
+       27.182,
+       60.527
+      ],
+      [
+       27.182,
+       60.541
+      ],
+      [
+       27.16,
+       60.541
+      ],
+      [
+       27.16,
+       60.527
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "port": "FIHEL",
+    "zone": "BERTH",
+    "name": "Vuosaari harbour",
+    "basis": "AIS position of one moored vessel on 2026-11-25 (Digitraffic), padded"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       25.17,
+       60.205
+      ],
+      [
+       25.21,
+       60.205
+      ],
+      [
+       25.21,
+       60.225
+      ],
+      [
+       25.17,
+       60.225
+      ],
+      [
+       25.17,
+       60.205
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "port": "FITKU",
+    "zone": "BERTH",
+    "name": "Turku passenger harbour",
+    "basis": "AIS position of one moored vessel on 2026-11-25 (Digitraffic), padded"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       22.205,
+       60.425
+      ],
+      [
+       22.235,
+       60.425
+      ],
+      [
+       22.235,
+       60.442
+      ],
+      [
+       22.205,
+       60.442
+      ],
+      [
+       22.205,
+       60.425
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
