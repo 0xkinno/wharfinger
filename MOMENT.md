@@ -52,10 +52,9 @@ exact quoted sentence, URL and retrieval date (2026-11-25).
 | In non-containerised shipping 99% of SoFs are created with clipboard, pen and paper; an estimated 120 million events are logged by hand each year | Hellenic Shipping News, "Manually Processing Demurrage Is Costing Charterers Millions" |
 | English Commercial Court case with laytime "48hrs shinc ttl" and a demurrage claim | Amalie Essberger v Marubeni, [2019] EWHC 3402 (Comm), caselaw.nationalarchives.gov.uk/ewhc/comm/2019/3402 |
 
-Not quoted, because the page could not be read in the build environment: Reed Smith, "Demurrage time bar: the importance
-of providing supporting documents" (a search excerpt says documents must reach the counterparty inside the 90 day bar
-or the claim can fail). BIMCO Laytime Definitions for Charter Parties 2013: the page is rendered in the browser and
-was not readable. Both are open items for Kinnoski; no figure or rule is claimed from them until read.
+A claim can be lost on documents as well as on hours: in the clause quoted by Reed Smith in its note on that case, a demurrage claim is waived unless received "within 90 days after completion of discharge of the last parcel of Charterer's cargo(es)" with all supporting calculations and documents, and the firm's advice is to attach all required documents regardless of whether the charterers already hold them (Reed Smith note on Amalie Essberger, read through its Mondaq copy). The firm's own blog page could not be fetched; the Mondaq copy was.
+
+Not quoted, because the page could not be read in the build environment: BIMCO Laytime Definitions for Charter Parties 2013 (the page is rendered in the browser and no PDF mirror was reachable). No rule is claimed from it, and `packages/laytime` states its rules in plain words as rules of the engine, not as BIMCO quotations.
 
 Vendor sources (Marcura, Voyager) sell demurrage software, so their figures are an interested party's estimates.
 

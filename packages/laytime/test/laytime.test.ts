@@ -41,7 +41,7 @@ describe("laytime rules", () => {
     expect(r.nor.valid).toBeNull();
   });
   const stopSof = (a: number, b: number, remark = "loading stopped, snow"): SofEvent[] => [{ kind: "NOR_TENDERED", at: T0, line: 1 }, { kind: "LOADING_STOP", at: a, line: 2, remark }, { kind: "LOADING_RESUME", at: b, line: 3 }, { kind: "COMPLETED", at: T0 + 3000, line: 4 }];
-  const rain = (at: number, mm = 0.1): Fact => ({ kind: "PRECIP", at, value: mm, receipts: ["rcpt-rain"], status: "CORROBORATED" });
+  const rain = (at: number, mm = 2): Fact => ({ kind: "PRECIP", at, value: mm, receipts: ["rcpt-rain"], status: "CORROBORATED" });
   it("weather exception needs the SOF stop line AND a corroborated precipitation fact; the receipt is attached", () => {
     const a = T0 + 900, b = T0 + 1080; // inside the same local day
     const r = computeLaytime({ ...base, turnTimeMinutes: 0 }, stopSof(a, b), [rain(a)]);
@@ -61,6 +61,13 @@ describe("laytime rules", () => {
     const rv = first.intervals.find((i) => i.cls === "REVIEW")!;
     const r = computeLaytime({ ...base, turnTimeMinutes: 0 }, stopSof(a, b), [], { [`${rv.from}-${rv.to}`]: "EXCEPTED" });
     expect(r.reviewMinutes).toBe(0); expect(r.intervals.find((i) => i.from === rv.from)!.reason).toBe("ANALYST_RESOLVED_EXCEPTED");
+  });
+  it("rain below the daily threshold does not except a weather stop; it goes to REVIEW with the receipt attached", () => {
+    const a = T0 + 900, b = T0 + 1080;
+    const r = computeLaytime({ ...base, turnTimeMinutes: 0 }, stopSof(a, b), [rain(a, 0.1)]);
+    expect(r.exceptedMinutes).toBe(0); expect(r.reviewMinutes).toBe(b - a);
+    expect(r.intervals.find((i) => i.cls === "REVIEW")!.reason).toBe("WEATHER_STOP_RAIN_BELOW_THRESHOLD");
+    expect(computeLaytime({ ...base, turnTimeMinutes: 0, weatherMinPrecipMm: 0.1 }, stopSof(a, b), [rain(a, 0.1)]).exceptedMinutes).toBe(b - a);
   });
   it("precipitation with no stop line does not except anything", () => {
     const r = computeLaytime({ ...base, turnTimeMinutes: 0 }, [{ kind: "NOR_TENDERED", at: T0, line: 1 }, { kind: "COMPLETED", at: T0 + 1000, line: 2 }], [rain(T0 + 10)]);

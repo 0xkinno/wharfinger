@@ -6,11 +6,15 @@
 // is stated in plain words and is a rule of THIS engine, not a quotation of BIMCO. Cite BIMCO per rule once read.
 import { sha256, toHex } from "viem";
 
-export const ENGINE_VERSION = "laytime-1.0.0";
+export const ENGINE_VERSION = "laytime-1.1.0";
+/** A weather stop is excepted only on a day with at least this much corroborated rain (mm). Decision record: THESIS.md. */
+export const DEFAULT_WEATHER_MIN_PRECIP_MM = 1;
+/** Engine versions a statement may have been signed with. 1.0.0 treated any rain above zero as enough; 1.1.0 uses the threshold. */
+export const SUPPORTED_ENGINE_VERSIONS = ["laytime-1.0.0", "laytime-1.1.0"] as const;
 export type NorRule = "PORT_LIMITS" | "BERTH" | "WIBON" | "WIPON";
 export type Terms = {
   laytimeMinutes: number; turnTimeMinutes: number; norRule: NorRule;
-  weatherWorkingDays: boolean; shex: boolean; holidays: string[]; // local dates YYYY-MM-DD
+  weatherWorkingDays: boolean; weatherMinPrecipMm?: number; shex: boolean; holidays: string[]; // local dates YYYY-MM-DD
   reversible: boolean; demurrageUusdcPerDay: bigint; despatchUusdcPerDay: bigint; onceOnDemurrage: boolean;
   tz: "Europe/Helsinki";
 };
@@ -56,7 +60,10 @@ const WEATHER = /snow|rain|sleet|drizzle|weather|hail|fog|storm/i;
 
 type Seg = { from: number; to: number; cls: Cls; reason: string; receipts: string[]; sofLine?: number };
 
-export function computeLaytime(terms: Terms, sofIn: SofEvent[], factsIn: Fact[], resolutions: Record<string, Resolution> = {}): Result {
+export function computeLaytime(termsIn: Terms, sofIn: SofEvent[], factsIn: Fact[], resolutions: Record<string, Resolution> = {}, opts: { engineVersion?: string } = {}): Result {
+  const engineVersion = opts.engineVersion ?? ENGINE_VERSION;
+  // a statement signed under 1.0.0 is recomputed under 1.0.0 rules: any rain above zero counted
+  const terms: Terms = engineVersion === "laytime-1.0.0" ? { ...termsIn, weatherMinPrecipMm: termsIn.weatherMinPrecipMm ?? 0 } : termsIn;
   const sof = [...sofIn].sort((a, b) => a.at - b.at || a.line - b.line);
   const facts = factsIn.filter((f) => f.status === "CORROBORATED").sort((a, b) => a.at - b.at);
   const flags: string[] = [];
@@ -112,7 +119,8 @@ export function computeLaytime(terms: Terms, sofIn: SofEvent[], factsIn: Fact[],
       else if ((e.kind === "LOADING_RESUME" || e.kind === "COMPLETED") && open) { stops.push({ from: open.at, to: e.at, weather: WEATHER.test(open.remark ?? ""), line: open.line }); open = null; }
     }
     if (open) stops.push({ from: open.at, to: spanEnd, weather: WEATHER.test(open.remark ?? ""), line: open.line });
-    const precip = (date: string) => facts.filter((f): f is Extract<Fact, { kind: "PRECIP" }> => f.kind === "PRECIP" && localParts(f.at).date === date && f.value > 0);
+    const minMm = terms.weatherMinPrecipMm ?? DEFAULT_WEATHER_MIN_PRECIP_MM;
+    const rainOn = (date: string) => facts.filter((f): f is Extract<Fact, { kind: "PRECIP" }> => f.kind === "PRECIP" && localParts(f.at).date === date && f.value > 0);
 
     for (let i = 0; i + 1 < pts.length; i++) {
       const from = pts[i], to = pts[i + 1];
@@ -128,8 +136,9 @@ export function computeLaytime(terms: Terms, sofIn: SofEvent[], factsIn: Fact[],
       else if (stop) {
         sofLine = stop.line;
         if (stop.weather && terms.weatherWorkingDays) {
-          const p = precip(lp.date);
-          if (p.length > 0) { cls = "EXCEPTED"; reason = "WEATHER_STOP_SOF_AND_RECEIPT"; receipts = p.flatMap((f) => f.receipts); }
+          const rain = rainOn(lp.date); const enough = rain.filter((f) => f.value >= minMm);
+          if (enough.length > 0) { cls = "EXCEPTED"; reason = "WEATHER_STOP_SOF_AND_RECEIPT"; receipts = enough.flatMap((f) => f.receipts); }
+          else if (rain.length > 0) { cls = "REVIEW"; reason = "WEATHER_STOP_RAIN_BELOW_THRESHOLD"; receipts = rain.flatMap((f) => f.receipts); }
           else { cls = "REVIEW"; reason = "WEATHER_STOP_SOF_NO_RECEIPT"; }
         } else { reason = stop.weather ? "WEATHER_STOP_NOT_EXCEPTED_BY_TERMS" : "STOP_NOT_AN_EXCEPTION"; }
       }
@@ -177,7 +186,7 @@ export function computeLaytime(terms: Terms, sofIn: SofEvent[], factsIn: Fact[],
     laytimeStart, end, allowedMinutes: allowed, usedMinutes: base.used, exceptedMinutes: base.excepted, reviewMinutes: base.review, notYetMinutes: base.notYet,
     demurrageMinutes: base.dem, despatchMinutes: despatchMin,
     amountUusdc: base.review > 0 ? amt(base) : amt(base), amountIfReviewCounts: amt(hi), amountIfReviewExcepted: amt(lo),
-    reviewFlags: flags, engineVersion: ENGINE_VERSION,
+    reviewFlags: flags, engineVersion,
   };
   const resultHash = sha256(toHex(new TextEncoder().encode(canonical(body)))).slice(2);
   return { ...body, resultHash };

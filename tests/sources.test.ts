@@ -21,7 +21,7 @@ describe("sourced pain table", () => {
     for (const q of quotes) { expect(q.url).toMatch(/^https:\/\//); expect(q.retrieved).toBe("2026-11-25"); if (!q.verbatim_checked) expect(q.quote).toBeNull(); }
   });
   it("the unverified source is named as unverified in MOMENT.md, never quoted", () => {
-    expect(moment).toContain("Not quoted, because the page could not be read"); expect(table).not.toMatch(/Reed Smith.*\$/);
+    expect(moment).toContain("Not quoted, because the page could not be read"); expect(moment).toContain("BIMCO"); expect(table).not.toMatch(/BIMCO.*\$/);
   });
   it("the persona example is arithmetic: $18,000 a day is $750 an hour, 41 hours is $30,750", () => {
     expect(18000 / 24).toBe(750); expect(41 * 750).toBe(30750);

@@ -2,7 +2,7 @@
 // Verification re-runs the laytime engine from the embedded inputs and re-derives every embedded signal hash, so it
 // needs no keys, no network and no trust in Wharfinger.
 import { keccak256, toHex, recoverTypedDataAddress, type Hex, type LocalAccount } from "viem";
-import { computeLaytime, canonical, ENGINE_VERSION, type Terms, type SofEvent, type Fact, type Resolution, type Result } from "../../laytime/src/index.ts";
+import { computeLaytime, canonical, ENGINE_VERSION, SUPPORTED_ENGINE_VERSIONS, type Terms, type SofEvent, type Fact, type Resolution, type Result } from "../../laytime/src/index.ts";
 import { recomputeSignalHash } from "../../telegraph/src/index.ts";
 
 export const DIAMOND = "0x72a70e949362670Bf8bceAd24eFC5b8f950aa08b" as const;
@@ -60,8 +60,9 @@ export async function verifyStatement(s: SignedStatement): Promise<{ pass: boole
   const b = s.body;
   // JSON carries bigint money as strings; revive before recomputing. The canonical form is identical either way.
   const terms: Terms = { ...b.terms, demurrageUusdcPerDay: BigInt(b.terms.demurrageUusdcPerDay as unknown as string), despatchUusdcPerDay: BigInt(b.terms.despatchUusdcPerDay as unknown as string) };
-  const r = computeLaytime(terms, b.sof, b.facts, b.resolutions);
-  add("engine version", b.engineVersion === ENGINE_VERSION, `statement ${b.engineVersion}, verifier ${ENGINE_VERSION}`);
+  const supported = (SUPPORTED_ENGINE_VERSIONS as readonly string[]).includes(b.engineVersion);
+  add("engine version", supported, supported ? `statement ${b.engineVersion}, verifier ${ENGINE_VERSION}` : `statement ${b.engineVersion} is not a version this verifier can run`);
+  const r = computeLaytime(terms, b.sof, b.facts, b.resolutions, { engineVersion: b.engineVersion });
   const claimed = b.result.intervals; let bad = -1;
   for (let i = 0; i < Math.max(claimed.length, r.intervals.length); i++) if (canonical(claimed[i]) !== canonical(r.intervals[i])) { bad = i; break; }
   add("every interval recomputes", bad < 0, bad < 0 ? `${claimed.length} intervals` : `first mismatch at interval ${bad}${claimed[bad] ? ` (${lineId(claimed[bad])})` : ""}`);

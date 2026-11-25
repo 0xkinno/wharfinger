@@ -28,16 +28,42 @@ happening, says so; and the counterparty can recompute every line without trusti
 5. **A model never sets a number.** Money and minutes come from the engine only.
 6. **Integers only.** Minutes and uUSDC; no floats in a statement.
 
-## Weather decision (resolves finding F6)
+## Weather decision (resolves finding F6). Kinnoski approved.
 
-The network sells daily observed precipitation and an hourly forecast probability, not hourly observations. Decision
-taken by the build agent; Kinnoski may change it before Phase 6:
+**The problem in plain words.** A ship loading grain stops when it rains or snows. Under a weather working day clause those
+stopped hours are not counted against the charterer. The charterer's analyst has to prove the stop was weather. Telegraph cannot
+sell "it rained between 14:00 and 18:00": the weather intents sell a daily observation (millimetres for a calendar date) and an
+hourly forecast probability. So the system must decide what is enough proof, given what can actually be bought.
 
-- An interval is EXCEPTED for weather only when (a) two operators from different registrants report precipitation above
-  zero for that local date, and (b) the SOF has a "loading stopped" line covering the interval. The statement labels the
-  weather fact "daily".
-- With the SOF line but no (a), the interval is REVIEW. With (a) but no SOF line nothing stopped, so the interval counts.
-- `WEATHER_FORECAST_GENERAL` is bought as a "conditions read" and shown, but never moves an hour.
+**Decision.** An interval is EXCEPTED for weather only when all three hold:
+
+1. The Statement of Facts has a loading stop line whose remark names weather (snow, rain, sleet, fog and so on) and the
+   interval lies inside that stop. The line is the evidence that work stopped; Telegraph never sees the quay.
+2. Two operators from different registrant wallets report precipitation for that local date (a corroborated daily fact, labelled
+   "daily" on the statement and the receipt cards).
+3. The corroborated rainfall is at least **1.0 mm** for the day (`DEFAULT_WEATHER_MIN_PRECIP_MM`, overridable per charter with
+   `weatherMinPrecipMm`). A trace of 0.1 mm does not excuse eight hours of lost loading and an owner would reject it.
+
+Everything else is settled by one rule, "no receipt, no deduction":
+
+| SOF weather stop | Daily rain receipt | Result |
+|---|---|---|
+| yes | at least the threshold | EXCEPTED, receipt attached to the line |
+| yes | above zero but below the threshold | REVIEW (`WEATHER_STOP_RAIN_BELOW_THRESHOLD`), receipt attached |
+| yes | none | REVIEW (`WEATHER_STOP_SOF_NO_RECEIPT`) |
+| no stop line | any | the hours count; nothing stopped |
+| stop for another reason (breakdown) | any | the hours count |
+
+REVIEW hours do not count and are not excepted until the analyst resolves them with a reason, which becomes a durable note and
+is listed on the statement. Once on demurrage, exceptions stop applying (once on demurrage, always on demurrage).
+
+**Why this and not the alternatives.** Rain-only (no SOF line) would deduct hours nobody says were lost and would invite the
+"obedient model" failure; an SOF line only (no receipt) is what the owner already rejects today. Requiring both, with a
+threshold, is the strongest rule that the data on sale can support, and it is the one a counterparty can recompute.
+`WEATHER_FORECAST_GENERAL` is bought as a conditions read and shown, but never moves an hour.
+
+**Versioning.** Engine `laytime-1.1.0` introduced the threshold. A statement signed under `laytime-1.0.0` (any rain above zero)
+is recomputed under the 1.0.0 rule by the verifier, so earlier signatures stay valid. Tests: `packages/laytime/test`.
 
 ## What Wharfinger will not claim
 
