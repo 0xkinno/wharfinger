@@ -12,3 +12,4 @@ const ch: any = await (await fetch(`${NODE}/engine/v1/ask`, { method: "POST", he
 const msg: string = ch.accepts.find((a: any) => a.scheme === "escrow").extra.message;
 console.log("\nEscrow authorization template (what a paid answer is bound to):\n" + msg);
 console.log("\nThe authorization window is at most 2 minutes and the nonce is single use, so a paid answer is bound to the minute it was bought.");
+export {};

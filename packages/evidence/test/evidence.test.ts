@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { checkVessel, checkPort, corroborateVessel, corroboratePort, parseObservedAt, classifyZone, nextRebuy, GEOMETRY_VERSION, type Answer } from "../src/index.ts";
 
 // Replay of the real answers bought on 2026-11-25 (evidence/probe/paid/asks_matrix.json).
-const rows: any[] = JSON.parse(readFileSync("evidence/probe/paid/asks_matrix.json", "utf8")).filter((r) => r.status === 200);
+const rows: any[] = JSON.parse(readFileSync("evidence/probe/paid/asks_matrix.json", "utf8")).filter((r: any) => r.status === 200);
 const toAnswer = (r: any): Answer => ({ minerId: String(r.miner_id), intent: r.intent, requested: String(r.params.vessel ?? r.params.port), result: r.result, resultShape: r.result_shape,
   signalCreatedAt: r.signal?.created_at ?? null, auth: r.auth, receiptHash: r.receipt?.receipt_hash ?? null, epochId: r.receipt?.epoch_id });
 const vessel = (slug: string) => { const r = rows.find((x) => x.label.startsWith(`pinned vessel ${slug}`)); return checkVessel(toAnswer(r)); };

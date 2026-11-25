@@ -119,7 +119,7 @@ const arb = fc.record({
     fc.record({ k: fc.constant("ZONE" as const), at: fc.integer({ min: -100, max: 5000 }), z: zone, st: fc.constantFrom("CORROBORATED", "REVIEW" as const) }),
     fc.record({ k: fc.constant("PRECIP" as const), at: fc.integer({ min: 0, max: 5000 }), mm: fc.double({ min: 0, max: 20, noNaN: true }), st: fc.constantFrom("CORROBORATED", "STALE" as const) })), { maxLength: 8 }),
 });
-function build(x: fc.GetArbitrary<typeof arb> extends never ? never : any) {
+function build(x: any) {
   const terms: Terms = { ...base, laytimeMinutes: x.laytime, turnTimeMinutes: x.turn, shex: x.shex, onceOnDemurrage: x.once, weatherWorkingDays: x.ww, norRule: x.rule };
   const sof: SofEvent[] = [{ kind: "NOR_TENDERED", at: T0, line: 1 }];
   let line = 2, last = T0;
