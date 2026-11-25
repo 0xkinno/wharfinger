@@ -17,7 +17,7 @@ export function dueKinds(v: VoyageState, nowMin: number): Kind[] {
 }
 export const slotOf = (nowMs: number) => Math.floor(nowMs / 60000 / SLOT_MIN);
 
-export type PurchaseRow = { voyageId: string; slot: number; kind: Kind; attempt: number; pinned: boolean; minerId: string | null; status: number; refusal: string | null; receiptHash: string | null; epochId: number | null; signalHash: string | null; costUusdc: string; ms: number; askedAt: string; verdictOk: boolean | null; refusals: string[]; result: unknown };
+export type PurchaseRow = { voyageId: string; slot: number; kind: Kind; attempt: number; pinned: boolean; minerId: string | null; status: number; refusal: string | null; receiptHash: string | null; epochId: number | null; signalHash: string | null; costUusdc: string; ms: number; askedAt: string; verdictOk: boolean | null; refusals: string[]; result: unknown; requested?: string; signalCreatedAt?: string | null; authValidAfter?: number | null; authValidBefore?: number | null };
 export interface Store {
   tryLease(voyageId: string, slot: number): Promise<boolean>;
   append(row: PurchaseRow): Promise<void>;
@@ -36,7 +36,8 @@ async function buyChecked(deps: Deps, v: VoyageState, slot: number, kind: Kind, 
   const answer: Answer = { minerId: String(p.body?.miner_id ?? minerId ?? ""), intent: body.intent, requested, result: p.body?.result, resultShape: p.body?.result_shape, signalCreatedAt: created, auth: p.auth, receiptHash: p.receipt?.receipt_hash ?? null, epochId: p.receipt?.epoch_id ?? null };
   const verdict = p.ok ? check(answer) : null;
   await deps.store.append({ voyageId: v.id, slot, kind, attempt, pinned: !!minerId, minerId: answer.minerId || null, status: p.status, refusal: p.refusal, receiptHash: answer.receiptHash, epochId: answer.epochId ?? null, signalHash: hash,
-    costUusdc: p.receipt?.amount_uusdc ?? "0", ms: p.ms, askedAt: p.askedAt, verdictOk: verdict ? verdict.ok : null, refusals: verdict ? verdict.refusals : [], result: p.body?.result ?? null });
+    costUusdc: p.receipt?.amount_uusdc ?? "0", ms: p.ms, askedAt: p.askedAt, verdictOk: verdict ? verdict.ok : null, refusals: verdict ? verdict.refusals : [], result: p.body?.result ?? null,
+    requested, signalCreatedAt: created, authValidAfter: p.auth?.validAfter ?? null, authValidBefore: p.auth?.validBefore ?? null });
   return { p, verdict };
 }
 const isEscrowRefusal = (r: string | null) => !!r && /insufficient escrow|charge limit reached/i.test(r);

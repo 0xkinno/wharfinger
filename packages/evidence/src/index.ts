@@ -1,8 +1,8 @@
 // Evidence rules: may a bought answer move an hour? Pure functions, no network.
 // Every refusal is kept with a code. Built from the failures seen in the Phase 1 probe (PLATFORM_PROBE.md F15 to F19).
-import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
-import ops from "./operators.json" with { type: "json" };
+import { sha256, toHex } from "viem";
+import ops from "./operators.ts";
+import { GEOMETRY_TEXT } from "./geometry.ts";
 
 export type Refusal = "STALE" | "WRONG_PLACE" | "WRONG_VESSEL" | "NO_READING" | "OUT_OF_RANGE" | "DISAGREE" | "NODE_REFUSED" | "BUDGET_SPENT" | "CLOCK_OUTSIDE_WINDOW" | "UNPARSEABLE_TIME";
 export const FRESHNESS_SEC = { vessel: 20 * 60, port: 2 * 3600, conditions: 90 * 60 } as const; // build instruction 6.2; tuned from probe: fresh answers were 86 to 161 s old
@@ -13,7 +13,7 @@ export const WAIT_TOL = { relative: 0.25, absoluteHours: 2 };
 export const REGION = { lat: [58.5, 61.5], lon: [19.0, 31.0] } as const;
 
 export type MinerInfo = { slug: string; operator: string; family: string; familyBasis: string; intents: string[] };
-export const MINERS = (ops as { miners: Record<string, MinerInfo> }).miners;
+export const MINERS = (ops as unknown as { miners: Record<string, MinerInfo> }).miners;
 export const minerInfo = (id: string): MinerInfo => MINERS[id] ?? { slug: `unlisted-${id}`, operator: `unknown-operator-${id}`, family: `unknown:${id}`, familyBasis: "not in the operator map", intents: [] };
 
 // ---- time ----
@@ -31,9 +31,9 @@ export function parseObservedAt(v: unknown): number | null {
 
 // ---- geometry ----
 type Feature = { properties: { port: string; zone: string; name: string; basis: string }; geometry: { coordinates: number[][][] } };
-const GEO = JSON.parse(readFileSync(new URL("../ports/finland.geojson", import.meta.url), "utf8")) as { wharfingerGeometryVersion: string; features: Feature[] };
+const GEO = JSON.parse(GEOMETRY_TEXT) as { wharfingerGeometryVersion: string; features: Feature[] };
 export const GEOMETRY_VERSION = GEO.wharfingerGeometryVersion;
-export const GEOMETRY_SHA256 = createHash("sha256").update(readFileSync(new URL("../ports/finland.geojson", import.meta.url))).digest("hex");
+export const GEOMETRY_SHA256 = sha256(toHex(new TextEncoder().encode(GEOMETRY_TEXT))).slice(2);
 function inPoly(lon: number, lat: number, ring: number[][]) {
   let inside = false;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {

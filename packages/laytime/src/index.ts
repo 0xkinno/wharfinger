@@ -4,7 +4,7 @@
 // Definitions follow common charter-party usage (BIMCO Laytime Definitions for Charter Parties 2013 covers turn time,
 // NOR, exceptions, once on demurrage). That document could not be read in the build environment, so each rule below
 // is stated in plain words and is a rule of THIS engine, not a quotation of BIMCO. Cite BIMCO per rule once read.
-import { createHash } from "node:crypto";
+import { sha256, toHex } from "viem";
 
 export const ENGINE_VERSION = "laytime-1.0.0";
 export type NorRule = "PORT_LIMITS" | "BERTH" | "WIBON" | "WIPON";
@@ -179,7 +179,7 @@ export function computeLaytime(terms: Terms, sofIn: SofEvent[], factsIn: Fact[],
     amountUusdc: base.review > 0 ? amt(base) : amt(base), amountIfReviewCounts: amt(hi), amountIfReviewExcepted: amt(lo),
     reviewFlags: flags, engineVersion: ENGINE_VERSION,
   };
-  const resultHash = createHash("sha256").update(canonical(body)).digest("hex");
+  const resultHash = sha256(toHex(new TextEncoder().encode(canonical(body)))).slice(2);
   return { ...body, resultHash };
 }
 

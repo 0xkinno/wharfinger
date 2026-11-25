@@ -30,17 +30,19 @@ export type SignedStatement = { body: StatementBody; statementHash: Hex; analyst
 export const hashCanonical = (v: unknown): Hex => keccak256(toHex(new TextEncoder().encode(canonical(v))));
 export function buildStatement(input: StatementInput): SignedStatement {
   const r = computeLaytime(input.terms, input.sof, input.facts, input.resolutions);
-  const body: StatementBody = { schema: "wharfinger.statement.v1", engineVersion: ENGINE_VERSION, ...input,
+  // Money is carried as decimal strings so the body is plain JSON; the canonical hash is identical either way.
+  const terms = { ...input.terms, demurrageUusdcPerDay: input.terms.demurrageUusdcPerDay.toString(), despatchUusdcPerDay: input.terms.despatchUusdcPerDay.toString() } as unknown as Terms;
+  const body: StatementBody = { schema: "wharfinger.statement.v1", engineVersion: ENGINE_VERSION, ...input, terms,
     result: { resultHash: r.resultHash, intervals: r.intervals, demurrageMinutes: r.demurrageMinutes, amountUusdc: r.amountUusdc.toString(), usedMinutes: r.usedMinutes, exceptedMinutes: r.exceptedMinutes, reviewMinutes: r.reviewMinutes } };
   return { body, statementHash: hashCanonical(body) };
 }
 export const lineId = (i: { from: number; to: number }) => `${i.from}-${i.to}`;
-const disputedHash = (lines: string[]): Hex => hashCanonical([...lines].sort());
-const message = (s: SignedStatement) => ({ statementHash: s.statementHash, vessel: s.body.voyage.vessel, port: s.body.voyage.port,
+export const disputedHash = (lines: string[]): Hex => hashCanonical([...lines].sort());
+export const statementMessage = (s: SignedStatement) => ({ statementHash: s.statementHash, vessel: s.body.voyage.vessel, port: s.body.voyage.port,
   norTenderedAt: BigInt(s.body.sof.find((e) => e.kind === "NOR_TENDERED")?.at ?? 0), demurrageMinutes: BigInt(s.body.result.demurrageMinutes), amountUusdc: BigInt(s.body.result.amountUusdc), engineVersion: s.body.engineVersion });
 
 export async function analystSign(s: SignedStatement, account: LocalAccount): Promise<SignedStatement> {
-  const signature = await account.signTypedData({ domain: DOMAIN, types: { LaytimeStatement: TYPES.LaytimeStatement }, primaryType: "LaytimeStatement", message: message(s) });
+  const signature = await account.signTypedData({ domain: DOMAIN, types: { LaytimeStatement: TYPES.LaytimeStatement }, primaryType: "LaytimeStatement", message: statementMessage(s) });
   return { ...s, analyst: { address: account.address, signature } };
 }
 export async function ownerCountersign(s: SignedStatement, account: LocalAccount, decision: "ACCEPT" | "DISPUTE", disputedLines: string[] = [], reason = ""): Promise<SignedStatement> {
@@ -75,7 +77,7 @@ export async function verifyStatement(s: SignedStatement): Promise<{ pass: boole
   add("every receipt used is listed", missing.length === 0, missing.length ? `missing ${missing.join(",")}` : `${used.size} receipts used`);
   add("no receipt from our own miner", b.receipts.filter((x) => x.ours && used.has(x.receiptHash)).length === 0, "own miner never counts");
   if (s.analyst) {
-    const rec = await recoverTypedDataAddress({ domain: DOMAIN, types: { LaytimeStatement: TYPES.LaytimeStatement }, primaryType: "LaytimeStatement", message: message(s), signature: s.analyst.signature }).catch(() => "");
+    const rec = await recoverTypedDataAddress({ domain: DOMAIN, types: { LaytimeStatement: TYPES.LaytimeStatement }, primaryType: "LaytimeStatement", message: statementMessage(s), signature: s.analyst.signature }).catch(() => "");
     add("analyst signature", rec.toLowerCase() === s.analyst.address.toLowerCase(), `recovered ${rec}`);
   } else add("analyst signature", false, "statement is unsigned");
   if (s.countersign) {

@@ -19,10 +19,13 @@
     "probe:wallet": "tsx scripts/gen-probe-wallet.ts"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.2.1",
+    "postgres": "^4.1.1",
     "viem": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "axe-core": "^4.14.1",
     "fast-check": "^4.11.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",

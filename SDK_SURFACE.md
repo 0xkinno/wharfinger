@@ -7,7 +7,7 @@ Version context: Telegraph testnet node and Diamond as probed on 2026-11-25 (`PL
 | Feature | `file:line` | Text on that line | Status |
 |---|---|---|---|
 | Routed ask (`POST /engine/v1/ask`) | `packages/telegraph/src/index.ts:26` | `const path = (minerId?: string) =>` | live |
-| Pinned ask (`POST /engine/v1/ask/{minerId}`), used only for a re-buy | `packages/watch/src/index.ts:57` | `pin = nx.minerId` | live |
+| Pinned ask (`POST /engine/v1/ask/{minerId}`), used only for a re-buy | `packages/watch/src/index.ts:58` | `pin = nx.minerId` | live |
 | Escrow authorization (EIP-191 over `extra.message`, lowercase `from`, nonce, window) | `packages/telegraph/src/index.ts:42` | `const message = template.replace` | live |
 | Window never over 120 s (backdate counted) | `packages/telegraph/src/index.ts:22` | `const BACKDATE_SEC = 5` | live |
 | Per-answer signing cap | `packages/telegraph/src/index.ts:38` | `if (BigInt(value) > cap) throw new OverCapError` | live |
@@ -19,8 +19,8 @@ Version context: Telegraph testnet node and Diamond as probed on 2026-11-25 (`PL
 | Ledger proof (`GET /v1/ledger/proof/{address}`) | `packages/telegraph/src/index.ts:53` | `proof: (a = account.address)` | live (read; the withdraw send is in the probe script) |
 | Epoch block read (`GET /v1/blocks/{epoch}`) | `packages/telegraph/src/index.ts:53` | `block: (e: number)` | live (read); receipt lookup in a block is not yet used |
 | Compatible miners (`GET /engine/v1/intents/{intent}/miners`) | `packages/telegraph/src/index.ts:53` | `miners: (intent: string)` | live (read) |
-| Budget gate from ledger `available` | `packages/watch/src/index.ts:55` | `if ((await deps.available()) < PRICE_UUSDC)` | live |
-| Node refusal kept and the watcher holds | `packages/watch/src/index.ts:42` | `const isEscrowRefusal` | live |
+| Budget gate from ledger `available` | `packages/watch/src/index.ts:56` | `if ((await deps.available()) < PRICE_UUSDC)` | live |
+| Node refusal kept and the watcher holds | `packages/watch/src/index.ts:43` | `const isEscrowRefusal` | live |
 | `depositUSDCFor` to a voyage key | `scripts/probe-paid.ts:92` | `functionName: "depositUSDCFor"` | live (probe script; the app flow is not built) |
 | `setMyChargeLimit` on a voyage key | `scripts/probe-paid.ts:100` | `functionName: "setMyChargeLimit"` | live (probe script; the app flow is not built) |
 | `requestWithdraw` | `scripts/probe-paid.ts:114` | `functionName: "requestWithdraw"` | live (probe script); `executeWithdraw` not yet completed |
