@@ -1,0 +1,28 @@
+routed vessel Iceland (voyage key)	402			
+routed vessel Ankie (voyage key)	402			
+routed vessel Venta Maersk (voyage key)	402			
+routed vessel Elbwater (voyage key)	402			
+pinned vessel ves-digit-ves -> Iceland	200	93002		
+pinned vessel ves-digit-loc -> Iceland	200	93001	3709715	86
+pinned vessel ves-digit-radius -> Iceland	200	93003	3709715	88
+pinned vessel vesselwire-vessel-telemetry-verify -> Iceland	200	7603	0	95
+pinned vessel zk-vessel-v2 -> Iceland	200	70068	0	101
+pinned vessel txlens -> Iceland	200	9002	0	161
+pinned vessel quay-ais -> Iceland	200	8818818	79370	91166
+pinned vessel ves-adsb-hel -> Iceland	503			
+pinned vessel ves-digitraffic -> Iceland	200	170068		
+pinned vessel a1-preflight -> Iceland	200	20260828	0	131
+pinned vessel chainsight-oracle -> Iceland	200	302	0	139
+routed port Kotka	200	9002		
+routed port HaminaKotka	200	9002		
+routed port Helsinki	200	9002		
+routed port Turku	200	9002		
+pinned port quay-ais -> Kotka	500	8818818		
+pinned port txlens -> Kotka	200	9002		
+pinned port port-digit-loc -> Kotka	200	86001		
+routed weather verify Kotka 2026-11-24	200	9002		
+routed weather verify Kotka, Finland 2026-11-24	200	9002		
+routed weather forecast Kotka 1h	200	302		
+routed FX_NOW_EUR	200	20260828		
+routed sanctions screening (vessel name)	200	302		
+routed document authenticity (text)	200	9002		

@@ -1,0 +1,38 @@
+{
+ "requestedAt": "2026-11-25T06:43:25.565Z",
+ "amt": "160000",
+ "r": {
+  "label": "requestWithdraw(160000)",
+  "hash": "0xf74b4d8c04088c0ed657d1ec8ff26ae26cd016a6c9fed9ad8901363b1e366b47",
+  "status": "success",
+  "block": "12207875",
+  "gasUsed": "40417"
+ },
+ "ledger": {
+  "active_root": {
+   "balance": "200000",
+   "charged": "0",
+   "credited": "0",
+   "cutoff": 1795580004,
+   "epoch_id": 52,
+   "seq": 52
+  },
+  "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+  "available": "0",
+  "balance": "200000",
+  "charge_limit": "10000",
+  "charged": "0",
+  "charged_this_block": "40000",
+  "credited": "0",
+  "deposited": "200000",
+  "request": {
+   "amount": "160000",
+   "fallback_at": 0,
+   "needs_cutoff": 1795590804,
+   "requested_at": 1795589004,
+   "status": "waiting_root"
+  },
+  "unbilled": "40000",
+  "withdrawn": "0"
+ }
+}

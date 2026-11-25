@@ -1,0 +1,190 @@
+{
+ "set1": {
+  "label": "setMyChargeLimit(10000)",
+  "hash": "0x3e9776b157d23abfd2546ef1802c6423b8f2a3c2f637d6c03aaa8c5cbb4fe9a0",
+  "status": "success",
+  "block": "12207855",
+  "gasUsed": "137219"
+ },
+ "chargeLimitReadbacks": [
+  "10000"
+ ],
+ "asks": [
+  {
+   "i": 0,
+   "status": 200,
+   "ms": 5675,
+   "reason": "served",
+   "receipt": {
+    "receipt_hash": "0x9399e23de708716cc2c4deffc4ee10f6a1e1648849a2a479d16dc37d984fb0b9",
+    "rail": "escrow",
+    "payer": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+    "miner": "5311",
+    "intent": "FX_NOW_EUR",
+    "amount_uusdc": "10000",
+    "epoch_id": 53,
+    "settlement": "epoch",
+    "chain": "telegraph",
+    "timestamp": 1795588772
+   },
+   "ledger": {
+    "status": 200,
+    "json": {
+     "active_root": {
+      "balance": "200000",
+      "charged": "0",
+      "credited": "0",
+      "cutoff": 1795580004,
+      "epoch_id": 52,
+      "seq": 52
+     },
+     "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+     "available": "190000",
+     "balance": "200000",
+     "charge_limit": "1000000000",
+     "charged": "0",
+     "charged_this_block": "10000",
+     "credited": "0",
+     "deposited": "200000",
+     "request": {
+      "status": "none"
+     },
+     "unbilled": "10000",
+     "withdrawn": "0"
+    }
+   }
+  },
+  {
+   "i": 1,
+   "status": 200,
+   "ms": 6765,
+   "reason": "served",
+   "receipt": {
+    "receipt_hash": "0x836dce1957dde43809800f19fa314ee5e3b439c1968ea6913dae96dc1fca028e",
+    "rail": "escrow",
+    "payer": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+    "miner": "5311",
+    "intent": "FX_NOW_EUR",
+    "amount_uusdc": "10000",
+    "epoch_id": 53,
+    "settlement": "epoch",
+    "chain": "telegraph",
+    "timestamp": 1795588780
+   },
+   "ledger": {
+    "status": 200,
+    "json": {
+     "active_root": {
+      "balance": "200000",
+      "charged": "0",
+      "credited": "0",
+      "cutoff": 1795580004,
+      "epoch_id": 52,
+      "seq": 52
+     },
+     "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+     "available": "180000",
+     "balance": "200000",
+     "charge_limit": "1000000000",
+     "charged": "0",
+     "charged_this_block": "20000",
+     "credited": "0",
+     "deposited": "200000",
+     "request": {
+      "status": "none"
+     },
+     "unbilled": "20000",
+     "withdrawn": "0"
+    }
+   }
+  },
+  {
+   "i": 2,
+   "status": 200,
+   "ms": 3411,
+   "reason": "served",
+   "receipt": {
+    "receipt_hash": "0x67eefc35bb9f6866852b31e6fd690777299ed8618e4bf6af215d07e04c163d83",
+    "rail": "escrow",
+    "payer": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+    "miner": "5311",
+    "intent": "FX_NOW_EUR",
+    "amount_uusdc": "10000",
+    "epoch_id": 53,
+    "settlement": "epoch",
+    "chain": "telegraph",
+    "timestamp": 1795588785
+   },
+   "ledger": {
+    "status": 200,
+    "json": {
+     "active_root": {
+      "balance": "200000",
+      "charged": "0",
+      "credited": "0",
+      "cutoff": 1795580004,
+      "epoch_id": 52,
+      "seq": 52
+     },
+     "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+     "available": "170000",
+     "balance": "200000",
+     "charge_limit": "1000000000",
+     "charged": "0",
+     "charged_this_block": "30000",
+     "credited": "0",
+     "deposited": "200000",
+     "request": {
+      "status": "none"
+     },
+     "unbilled": "30000",
+     "withdrawn": "0"
+    }
+   }
+  },
+  {
+   "i": 3,
+   "status": 200,
+   "ms": 4384,
+   "reason": "served",
+   "receipt": {
+    "receipt_hash": "0x0ea03f04244b0dbe0ecf68124c1ed63f1847516682095ffba5bd1d3bd5a13723",
+    "rail": "escrow",
+    "payer": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+    "miner": "5311",
+    "intent": "FX_NOW_EUR",
+    "amount_uusdc": "10000",
+    "epoch_id": 53,
+    "settlement": "epoch",
+    "chain": "telegraph",
+    "timestamp": 1795588790
+   },
+   "ledger": {
+    "status": 200,
+    "json": {
+     "active_root": {
+      "balance": "200000",
+      "charged": "0",
+      "credited": "0",
+      "cutoff": 1795580004,
+      "epoch_id": 52,
+      "seq": 52
+     },
+     "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+     "available": "160000",
+     "balance": "200000",
+     "charge_limit": "1000000000",
+     "charged": "0",
+     "charged_this_block": "40000",
+     "credited": "0",
+     "deposited": "200000",
+     "request": {
+      "status": "none"
+     },
+     "unbilled": "40000",
+     "withdrawn": "0"
+    }
+   }
+  }
+ ]
+}

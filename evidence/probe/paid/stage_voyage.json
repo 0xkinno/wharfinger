@@ -1,0 +1,38 @@
+{
+ "voyage": "0xfD29108e9Df6B3d89931d39Df3a9037f9dEe4937",
+ "gas": {
+  "hash": "0xb792c6044fe008d289bd7150da74009bf945a1d8e1fce107764648ab13456c19",
+  "status": "success"
+ },
+ "dep": {
+  "label": "depositUSDCFor(voyage, 200000)",
+  "hash": "0x59af25098d2840bccc8121bf13f2b39eda015d218e5e53715d400302c708f3b1",
+  "status": "success",
+  "block": "12207853",
+  "gasUsed": "195961"
+ },
+ "ledgerShowedDepositAfterMs": 1207,
+ "ledger": {
+  "active_root": {
+   "balance": "200000",
+   "charged": "0",
+   "credited": "0",
+   "cutoff": 1795580004,
+   "epoch_id": 52,
+   "seq": 52
+  },
+  "address": "0xfd29108e9df6b3d89931d39df3a9037f9dee4937",
+  "available": "200000",
+  "balance": "200000",
+  "charge_limit": "1000000000",
+  "charged": "0",
+  "charged_this_block": "0",
+  "credited": "0",
+  "deposited": "200000",
+  "request": {
+   "status": "none"
+  },
+  "unbilled": "0",
+  "withdrawn": "0"
+ }
+}

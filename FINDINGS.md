@@ -89,3 +89,19 @@ Appended after the pre-registered section above. The pre-registered text is byte
 
 A2, B4, B5, C1, C2, C3, D1 to D5. Probe address: see `PROGRESS.md`. Run order is in the header of
 `scripts/probe-paid.ts`.
+
+### Answered by the paid probe, 2026-11-25 (rows in `evidence/probe/paid/`)
+
+| Question | Result | Prediction | Where |
+|---|---|---|---|
+| A1 operators with usable fresh position | 4 operator wallets, all the same upstream; the one different source was 25 h stale | at least 2: right; "fewer than 19 suggest": right; independent sources: worse | F15, F16 |
+| A2 voyage key spends `depositUSDCFor` funds | Yes, 4 asks served | as predicted | `paid/stage_limit.json` |
+| B4 paid routed ask per intent | 28 rows; routed asks served at rank 1 or 2; median latency about 5 s; cost 10000 uUSDC each | n/a | `paid/asks_matrix.json` |
+| B5 signal shows our wallet; `created_at` | 22 of 22 ours; inside the authorization window in all 22 | as predicted | `paid/asks_matrix.json` |
+| C1 deposit visibility | 1.2 s after confirmation (house and voyage) | within minutes: faster | `paid/stage_deposit.json`, `stage_voyage.json` |
+| C2 charge limit | Applies after a delay of minutes; refusal text recorded; resets next block | n/a | F21 |
+| D1 operator disagreement | Not small disagreements: 5 agree within 1 m, 3 wrong positions, 2 no position | n/a | F16 |
+| D2 staleness | 86 to 161 s for fresh answers; one answer 25.3 h old | n/a | F16 |
+| D3 wrong vessel | Yes: one miner returned a list of other vessels | not predicted | F16 |
+| D4 port wait agreement | Only one operator answered routed port asks; a second pinned operator returned raw AIS; no agreement test possible | n/a | F17, F20 |
+| D5 same-name place | Weather resolved Kotka correctly. The port intent returned Hanko for Kotka | partly | F17 |

@@ -1,0 +1,40 @@
+{
+ "r1": {
+  "label": "approve diamond",
+  "hash": "0x4cd72b6281d161a145c197531f9175e224ec62795b31fbe099fc9a9c3847536b",
+  "status": "success",
+  "block": "12207849",
+  "gasUsed": "127802"
+ },
+ "r2": {
+  "label": "depositUSDC 1000000",
+  "hash": "0x5402d82c98f38e6f9c7493f0f3900fcc7a9bbe582138aa67f9373ca993e02bae",
+  "status": "success",
+  "block": "12207851",
+  "gasUsed": "195762"
+ },
+ "ledgerShowedDepositAfterMs": 1308,
+ "ledger": {
+  "active_root": {
+   "balance": "1000000",
+   "charged": "0",
+   "credited": "0",
+   "cutoff": 1795580004,
+   "epoch_id": 52,
+   "seq": 52
+  },
+  "address": "0x2d62433a1c398cae11ae98dbd5ccce3645a95540",
+  "available": "1000000",
+  "balance": "1000000",
+  "charge_limit": "1000000000",
+  "charged": "0",
+  "charged_this_block": "0",
+  "credited": "0",
+  "deposited": "1000000",
+  "request": {
+   "status": "none"
+  },
+  "unbilled": "0",
+  "withdrawn": "0"
+ }
+}
