@@ -2,10 +2,12 @@ import { q } from "@/lib/db";
 import { houseClient } from "@/lib/clients";
 import { PgStore } from "@/lib/pgstore";
 import { tick, type VoyageState } from "@pk/watch/src/index.ts";
+import { missingEnv, notConfigured } from "@/lib/guard";
 export const dynamic = "force-dynamic"; export const maxDuration = 120;
 const DAILY_CEILING_UUSDC = 600_000n; // 0.60 USDC a day on the house key, visible on /judge
 // Judge door: the house key (labelled, capped) buys the first answers for any MMSI the judge types.
 export async function POST(req: Request) {
+  { const m = missingEnv(["DATABASE_URL","HOUSE_PRIVATE_KEY"]); if (m.length) return notConfigured(m); }
   const b = await req.json().catch(() => ({})); const mmsi = String(b.mmsi ?? "").trim();
   if (!/^\d{9}$/.test(mmsi)) return Response.json({ error: "enter a nine digit MMSI" }, { status: 400 });
   const today = (await q("select coalesce(sum(cost_uusdc),0)::text as s from purchases where voyage_id like 'judge-%' and asked_at > now() - interval '1 day'"))[0].s;

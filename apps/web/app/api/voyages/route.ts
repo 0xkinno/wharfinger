@@ -1,8 +1,10 @@
 import { createVoyage, listVoyages } from "@/lib/voyages";
 import { hashCanonical } from "@pk/statement/src/index.ts";
+import { missingEnv, notConfigured } from "@/lib/guard";
 export const dynamic = "force-dynamic";
 export async function GET() { return Response.json((await listVoyages()).map(({ funder_address, ...v }) => ({ ...v, funder: funder_address }))); }
 export async function POST(req: Request) {
+  { const m = missingEnv(["DATABASE_URL","WATCH_MASTER_MNEMONIC"]); if (m.length) return notConfigured(m); }
   const b = await req.json();
   if (!b.vessel || !b.port || !b.funder || !/^0x[0-9a-fA-F]{40}$/.test(b.funder)) return Response.json({ error: "vessel, port and a funding wallet are required" }, { status: 400 });
   const ports: Record<string, string | null> = { FIKTK: null, FIHEL: "Helsinki", FITKU: "Turku" };

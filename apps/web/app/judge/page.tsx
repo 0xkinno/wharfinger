@@ -5,11 +5,11 @@ import { statementDemo } from "@/lib/demo";
 import { GlowCard } from "@/components/ui";
 import { cents } from "@/lib/fmt";
 import { measure } from "@/lib/telemetry";
-import { q, safe } from "@/lib/view";
+import { judgeSpentToday } from "@/lib/store";
 export const dynamic = "force-dynamic"; export const maxDuration = 60;
 export default async function Judge() {
   const demo = await statementDemo(); const st = await measure();
-  const spent = await safe(async () => (await q("select coalesce(sum(cost_uusdc),0)::text as s from purchases where voyage_id like 'judge-%' and asked_at > now() - interval '1 day'"))[0].s, "0");
+  const spent = await judgeSpentToday().catch(() => "0");
   const walk = [["Run it", "Type a ship that is in port now (below). The house key buys two answers; you see the miners, receipts and which operators agreed.", "#run"], ["Check it", "Open the statement built from real answers: the demurrage figure, intervals and receipts stapled to lines.", demo ? `/statement/${demo.id}` : "/harbour"], ["Inspect it", "Every purchase with miner, operator, source family, cost, latency, signal link, receipt hash, epoch.", "/evidence"], ["Break it", "The failure buttons run the real code on real saved answers.", "#break"], ["Reproduce it", "Clean clone, no keys: pnpm install, then pnpm verify examples/statement.sample.json.", "https://github.com/0xkinno/wharfinger#run-it"]];
   return (<div className="space-y-10"><div><p className="eyebrow mb-2">For judges</p><h1 className="text-5xl mb-2">Sixty seconds, no login.</h1><p className="text-muted max-w-[46em]">The five verbs from the rules: run it, check it, inspect it, break it, reproduce it. Testnet only. Mira is a fictional analyst; ships, positions and receipts are real.</p></div>
     <div className="grid md:grid-cols-5 gap-3">{walk.map(([t, b, h], i) => <Link key={t} href={h}><GlowCard className="p-4 h-full"><div className="mono text-muted">{i + 1}</div><div className="font-display text-2xl">{t}</div><p className="text-sm text-muted mt-1">{b}</p></GlowCard></Link>)}</div>

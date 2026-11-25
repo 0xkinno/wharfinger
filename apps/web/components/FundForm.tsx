@@ -20,7 +20,7 @@ export function FundForm() {
     try {
       const r = await fetch("/api/voyages", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ vessel: f.vessel, mmsi: f.mmsi || undefined, imo: f.imo || undefined, port: f.port, funder: address, capUusdc: capU.toString(),
         terms: { laytimeMinutes: Number(f.laytimeH) * 60, turnTimeMinutes: Number(f.turnH) * 60, norRule: f.nor, shex: f.shex, demurrageUusdcPerDay: String(BigInt(Math.round(Number(f.rate) * 1e6))), despatchUusdcPerDay: String(BigInt(Math.round(Number(f.rate) * 5e5))) } }) });
-      const v = await r.json(); if (!r.ok) throw new Error(v.error); set(0, { state: "done", detail: `${v.voyageAddress.slice(0, 10)}... (only the address is shown)` }); setVoyage(v.id);
+      const v = await r.json(); if (!r.ok) throw new Error(v.missing ? `${v.error}: ${v.missing.join(", ")} (see DEPLOY.md)` : v.error); set(0, { state: "done", detail: `${v.voyageAddress.slice(0, 10)}... (only the address is shown)` }); setVoyage(v.id);
       set(1, { state: "work" });
       const bal = await pub!.readContract({ address: U, abi: erc, functionName: "balanceOf", args: [address!] });
       if (bal < capU) { set(1, { state: "work", detail: "your wallet holds less test USDC than the cap; minting the difference (the test token lets anyone mint)" }); const h = await writeContractAsync({ address: U, abi: erc, functionName: "mint", args: [address!, capU - bal] }); await pub!.waitForTransactionReceipt({ hash: h }); }

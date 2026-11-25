@@ -1,8 +1,10 @@
 import { q } from "@/lib/db";
 import { getVoyage } from "@/lib/voyages";
 import { verifyWrite } from "@/lib/auth";
+import { missingEnv, notConfigured } from "@/lib/guard";
 export const dynamic = "force-dynamic";
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  { const m = missingEnv(["DATABASE_URL"]); if (m.length) return notConfigured(m); }
   const { id } = await params; const v = await getVoyage(id); if (!v) return Response.json({ error: "no such voyage" }, { status: 404 });
   const b = await req.json();
   if (!v.funder_address || !(await verifyWrite({ action: "update-sof", id, payload: b.payload, ts: b.ts, address: v.funder_address, signature: b.signature }))) return Response.json({ error: "signature from the funding wallet required" }, { status: 401 });

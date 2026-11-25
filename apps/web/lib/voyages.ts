@@ -1,4 +1,5 @@
-import { q } from "./db";
+import { q, hasDb } from "./db";
+import { FIXTURE } from "./fixture";
 import { NODE, voyageAccount } from "./clients";
 import { checkVessel, corroborateVessel, minerInfo, GEOMETRY_VERSION, GEOMETRY_SHA256, type Answer, type Verdict, type VesselFact } from "../../../packages/evidence/src/index.ts";
 import { buildStatement, hashCanonical, type SignedStatement, type ReceiptRow } from "../../../packages/statement/src/index.ts";
@@ -8,10 +9,10 @@ export type VoyageRow = { id: string; vessel: string; mmsi: string | null; imo: 
 export type PurchaseDb = { id: number; voyage_id: string; slot: string; kind: string; attempt: number; pinned: boolean; miner_id: string | null; status: number; refusal: string | null; receipt_hash: string | null; epoch_id: number | null; signal_hash: string | null; cost_uusdc: string; ms: number | null; asked_at: string; verdict_ok: boolean | null; refusals: string[]; result: any; requested: string | null; signal_created_at: string | null; auth_valid_after: string | null; auth_valid_before: string | null };
 
 export const revive = (t: any): Terms => ({ ...t, demurrageUusdcPerDay: BigInt(t.demurrageUusdcPerDay), despatchUusdcPerDay: BigInt(t.despatchUusdcPerDay) });
-export const listVoyages = () => q<VoyageRow>("select * from voyages order by created_at desc");
-export async function getVoyage(id: string) { return (await q<VoyageRow>("select * from voyages where id=$1", [id]))[0] ?? null; }
-export const purchasesOf = (id: string) => q<PurchaseDb>("select * from purchases where voyage_id=$1 order by asked_at, id", [id]);
-export const allPurchases = (limit = 500) => q<PurchaseDb>("select * from purchases order by asked_at desc, id desc limit $1", [limit]);
+export const listVoyages = () => (hasDb() ? q<VoyageRow>("select * from voyages order by created_at desc") : Promise.resolve([FIXTURE.voyage as VoyageRow]));
+export async function getVoyage(id: string) { if (!hasDb()) return id === FIXTURE.voyage.id ? (FIXTURE.voyage as VoyageRow) : null; return (await q<VoyageRow>("select * from voyages where id=$1", [id]))[0] ?? null; }
+export const purchasesOf = (id: string) => (hasDb() ? q<PurchaseDb>("select * from purchases where voyage_id=$1 order by asked_at, id", [id]) : Promise.resolve((FIXTURE.purchases as PurchaseDb[]).filter((p) => p.voyage_id === id)));
+export const allPurchases = (limit = 500) => (hasDb() ? q<PurchaseDb>("select * from purchases order by asked_at desc, id desc limit $1", [limit]) : Promise.resolve([...(FIXTURE.purchases as PurchaseDb[])].reverse().slice(0, limit)));
 
 export const toAnswer = (p: PurchaseDb): Answer => ({ minerId: String(p.miner_id ?? ""), intent: p.kind === "vessel" ? "VESSEL_TELEMETRY_VERIFY_GENERAL" : "LIVE_PORT_CONGESTION_GENERAL", requested: p.requested ?? "", result: p.result, resultShape: "intent",
   signalCreatedAt: p.signal_created_at ? new Date(p.signal_created_at).toISOString() : null, auth: p.auth_valid_after ? { validAfter: Number(p.auth_valid_after), validBefore: Number(p.auth_valid_before) } : null, receiptHash: p.receipt_hash, epochId: p.epoch_id });
@@ -32,6 +33,7 @@ export function factsFrom(rows: PurchaseDb[]): { facts: Fact[]; cors: { slot: st
 }
 
 async function signalBody(hash: string) {
+  if (!hasDb()) return (FIXTURE.signals as any[]).find((s) => s.hash === hash)?.body ?? null;
   const hit = await q("select body from signals where hash=$1", [hash]); if (hit[0]) return hit[0].body;
   const r = await fetch(`${NODE}/engine/v1/signal/${hash}`, { signal: AbortSignal.timeout(20_000) }); if (!r.ok) return null;
   const body = await r.json(); await q("insert into signals (hash, body) values ($1,$2) on conflict do nothing", [hash, JSON.stringify(body)]); return body;

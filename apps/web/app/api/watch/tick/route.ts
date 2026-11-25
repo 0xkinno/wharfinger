@@ -3,9 +3,11 @@ import { PgStore } from "@/lib/pgstore";
 import { voyageClient } from "@/lib/clients";
 import { tick, type VoyageState } from "@pk/watch/src/index.ts";
 import type { VoyageRow } from "@/lib/voyages";
+import { missingEnv, notConfigured } from "@/lib/guard";
 export const dynamic = "force-dynamic"; export const maxDuration = 300;
 
 export async function POST(req: Request) {
+  { const m = missingEnv(["DATABASE_URL","WATCH_MASTER_MNEMONIC","WATCH_TICK_SECRET"]); if (m.length) return notConfigured(m); }
   if (!process.env.WATCH_TICK_SECRET || req.headers.get("authorization") !== `Bearer ${process.env.WATCH_TICK_SECRET}`) return new Response("unauthorized", { status: 401 });
   const voyages = await q<VoyageRow>("select * from voyages where status = 'WATCHING' and house = false order by created_at");
   const store = new PgStore(); const results: any[] = [];

@@ -2,15 +2,15 @@ import Link from "next/link";
 import { HarbourScene } from "@/components/HarbourScene";
 import { GlowCard, Chip } from "@/components/ui";
 import { cents } from "@/lib/fmt";
-import { q, safe } from "@/lib/view";
+import { summary, voyages } from "@/lib/store";
 import { statementDemo } from "@/lib/demo";
 import { Tour } from "@/components/Tour";
 import { VerifyBox } from "@/components/VerifyPanel";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const stats = await safe(async () => (await q("select (select count(*)::int from voyages where house=false) as voyages, (select count(*)::int from purchases where receipt_hash is not null) as paid, (select count(*)::int from purchases where verdict_ok = false) as refused, (select coalesce(sum(cost_uusdc),0)::text from purchases) as spent"))[0], null);
-  const board = await safe(() => q("select id, vessel, port_locode, status, label from voyages where house=false order by created_at desc limit 4"), []);
+  const stats = await summary().catch(() => null);
+  const board = (await voyages().catch(() => [])).slice(0, 4);
   const demo = await statementDemo();
   return (
     <div className="space-y-24">
@@ -42,7 +42,7 @@ export default async function Home() {
         </div></section>
 
       <section data-tour="board"><div className="flex items-end justify-between mb-5"><div><p className="eyebrow mb-2">Harbour board</p><h2 className="text-4xl">Watched now.</h2></div><Link className="underline text-sm" href="/harbour">All voyages</Link></div>
-        <div className="grid md:grid-cols-2 gap-4">{board.length ? board.map((v: any) => (
+        <div className="grid md:grid-cols-2 gap-4">{board.length ? board.map((v) => (
           <Link key={v.id} href={`/voyage/${v.id}`}><GlowCard className="p-5 flex items-center justify-between"><div><div className="font-display text-2xl">{v.vessel}</div><div className="mono text-muted">{v.port_locode} {v.label ? `, ${v.label}` : ""}</div></div><Chip s={v.status} /></GlowCard></Link>)) : <GlowCard className="p-6 text-muted">No voyage is being watched yet. <Link className="underline" href="/voyage/new">Start one</Link>.</GlowCard>}</div></section>
 
       <section className="grid md:grid-cols-[.9fr_1.1fr] gap-10 items-start" data-tour="sheet">

@@ -5,7 +5,7 @@ import { minerInfo } from "@/lib/view";
 import { safe, fmtTime } from "@/lib/view";
 export const dynamic = "force-dynamic";
 export default async function Evidence() {
-  const rows = await safe(() => allPurchases(300), [] as any[]);
+  const rows: any[] = await allPurchases(300).catch(() => []);
   const miners = new Map<string, { slug: string; operator: string; family: string; total: number; pass: number; refusals: Record<string, number> }>();
   for (const r of rows) { if (!r.miner_id) continue; const m = minerInfo(String(r.miner_id)); const e = miners.get(String(r.miner_id)) ?? { slug: m.slug, operator: m.operator, family: m.family, total: 0, pass: 0, refusals: {} }; if (r.verdict_ok !== null) { e.total++; if (r.verdict_ok) e.pass++; for (const c of r.refusals) e.refusals[c] = (e.refusals[c] ?? 0) + 1; } miners.set(String(r.miner_id), e); }
   const ops = new Map<string, { n: number; pass: number; family: string }>(); for (const e of miners.values()) { const o = ops.get(e.operator) ?? { n: 0, pass: 0, family: e.family }; o.n += e.total; o.pass += e.pass; ops.set(e.operator, o); }

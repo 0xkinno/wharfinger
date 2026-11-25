@@ -1,15 +1,9 @@
-import { q } from "@/lib/db";
-import { checkVessel } from "@pk/evidence/src/index.ts";
-import { toAnswer, type PurchaseDb } from "@/lib/voyages";
+import { summary } from "@/lib/store";
+import { hasDb } from "@/lib/db";
 export const dynamic = "force-dynamic";
-// Recomputed from the database on every call. No number is typed anywhere.
+// Recomputed from the purchases on every call. No number is typed anywhere. Without a database it recomputes from the committed real fixtures and says so.
 export async function GET() {
-  const rows = await q<PurchaseDb>("select * from purchases");
-  const paid = rows.filter((r) => r.receipt_hash); const refused = rows.filter((r) => r.verdict_ok === false);
-  const byReason: Record<string, number> = {}; for (const r of refused) for (const c of r.refusals) byReason[c] = (byReason[c] ?? 0) + 1;
-  const vessel = rows.filter((r) => r.kind === "vessel" && r.status === 200);
-  void checkVessel; void toAnswer;
-  const voy = (await q("select count(*)::int as n from voyages"))[0].n;
-  const spent = paid.reduce((a, r) => a + BigInt(r.cost_uusdc), 0n);
-  return Response.json({ voyages: voy, purchases: rows.length, paidAnswers: paid.length, refusedAnswers: refused.length, refusalsByReason: byReason, providerErrors: rows.filter((r) => r.status >= 400).length, vesselAnswers: vessel.length, spentUusdc: spent.toString(), costPerPaidAnswerUusdc: paid.length ? (spent / BigInt(paid.length)).toString() : null, at: new Date().toISOString() }, { headers: { "cache-control": "no-store" } });
+  const s = await summary(); const rows = s.rows;
+  const byReason: Record<string, number> = {}; for (const r of rows) if (r.verdict_ok === false) for (const c of r.refusals) byReason[c] = (byReason[c] ?? 0) + 1;
+  return Response.json({ source: hasDb() ? "database" : "committed fixtures (no DATABASE_URL set)", voyages: s.voyages, purchases: rows.length, paidAnswers: s.paid, refusedAnswers: s.refused, refusalsByReason: byReason, providerErrors: rows.filter((r) => r.status >= 400).length, vesselAnswers: rows.filter((r) => r.kind === "vessel" && r.status === 200).length, spentUusdc: s.spent, costPerPaidAnswerUusdc: s.paid ? (BigInt(s.spent) / BigInt(s.paid)).toString() : null, at: new Date().toISOString() }, { headers: { "cache-control": "no-store" } });
 }

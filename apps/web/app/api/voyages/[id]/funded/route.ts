@@ -3,11 +3,13 @@ import { getVoyage, ledgerOf } from "@/lib/voyages";
 import { voyageAccount, houseAccount } from "@/lib/clients";
 import { createPublicClient, createWalletClient, http, parseAbi, parseEther } from "viem";
 import { sepolia } from "viem/chains";
+import { missingEnv, notConfigured } from "@/lib/guard";
 export const dynamic = "force-dynamic"; export const maxDuration = 90;
 const D = "0x72a70e949362670Bf8bceAd24eFC5b8f950aa08b" as const;
 // The server confirms the deposit from the node's ledger (never from the browser's word), tops up gas, then sets the
 // per-block charge limit from the voyage key. The watcher starts only after the ledger shows the full cap.
 export async function POST(_: Request, { params }: { params: Promise<{ id: string }> }) {
+  { const m = missingEnv(["DATABASE_URL","WATCH_MASTER_MNEMONIC","HOUSE_PRIVATE_KEY"]); if (m.length) return notConfigured(m); }
   const { id } = await params; const v = await getVoyage(id); if (!v) return Response.json({ error: "no such voyage" }, { status: 404 });
   const led = await ledgerOf(v.voyage_address); const dep = BigInt(led?.deposited ?? 0); const cap = BigInt(v.cap_uusdc);
   if (dep < cap) return Response.json({ funded: false, depositedUusdc: dep.toString(), capUusdc: cap.toString(), message: "the node ledger does not show the deposit yet" }, { status: 202 });

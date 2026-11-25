@@ -1,8 +1,10 @@
 import { q } from "@/lib/db";
 import { loadStatement } from "@/lib/statements";
 import { verifyStatement } from "@pk/statement/src/index.ts";
+import { missingEnv, notConfigured } from "@/lib/guard";
 export const dynamic = "force-dynamic"; export const maxDuration = 60;
 export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  { const m = missingEnv(["DATABASE_URL"]); if (m.length) return notConfigured(m); }
   const { id } = await params; const r = await loadStatement(id); if (!r || r.draft) return Response.json({ error: "the analyst has not signed this statement" }, { status: 409 });
   const b = await req.json(); const s = { ...r.statement, countersign: { address: b.address, decision: b.decision, disputedLines: b.disputedLines ?? [], reason: b.reason ?? "", signature: b.signature } } as any;
   if (b.decision === "DISPUTE" && (!s.countersign.disputedLines.length || !s.countersign.reason)) return Response.json({ error: "a dispute names the lines and gives a reason" }, { status: 400 });

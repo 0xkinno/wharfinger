@@ -1,0 +1,21 @@
+name: Watch tick
+# Calls the deployed app every 30 minutes. The tick is idempotent: a lease row per voyage per 30 minute slot.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{ vars.WHARFINGER_URL }}
+      SECRET: ${{ secrets.WATCH_TICK_SECRET }}
+    steps:
+      - name: Tick
+        run: |
+          if [ -z "$URL" ] || [ -z "$SECRET" ]; then echo "WHARFINGER_URL (repository variable) and WATCH_TICK_SECRET (repository secret) are not set; skipping."; exit 0; fi
+          code=$(curl -sS -m 280 -o out.json -w '%{http_code}' -X POST "$URL/api/watch/tick" -H "authorization: Bearer $SECRET")
+          echo "HTTP $code"; cat out.json | head -c 2000
+          [ "$code" = "200" ]
