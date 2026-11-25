@@ -152,6 +152,17 @@ check but never as a decision.
 **F23. Weather.** Kotka, 2026-11-24: 0.1 mm, "light drizzle", daily. Forecast with `window_hours` 1 returned "the next 24
 hours", probability 0 percent. The intent ignores the 1 hour window.
 
+**F24. The Kotka port queue cannot be bought correctly today.** Asked for "Kotka", "Kotka, Finland", "Port of Kotka" and
+"HaminaKotka" the routed answer is port `FIHKO` (Hanko) every time. Asked by LOCODE `FIKTK` the answer names the right
+port with every figure `null`. A second miner returned `FIHKO` too, and two others errored (500). Helsinki and Turku
+return the right ports. Consequence: the watcher skips the port queue for Kotka and says so; it never moves an hour
+(the engine does not use the queue), but the harbour board shows "queue not available" for Kotka.
+`evidence/live/purchases.ndjson` holds the real answers.
+
+**F25. The watcher ran live.** One tick against the real node (house escrow, vessel at berth in Kotka): routed first buy,
+pinned second buy from another operator, both passed, corroborated with independence `ONE_UPSTREAM`, four paid answers,
+40000 uUSDC, every purchase stored with receipt and signal hash.
+
 ## Kill and pivot rule (18D)
 
 Rule text: stop if fewer than two independent operators return a usable, fresh position for vessels at HaminaKotka or

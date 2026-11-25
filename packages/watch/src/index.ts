@@ -6,7 +6,8 @@ export const SLOT_MIN = 30;
 export const PRICE_UUSDC = 10_000n;
 export const MAX_ATTEMPTS_PER_FACT = 4;
 export type Kind = "vessel" | "port" | "weather";
-export type VoyageState = { id: string; status: "WATCHING" | "BUDGET_SPENT" | "ENDED"; mmsi: string; portLocode: string; portQuery: string; moored: boolean; lastBought: Partial<Record<Kind, number>>; ownOperators: string[] };
+export type VoyageState = { id: string; status: "WATCHING" | "BUDGET_SPENT" | "ENDED"; mmsi: string; portLocode: string; portQuery: string | null; // null: the port queue cannot be bought correctly for this port (PLATFORM_PROBE.md F24)
+   moored: boolean; lastBought: Partial<Record<Kind, number>>; ownOperators: string[] };
 
 /** Cadence from RISK.md: tighter while the ship is moving or at anchor, slower once moored and stable. */
 export const CADENCE_MIN: Record<"UNDERWAY" | "MOORED", Record<Kind, number>> = { UNDERWAY: { vessel: 30, port: 120, weather: 180 }, MOORED: { vessel: 120, port: 240, weather: 360 } };
@@ -47,13 +48,14 @@ export async function tick(v: VoyageState, deps: Deps): Promise<TickOutcome> {
   if (!(await deps.store.tryLease(v.id, slot))) return { ...out, skipped: "LEASE_HELD" };
   const own = new Set(v.ownOperators); const stats = await deps.store.stats();
   for (const kind of dueKinds(v, nowMin)) {
+    if (kind === "port" && v.portQuery === null) { out.facts.push({ kind, corroboration: { status: "INSUFFICIENT", operators: [], families: [], independence: null, receipts: [], note: "port queue not purchasable for this port" }, verdicts: 0 }); v.lastBought[kind] = nowMin; continue; }
     if (kind === "weather") continue; // conditions read is bought by the daily weather job, not here; it never moves an hour
     const verdicts: Verdict<any>[] = []; const triedOperators = new Set<string>(); let attempt = 0; let corroboration: Corroboration<any> | undefined;
     while (attempt < MAX_ATTEMPTS_PER_FACT) {
       if ((await deps.available()) < PRICE_UUSDC) { await deps.store.setStatus(v.id, "BUDGET_SPENT", "escrow available is below one answer"); return { ...out, held: "BUDGET_SPENT", message: "escrow available is below one answer", facts: [...out.facts] }; }
       let pin: string | undefined;
       if (attempt > 0) { const nx = nextRebuy(kind === "vessel" ? "VESSEL_TELEMETRY_VERIFY_GENERAL" : "LIVE_PORT_CONGESTION_GENERAL", triedOperators, stats, { own }); if (!nx) break; pin = nx.minerId; }
-      const body: Parameters<Buy>[0] = kind === "vessel" ? { intent: "VESSEL_TELEMETRY_VERIFY_GENERAL", params: { vessel: v.mmsi } } : { intent: "LIVE_PORT_CONGESTION_GENERAL", params: { port: v.portQuery } };
+      const body: Parameters<Buy>[0] = kind === "vessel" ? { intent: "VESSEL_TELEMETRY_VERIFY_GENERAL", params: { vessel: v.mmsi } } : { intent: "LIVE_PORT_CONGESTION_GENERAL", params: { port: v.portQuery! } };
       const { p, verdict } = await buyChecked(deps, v, slot, kind, attempt, body, pin, kind === "vessel" ? v.mmsi : v.portLocode, (a) => (kind === "vessel" ? checkVessel(a) : checkPort(a, v.portLocode)));
       attempt++;
       if (!p.ok) {

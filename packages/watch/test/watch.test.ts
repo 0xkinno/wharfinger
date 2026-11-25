@@ -49,6 +49,10 @@ describe("tick", () => {
     const first = store.rows[0]; expect(first.verdictOk).toBe(false); expect(first.refusals).toContain("WRONG_PLACE");
     expect(r.facts[0].corroboration!.status).toBe("CORROBORATED");
   });
+  it("a port whose queue cannot be bought is skipped, says so, and spends nothing on it", async () => {
+    const f = fake(["9002"]); const r = await tick(voyage({ portQuery: null }), deps(f));
+    expect(r.facts.find((x) => x.kind === "port")!.corroboration!.note).toContain("not purchasable"); expect(f.asks.every((a) => a.intent.startsWith("VESSEL"))).toBe(true);
+  });
   it("a provider error is not billed and the next operator is tried", async () => {
     const f = fake(["7603"], { failOn: new Set(["7603"]) }); const store = new MemoryStore();
     const r = await tick(voyage(), deps(f, store)); expect(store.rows[0].status).toBe(503); expect(store.rows[0].costUusdc).toBe("0");
