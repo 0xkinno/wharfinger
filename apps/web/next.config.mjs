@@ -5,6 +5,7 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..")
 export default {
   outputFileTracingRoot: root,
   experimental: { externalDir: true },
+  outputFileTracingIncludes: { "/api/statement/[id]/pdf": ["../../node_modules/.pnpm/pdfkit@*/node_modules/pdfkit/**/*", "../../node_modules/.pnpm/@react-pdf+*/node_modules/@react-pdf/**/*"] },
   serverExternalPackages: ["@react-pdf/renderer", "exceljs"],
   typescript: { ignoreBuildErrors: false },
   webpack: (config) => { config.resolve.extensionAlias = { ".js": [".ts", ".tsx", ".js"] }; const optional = ["@x402/core/client", "@x402/evm", "@x402/evm/exact/client", "@x402/evm/upto/client", "@x402/svm/exact/client"]; // optional wallet-connector extras we never use
