@@ -1,11 +1,35 @@
 {
-  "name": "@wharfinger/web", "version": "0.1.0", "private": true, "type": "module",
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start" },
-  "dependencies": {
-    "next": "^15.5.0", "react": "^19.0.0", "react-dom": "^19.0.0", "viem": "^2.21.0", "wagmi": "^2.14.0",
-    "@rainbow-me/rainbowkit": "^2.2.0", "@tanstack/react-query": "^5.62.0", "@neondatabase/serverless": "^1.0.0",
-    "@react-pdf/renderer": "^4.1.0", "exceljs": "^4.4.0", "motion": "^12.0.0",
-    "@fontsource-variable/fraunces": "^5.1.0", "@fontsource/ibm-plex-mono": "^5.1.0", "@fontsource-variable/instrument-sans": "^5.1.0"
+  "name": "@wharfinger/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "devDependencies": { "tailwindcss": "^4.0.0", "@tailwindcss/postcss": "^4.0.0", "@types/react": "^19.0.0", "@types/react-dom": "^19.0.0", "typescript": "^5.7.0" }
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource-variable/instrument-sans": "^5.1.0",
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "@neondatabase/serverless": "^1.0.0",
+    "@rainbow-me/rainbowkit": "^2.2.0",
+    "@react-pdf/renderer": "^4.1.0",
+    "@tanstack/react-query": "^5.62.0",
+    "exceljs": "^4.4.0",
+    "motion": "^12.0.0",
+    "next": "^15.5.0",
+    "pdfkit": "0.21.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "viem": "^2.21.0",
+    "wagmi": "^2.14.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
 }

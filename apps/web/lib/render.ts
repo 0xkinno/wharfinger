@@ -1,6 +1,7 @@
 import ExcelJS from "exceljs";
 import React from "react";
-import { Document, Page, Text, View, StyleSheet, renderToBuffer } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Font, renderToBuffer } from "@react-pdf/renderer";
+import { PLEX_400, PLEX_500 } from "./pdfFonts";
 import type { SignedStatement } from "../../../packages/statement/src/index.ts";
 import { localParts } from "../../../packages/laytime/src/index.ts";
 
@@ -33,7 +34,9 @@ export async function statementXlsx(s: SignedStatement): Promise<Buffer> {
   return Buffer.from(await wb.xlsx.writeBuffer());
 }
 
-const st = StyleSheet.create({ page: { padding: 36, fontSize: 9, fontFamily: "Helvetica", color: "#0B1B33" }, h1: { fontSize: 18, marginBottom: 4 }, small: { fontSize: 7, color: "#5B6B82" }, row: { flexDirection: "row", borderBottom: "0.5pt solid #E6E2D8", paddingVertical: 2 }, th: { fontWeight: 700 }, c: { width: "16%" }, c2: { width: "8%" }, c3: { width: "30%" }, box: { marginTop: 10, padding: 6, border: "0.5pt solid #C29A45" } });
+Font.register({ family: "PlexMono", fonts: [{ src: PLEX_400, fontWeight: 400 }, { src: PLEX_500, fontWeight: 500 }] });
+Font.registerHyphenationCallback((w) => [w]);
+const st = StyleSheet.create({ page: { padding: 36, fontSize: 9, fontFamily: "PlexMono", color: "#0B1B33" }, h1: { fontSize: 18, marginBottom: 4 }, small: { fontSize: 7, color: "#5B6B82" }, row: { flexDirection: "row", borderBottom: "0.5pt solid #E6E2D8", paddingVertical: 2 }, th: { fontWeight: 500 }, c: { width: "16%" }, c2: { width: "8%" }, c3: { width: "30%" }, box: { marginTop: 10, padding: 6, border: "0.5pt solid #C29A45" } });
 export async function statementPdf(s: SignedStatement): Promise<Buffer> {
   const e = React.createElement; const b = s.body;
   const cell = (w: any, t: string, bold = false) => e(Text, { style: [w, bold ? st.th : {}] as any }, t);
