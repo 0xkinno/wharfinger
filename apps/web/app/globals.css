@@ -36,7 +36,7 @@ h1, h2, h3 { font-family: var(--font-display); font-variation-settings: "opsz" 1
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
 .chip { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 10px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; border: 1px solid var(--hairline); background: #fff; }
 .chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); display: inline-block; }
-.chip.live i { background: var(--signal); box-shadow: 0 0 0 3px rgba(25,211,255,.3); } .chip.flag { color: var(--flag); border-color: rgba(229,72,77,.4); } .chip.flag i { background: var(--flag); }
+.chip.live i { background: var(--signal); box-shadow: 0 0 0 3px rgba(25,211,255,.3); } .chip.flag { color: #B4282D; border-color: rgba(229,72,77,.4); } .chip.flag i { background: var(--flag); }
 .chip.ok { color: var(--ok); } .chip.ok i { background: var(--ok); } .chip.brass { color: #8a6a1f; border-color: rgba(194,154,69,.5); } .chip.brass i { background: var(--brass); }
 table.sheet { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13.5px; font-variant-numeric: tabular-nums; }
   table.sheet th { text-align: left; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--hairline); white-space: nowrap; font-weight: 600; background: #fff; position: sticky; top: 0; }
