@@ -62,7 +62,7 @@ The organisers say to aim for at least three useful updates on different dates. 
 
 ```text
 Update 2 (around Nov 28 to 29, with gate.jpg)
-Wharfinger can now hold a payment. The gate checks the statement recomputes, both keys match and the payee has a clean paid sanctions receipt. Tampered: blocked. Sanctions hit: escalated. Clean: released on @solana devnet. Built on @Telegraphprotoc. Hackathon entry.
+Wharfinger can now hold a payment. A gate checks the statement recomputes, both keys match and the payee screens clean on a paid @Telegraphprotoc receipt. Tampered: blocked. Sanctions hit: escalated. Clean: released on @solana devnet. Hackathon entry.
 https://wharfinger-kinnoskis-projects.vercel.app/settle
 
 Update 3 (around Nov 30, with the demo video if it exists)
