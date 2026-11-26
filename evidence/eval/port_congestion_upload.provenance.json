@@ -1,0 +1,58 @@
+[
+ {
+  "port": "Kotka",
+  "why": "INCOMPLETE",
+  "rejectedMiner": "86005",
+  "rejectedReceipt": "0x3a84f5c58362c466986a933af2f5c581a3dd067495d9b8a22bcb66c518b92fd8",
+  "chosenMiner": "4283",
+  "chosenReceipt": "0xc357c1921ddc55ce68604092ed0d01b723fbfdd1f6e25773e0b0c36a0a2918bc"
+ },
+ {
+  "port": "Kotka",
+  "why": "INCOHERENT",
+  "rejectedMiner": "20260828",
+  "rejectedReceipt": "0x7be687257bac5849a37869e5cfc7dbd6a0c0042f059fff5bcd0062fdddc76aa1",
+  "chosenMiner": "202611205",
+  "chosenReceipt": "0x6b57bbf6a49a7a1fb8d668a739b1a47e7457b1e897e3fc9880a1877e904ca87d"
+ },
+ {
+  "port": "Kotka",
+  "why": "WRONG_PLACE",
+  "rejectedMiner": "9002",
+  "rejectedReceipt": "0x0702663ddbdc0424b6d4c4c044008cb5370e360d63fbb6e1944899e6639d39a6",
+  "chosenMiner": "4283",
+  "chosenReceipt": "0xc357c1921ddc55ce68604092ed0d01b723fbfdd1f6e25773e0b0c36a0a2918bc"
+ },
+ {
+  "port": "Helsinki",
+  "why": "INCOMPLETE",
+  "rejectedMiner": "86005",
+  "rejectedReceipt": "0x9be026136ae7abb298715350318965f7613ffc88d1722969a501f9bb8e6a8374",
+  "chosenMiner": "4283",
+  "chosenReceipt": "0xfabd5efd58266439d7d7c934c5dbcfbaa3e2117f99f96bd8af3452a8f4f93d42"
+ },
+ {
+  "port": "Helsinki",
+  "why": "INCOHERENT",
+  "rejectedMiner": "20260828",
+  "rejectedReceipt": "0x91fda9522476ffc7ef636ae4dba0c96ef50bb3accc523980487ac1ebad935c5d",
+  "chosenMiner": "202611205",
+  "chosenReceipt": "0xca986004b39faa11cd63346fba40dd55f149447e0af6d2e3fa17ad8341a5f93e"
+ },
+ {
+  "port": "Turku",
+  "why": "INCOMPLETE",
+  "rejectedMiner": "86005",
+  "rejectedReceipt": "0x33eaeedb8e6e918f1113da14a5f17ce7ee35d126b00ba7dc3647fd208b8e3e7d",
+  "chosenMiner": "202611205",
+  "chosenReceipt": "0xa2646440ea199fef2880900bf2d934c40402e413420bba84924cbcf2fe800bc6"
+ },
+ {
+  "port": "Turku",
+  "why": "INCOHERENT",
+  "rejectedMiner": "20260828",
+  "rejectedReceipt": "0xca96f9bdea64ba1b18a588fa218595a6f35114cad72bdb0044611fcdc96c562d",
+  "chosenMiner": "4283",
+  "chosenReceipt": "0x42d56a49e67b71e7da041baa4f261ced4d3a3664f1b26e24a8b61cf2ce80fcfb"
+ }
+]

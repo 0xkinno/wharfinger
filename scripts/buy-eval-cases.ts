@@ -11,7 +11,7 @@ loadEnv();
 const house = privateKeyToAccount(process.env.HOUSE_PRIVATE_KEY as `0x${string}`); const tg = escrowClient(house);
 const km = (a: number, b: number, c: number, d: number) => { const R = 6371, r = Math.PI / 180, x = (c - a) * r, y = (d - b) * r; const h = Math.sin(x / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin(y / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
 const mmsis = process.argv.slice(2).map(Number).filter(Boolean);
-const miners: any = (await tg.miners("VESSEL_TELEMETRY_VERIFY_GENERAL")).json; const ids: string[] = (miners.miners ?? []).map((m: any) => String(m.id));
+const miners: any = (await tg.miners("VESSEL_TELEMETRY_VERIFY_GENERAL")).json; const ids: string[] = process.env.MINERS ? process.env.MINERS.split(",") : (miners.miners ?? []).map((m: any) => String(m.id)); // MINERS=id,id limits the spend
 const F = "evidence/eval/vessel_telemetry_cases.json"; const cases: any[] = existsSync(F) ? JSON.parse(readFileSync(F, "utf8")) : [];
 mkdirSync("evidence/eval", { recursive: true });
 for (const mmsi of mmsis) {

@@ -41869,5 +41869,986 @@
    "course_deg": 319,
    "observed_at": "2026-11-26T04:52:01.953Z"
   }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "7603",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:07.026Z",
+  "receipt": "0xde8eb32368ebb51e285160f1ff5cb6ec7c6f8331a9dab6d7387969213fd5136d",
+  "result": {
+   "vessel": "244978000",
+   "speed_knots": 0,
+   "latitude": 61.124288,
+   "longitude": 21.454392,
+   "course_deg": 341,
+   "observed_at": "2026-11-26T06:09:54.671Z"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "70068",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:13.325Z",
+  "receipt": "0x0f105026c5da2946bd09b52cd916d5553d4d92e4401ccf4c1546073c18f11646",
+  "result": {
+   "vessel": "244978000",
+   "speed_knots": 0,
+   "latitude": 61.124288,
+   "longitude": 21.454392,
+   "course_deg": 341,
+   "observed_at": "2026-11-26T06:09:54.671Z"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "302",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:18.176Z",
+  "receipt": "0x1579feca6157f710e0489ebb92862aba9a9c8f906582bcf14ef1881c726a7d54",
+  "result": {
+   "vessel": "244978000",
+   "speed_knots": 0,
+   "latitude": 61.124288,
+   "longitude": 21.454392,
+   "course_deg": 341.3,
+   "observed_at": "2026-11-26T06:09:54.671Z"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "9002",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:23.775Z",
+  "receipt": "0x041c6cbd1ac410cb544890f55141c1e37340203cfc19286bdbb126ca455f65c4",
+  "result": {
+   "vessel": "244978000",
+   "speed_knots": 0,
+   "latitude": 61.124288,
+   "longitude": 21.454392,
+   "course_deg": 341.3,
+   "observed_at": "2026-11-26 06:09 UTC"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "93014",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 5362.07,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:29.204Z",
+  "receipt": "0x39dd93b3de0011a5a44a4bee340a6010702631708605b519065d890f30deaf67",
+  "result": {
+   "vessel": "244978000",
+   "speed_knots": 0,
+   "latitude": 21.454392,
+   "longitude": 61.124288,
+   "course_deg": 341.3,
+   "observed_at": "2026-11-26T06:09:55Z"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "93004",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:33.686Z",
+  "receipt": "0xd7a6d69bbd600c8379b74ae09a3a650a01fa2346fc42d52204ed3f36718e19d7",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:11:00.056436Z"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "8818818",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:37.915Z",
+  "receipt": "0x2bfd6f9c33cb5d05db95fecc0a2a336e92ce84ec52961f981b00219e72df13d9",
+  "result": {
+   "vessel": "244978000",
+   "speed_knots": 0,
+   "latitude": 61.124285,
+   "longitude": 21.45439,
+   "course_deg": 175.3,
+   "observed_at": "2026-11-26T06:00:55.184Z"
+  }
+ },
+ {
+  "mmsi": 244978000,
+  "miner": "93009",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:42.753Z",
+  "receipt": "0x42455e3d49c1eb06087ae8e2271c72dedac49f98eee8ec445a85af16d7f59baf",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:11:00.056436Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "7603",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:46.036Z",
+  "receipt": "0x7e7cf3b06e37ced0e30460eb1a4703165d1545ab5d14eb05edd771dbc8977107",
+  "result": {
+   "vessel": "255806257",
+   "speed_knots": 0,
+   "latitude": 61.130138,
+   "longitude": 21.425873,
+   "course_deg": 29,
+   "observed_at": "2026-11-26T06:12:12.275Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "70068",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:51.162Z",
+  "receipt": "0x36388633fb25dd62934c05043e6f494e66e49785cd22c38e8fdf3fcdc0133737",
+  "result": {
+   "vessel": "255806257",
+   "speed_knots": 0,
+   "latitude": 61.130138,
+   "longitude": 21.425873,
+   "course_deg": 29,
+   "observed_at": "2026-11-26T06:12:12.275Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "302",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:12:56.075Z",
+  "receipt": "0xb824d2cac08ee8ccf379034a1d27c394fdc853bea569455761270cdc2bd933af",
+  "result": {
+   "vessel": "255806257",
+   "speed_knots": 0,
+   "latitude": 61.130138,
+   "longitude": 21.425873,
+   "course_deg": 29,
+   "observed_at": "2026-11-26T06:12:12.275Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "9002",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:01.693Z",
+  "receipt": "0x77b8b0eb010e4b9af45fed080e8c5712f220b3601147f01eaf9b5deaa6a752a5",
+  "result": {
+   "vessel": "255806257",
+   "speed_knots": 0,
+   "latitude": 61.130138,
+   "longitude": 21.425873,
+   "course_deg": 29,
+   "observed_at": "2026-11-26 06:12 UTC"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "93014",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 5366.82,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:06.767Z",
+  "receipt": "0x568587f0e9b18b1cc4fe04094a72963518fe31500cc3bc4c3e33f75a4e688d3b",
+  "result": {
+   "vessel": "255806257",
+   "speed_knots": 0,
+   "latitude": 21.425873,
+   "longitude": 61.130138,
+   "course_deg": 29,
+   "observed_at": "2026-11-26T06:12:13Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "93004",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:10.847Z",
+  "receipt": "0x7c2188ab2eeae92d5cfe2d4e7d660e5c7fef8be00fb2489659035e745155ba02",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:11:00.056436Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "8818818",
+  "label": "GOOD",
+  "checks": [],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:15.387Z",
+  "receipt": "0x2d737805ec220943499d3b33f495c5d3e51d324c0aeec6d9a49bfd9a304aa424",
+  "result": {
+   "vessel": "255806257",
+   "speed_knots": 0,
+   "latitude": 61.13014166666667,
+   "longitude": 21.425875,
+   "course_deg": 337.5,
+   "observed_at": "2026-11-26T06:00:13.017Z"
+  }
+ },
+ {
+  "mmsi": 255806257,
+  "miner": "93009",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:19.336Z",
+  "receipt": "0xe89395149475d3bf04326192a30baa799ec5429deba23765fb440ee488cba4e5",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:11:00.056436Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "7603",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:21.899Z",
+  "receipt": "0x5efd7db3636b00c9b379054bb0d985fad8e1c8fc2cb094dcba138d96d80322eb",
+  "result": {
+   "vessel": "538011432",
+   "speed_knots": 0,
+   "latitude": 65.001987,
+   "longitude": 25.418823,
+   "course_deg": 215.2,
+   "observed_at": "2026-11-26T06:10:48.307Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "70068",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:27.511Z",
+  "receipt": "0xa09387df8ed8acdb2a4e1d9e85e49a1dfa46f47941ab76471987f5f5874663c1",
+  "result": {
+   "vessel": "538011432",
+   "speed_knots": 0,
+   "latitude": 65.001987,
+   "longitude": 25.418823,
+   "course_deg": 215,
+   "observed_at": "2026-11-26T06:10:48.307Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "302",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:32.504Z",
+  "receipt": "0x6034c043923e1abbe1982063d889455e04ce5de531f64b1afc44127caa1b3a2f",
+  "result": {
+   "vessel": "538011432",
+   "speed_knots": 0,
+   "latitude": 65.001987,
+   "longitude": 25.418823,
+   "course_deg": 215.2,
+   "observed_at": "2026-11-26T06:10:48.307Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "9002",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:38.078Z",
+  "receipt": "0x4e61d64307319eafcefe54c3e411213840ec7dbb76510b6ff328be8c848bfef2",
+  "result": {
+   "vessel": "538011432",
+   "speed_knots": 0,
+   "latitude": 65.001987,
+   "longitude": 25.418823,
+   "course_deg": 215.2,
+   "observed_at": "2026-11-26 06:10 UTC"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "93014",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 4401.45,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:43.236Z",
+  "receipt": "0x4ff815eb7b75ce6dca2788750f5f11a0b0830be3b60ee1d4c9cc6af5a2ba0797",
+  "result": {
+   "vessel": "538011432",
+   "speed_knots": 0,
+   "latitude": 25.418823,
+   "longitude": 25.418823,
+   "course_deg": 215.2,
+   "observed_at": "2026-11-26T06:10:49Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "93004",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:47.808Z",
+  "receipt": "0xb2cba2c682a5868b726830f188f432386c9effcc2c61000339d0c86b935bb883",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:11:00.056436Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "8818818",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:52.543Z",
+  "receipt": "0xfc93cfe832759ac230ccadf48964691c9d146c6c73830305bf1bf441c0ec3d04",
+  "result": {
+   "vessel": "538011432",
+   "speed_knots": 0,
+   "latitude": 65.00198666666667,
+   "longitude": 25.418823333333332,
+   "course_deg": 215.2,
+   "observed_at": "2026-11-26T06:10:48.248Z"
+  }
+ },
+ {
+  "mmsi": 538011432,
+  "miner": "93009",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 65.001987,
+   "lon": 25.418823,
+   "at": "2026-11-26T06:10:48.307Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:56.982Z",
+  "receipt": "0x123ade4009f7826649570f59e05400bf50ad8c4c5b0384d246f7a2cd27d46df7",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:11:00.056436Z"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "7603",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:13:59.467Z",
+  "receipt": "0xacf1082a6a342ea7f08e1c130a9eaf6d1728d0eb1d295ab155ddb52d2ca59e87",
+  "result": {
+   "vessel": "212521000",
+   "speed_knots": 0,
+   "latitude": 64.998147,
+   "longitude": 25.418625,
+   "course_deg": 106.6,
+   "observed_at": "2026-11-26T06:11:22.371Z"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "70068",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:05.554Z",
+  "receipt": "0xd63b64c20020353f58ab941fba54185f31cf636bc56cae1a38e3169dfc242a80",
+  "result": {
+   "vessel": "212521000",
+   "speed_knots": 0,
+   "latitude": 64.998147,
+   "longitude": 25.418625,
+   "course_deg": 106.6,
+   "observed_at": "2026-11-26T06:11:22.371Z"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "302",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:10.584Z",
+  "receipt": "0x039a693b94a653f18a82b2c6d5d74d19448e8d339131122c10f3e2e31371644a",
+  "result": {
+   "vessel": "212521000",
+   "speed_knots": 0,
+   "latitude": 64.998147,
+   "longitude": 25.418625,
+   "course_deg": 106.6,
+   "observed_at": "2026-11-26T06:11:22.371Z"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "9002",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:16.063Z",
+  "receipt": "0xf7ae5f23b2ada33371a41e65dbe7fdecfb8209c9994a51d25c850580ab200280",
+  "result": {
+   "vessel": "212521000",
+   "speed_knots": 0,
+   "latitude": 64.998147,
+   "longitude": 25.418625,
+   "course_deg": 106.6,
+   "observed_at": "2026-11-26 06:11 UTC"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "93014",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE",
+   "UNPARSEABLE_TIME"
+  ],
+  "distanceKm": 4401.04,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:21.348Z",
+  "receipt": "0x93def3e640b4153fdac8c8fb141ada1a9c6557db326bf596268d80a856a07f9e",
+  "result": {
+   "vessel": "212521000",
+   "speed_knots": 0,
+   "latitude": 25.418625,
+   "longitude": 25.418625,
+   "course_deg": 106.6,
+   "observed_at": "21"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "93004",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:25.460Z",
+  "receipt": "0x9375f567cd4b471cd4f09eebbb029bd8fffcf6e402fcdae3df7f7faa11fff1fa",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:13:00.047865Z"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "8818818",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:29.911Z",
+  "receipt": "0x06d9db41cbf55f600664d6943ed89d492347d65f72bff22d48c4cbbf41efef89",
+  "result": {
+   "vessel": "212521000",
+   "speed_knots": 0,
+   "latitude": 64.99812833333334,
+   "longitude": 25.418615,
+   "course_deg": 106.6,
+   "observed_at": "2026-11-26T05:59:22.250Z"
+  }
+ },
+ {
+  "mmsi": 212521000,
+  "miner": "93009",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 64.998147,
+   "lon": 25.418625,
+   "at": "2026-11-26T06:11:22.371Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:34.096Z",
+  "receipt": "0xbfe381e545fad620fa8c4832127b1b4a55f9bd4f9d81cb6f7000a01ad101f2ad",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:13:00.047865Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "7603",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:36.631Z",
+  "receipt": "0x2742e263a8f983302cbf67765492452e3a7fe6b58b08f8e294ff05118a9097cb",
+  "result": {
+   "vessel": "266435000",
+   "speed_knots": 0,
+   "latitude": 65.005302,
+   "longitude": 25.399662,
+   "course_deg": 58.1,
+   "observed_at": "2026-11-26T06:12:32.454Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "70068",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:42.583Z",
+  "receipt": "0x956579512aa0f9d213ea513323303321e0e06d38e364f5b69f40ad22539c331e",
+  "result": {
+   "vessel": "266435000",
+   "speed_knots": 0,
+   "latitude": 65.005302,
+   "longitude": 25.399662,
+   "course_deg": 58,
+   "observed_at": "2026-11-26T06:12:32.454Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "302",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:47.570Z",
+  "receipt": "0xc4b9f311e9e2380dab3981ea05cd2c017666e8b1bed13ecb7856467c1cdd2fe6",
+  "result": {
+   "vessel": "266435000",
+   "speed_knots": 0,
+   "latitude": 65.005302,
+   "longitude": 25.399662,
+   "course_deg": 58.1,
+   "observed_at": "2026-11-26T06:12:32.454Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "9002",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:53.263Z",
+  "receipt": "0x451115a34be24e39c7fb12b1f1e6c381de56e8d2543999cd98f850978d568cd8",
+  "result": {
+   "vessel": "266435000",
+   "speed_knots": 0,
+   "latitude": 65.005302,
+   "longitude": 25.399662,
+   "course_deg": 58.1,
+   "observed_at": "2026-11-26 06:12 UTC"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "93014",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 4403.95,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:14:58.429Z",
+  "receipt": "0x35abda3d319876a4c422e0ea0d924c8b8cc4399dd61e24d3cf974372cc35e15e",
+  "result": {
+   "vessel": "266435000",
+   "speed_knots": 0,
+   "latitude": 25.399662,
+   "longitude": 25.399662,
+   "course_deg": 58.1,
+   "observed_at": "2026-11-26T06:12:33Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "93004",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:15:03.012Z",
+  "receipt": "0xeb147f17205a8ecbb4507da1bffabe16ad3f3f76580af47fc3df3efde7564d95",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:14:00.299823Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "8818818",
+  "label": "BAD",
+  "checks": [
+   "WRONG_PLACE"
+  ],
+  "distanceKm": 0,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:15:07.404Z",
+  "receipt": "0x517828e381f2e8612ebf8edf010e3fd48e3725c340adb137fd9f5a0ba0cc839c",
+  "result": {
+   "vessel": "266435000",
+   "speed_knots": 0,
+   "latitude": 65.00530166666667,
+   "longitude": 25.399661666666667,
+   "course_deg": 58.1,
+   "observed_at": "2026-11-26T06:12:32.408Z"
+  }
+ },
+ {
+  "mmsi": 266435000,
+  "miner": "93009",
+  "label": "BAD",
+  "checks": [
+   "NO_READING"
+  ],
+  "distanceKm": null,
+  "truth": {
+   "lat": 65.005302,
+   "lon": 25.399662,
+   "at": "2026-11-26T06:12:32.454Z",
+   "source": "Digitraffic AIS"
+  },
+  "askedAt": "2026-11-26T06:15:11.507Z",
+  "receipt": "0xb30e7816f56244931bbc177308f273da2aeb584fc5eaa2c8ee41787fe42d9724",
+  "result": {
+   "vessel": null,
+   "speed_knots": null,
+   "latitude": null,
+   "longitude": null,
+   "course_deg": null,
+   "observed_at": "2026-11-26T06:14:00.299823Z"
+  }
  }
 ]

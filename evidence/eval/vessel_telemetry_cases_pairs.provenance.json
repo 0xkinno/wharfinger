@@ -854,5 +854,107 @@
   },
   "chosenReceipt": "0x8b5ec8e4227a881d14e92ed5a70bf2c27ed460359b0f752c6ee28c9deed108ab",
   "rejectedReceipt": "0x039904f07e96f1149b5c99cbe1eaa67b4bf6dc460deb683c715615d6e5f17418"
+ },
+ {
+  "mmsi": 244978000,
+  "chosenMiner": "9002",
+  "rejectedMiner": "93014",
+  "rejectedWhy": [
+   "WRONG_PLACE"
+  ],
+  "rejectedDistanceKm": 5362.07,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "chosenReceipt": "0x041c6cbd1ac410cb544890f55141c1e37340203cfc19286bdbb126ca455f65c4",
+  "rejectedReceipt": "0x39dd93b3de0011a5a44a4bee340a6010702631708605b519065d890f30deaf67"
+ },
+ {
+  "mmsi": 244978000,
+  "chosenMiner": "8818818",
+  "rejectedMiner": "93004",
+  "rejectedWhy": [
+   "NO_READING"
+  ],
+  "rejectedDistanceKm": null,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "chosenReceipt": "0x2bfd6f9c33cb5d05db95fecc0a2a336e92ce84ec52961f981b00219e72df13d9",
+  "rejectedReceipt": "0xd7a6d69bbd600c8379b74ae09a3a650a01fa2346fc42d52204ed3f36718e19d7"
+ },
+ {
+  "mmsi": 244978000,
+  "chosenMiner": "8818818",
+  "rejectedMiner": "93009",
+  "rejectedWhy": [
+   "NO_READING"
+  ],
+  "rejectedDistanceKm": null,
+  "truth": {
+   "lat": 61.124288,
+   "lon": 21.454392,
+   "at": "2026-11-26T06:09:54.671Z",
+   "source": "Digitraffic AIS"
+  },
+  "chosenReceipt": "0x2bfd6f9c33cb5d05db95fecc0a2a336e92ce84ec52961f981b00219e72df13d9",
+  "rejectedReceipt": "0x42455e3d49c1eb06087ae8e2271c72dedac49f98eee8ec445a85af16d7f59baf"
+ },
+ {
+  "mmsi": 255806257,
+  "chosenMiner": "9002",
+  "rejectedMiner": "93014",
+  "rejectedWhy": [
+   "WRONG_PLACE"
+  ],
+  "rejectedDistanceKm": 5366.82,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "chosenReceipt": "0x77b8b0eb010e4b9af45fed080e8c5712f220b3601147f01eaf9b5deaa6a752a5",
+  "rejectedReceipt": "0x568587f0e9b18b1cc4fe04094a72963518fe31500cc3bc4c3e33f75a4e688d3b"
+ },
+ {
+  "mmsi": 255806257,
+  "chosenMiner": "8818818",
+  "rejectedMiner": "93004",
+  "rejectedWhy": [
+   "NO_READING"
+  ],
+  "rejectedDistanceKm": null,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "chosenReceipt": "0x2d737805ec220943499d3b33f495c5d3e51d324c0aeec6d9a49bfd9a304aa424",
+  "rejectedReceipt": "0x7c2188ab2eeae92d5cfe2d4e7d660e5c7fef8be00fb2489659035e745155ba02"
+ },
+ {
+  "mmsi": 255806257,
+  "chosenMiner": "8818818",
+  "rejectedMiner": "93009",
+  "rejectedWhy": [
+   "NO_READING"
+  ],
+  "rejectedDistanceKm": null,
+  "truth": {
+   "lat": 61.130138,
+   "lon": 21.425873,
+   "at": "2026-11-26T06:12:12.275Z",
+   "source": "Digitraffic AIS"
+  },
+  "chosenReceipt": "0x2d737805ec220943499d3b33f495c5d3e51d324c0aeec6d9a49bfd9a304aa424",
+  "rejectedReceipt": "0xe89395149475d3bf04326192a30baa799ec5429deba23765fb440ee488cba4e5"
  }
 ]

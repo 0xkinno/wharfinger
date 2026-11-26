@@ -24,3 +24,15 @@ Most miners relay the same Digitraffic feed, so the GOOD answers agree with the 
 test whether a judge can tell a sound answer from a broken one, not whether the feed is right. Ships were all moored or at anchor, so
 no pair covers a moving vessel. The set is small and grows when `buy-eval-cases.ts` is run for more ships. Upload does not promote
 material: the Anjoman page shows eligible or rejected separately from any ranking that uses it.
+
+## Second set: port queue (`LIVE_PORT_CONGESTION_GENERAL`)
+`scripts/buy-eval-port-cases.ts` asked the other 14 miners serving this intent about Kotka, Helsinki and Turku (45 paid answers, our own
+miner excluded). A GOOD answer names the port asked about, fills every field and is internally coherent (no ships waiting means a low
+level and a near-zero wait). BAD answers are wrong place (Kotka answered as Hanko), incomplete (every field null) or incoherent (no ships
+waiting but a 216 hour wait). Queue values are not judged because no independent truth for a queue length is claimed. Upload file:
+`evidence/eval/port_congestion_upload.jsonl`; provenance beside it.
+
+## First upload result (2026-11-26)
+The vessel set was uploaded: 28 stored, 25 rejected as near duplicates, 2 superseded, 1 admitted. Ships at berth give near-identical answers
+and one prompt template repeated, so the filter was right. Lesson kept: material needs different failure types and different prompts,
+not more of the same.
