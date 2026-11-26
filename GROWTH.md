@@ -88,15 +88,15 @@ require: hackathon entry, prize incentive, AI assistance.
 1/3
 A ship sat in port for three days. Three weeks later the owner billed 41 hours of demurrage, $750 an hour, and the analyst had one handwritten page to argue with.
 
-So I built a harbour officer that buys the evidence while it is still true. [thread emoji]
+So I built a harbour officer on @Telegraphprotoc that buys the evidence while it is still true. [thread emoji]
 
 2/3
-Wharfinger watches the ship through @Telegraphprotoc: position, port queue and weather every 30 minutes. It refuses wrong or stale miner answers (one put the ship 3,710 km away). Code classifies every hour of the stay. No model sets a number.
+Wharfinger watches the ship: position, port queue and weather every 30 minutes, each one a paid answer with a receipt. It refuses wrong or stale answers (one miner put the ship 3,710 km away). Code classifies every hour of the stay. No model sets a number.
 
 3/3
 The owner recomputes each line in a browser from the receipts. Change one minute and it fails at that line. Now a gate holds the payment until that evidence checks out.
 
-Testnet. Season II hackathon entry, prize incentive applies. AI assisted.
+Testnet. Hackathon entry, built with AI assistance.
 https://wharfinger-kinnoskis-projects.vercel.app
 ```
 
