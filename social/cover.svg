@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="41 hours. $750 an hour. One handwritten page to argue with.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06101D"/><stop offset="1" stop-color="#0D2240"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/></pattern>
+    <radialGradient id="glow" cx=".8" cy=".45" r=".55"><stop offset="0" stop-color="#C29A45" stop-opacity=".22"/><stop offset="1" stop-color="#C29A45" stop-opacity="0"/></radialGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#000" flood-opacity=".55"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grid)"/><rect width="1600" height="900" fill="url(#glow)"/>
+  <g transform="translate(80 70)"><rect width="52" height="52" rx="13" fill="#0B1B33" stroke="#19D3FF" stroke-opacity=".5"/><path d="M12 16l7 21 7-15 7 15 7-21" fill="none" stroke="#19D3FF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="14" r="3" fill="#C29A45"/></g>
+  <text x="148" y="106" font-family="Fraunces, serif" font-size="40" fill="#fff" font-weight="600">Wharfinger</text>
+  <g transform="translate(1100 72)"><rect width="420" height="46" rx="23" fill="none" stroke="#C29A45" stroke-opacity=".7"/><text x="210" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="3" fill="#C29A45">DEMURRAGE · TELEGRAPH TESTNET</text></g>
+
+  <text x="80" y="255" font-family="IBM Plex Mono, monospace" font-size="20" letter-spacing="5" fill="#9FB0C7">THE $750 HOUR</text>
+  <text x="80" y="380" font-family="Fraunces, serif" font-size="130" font-weight="600" fill="#fff" letter-spacing="-3">41 hours.</text>
+  <text x="80" y="505" font-family="Fraunces, serif" font-size="130" font-weight="600" fill="#C29A45" letter-spacing="-3">$750 an hour.</text>
+  <text x="80" y="580" font-family="Instrument Sans, sans-serif" font-size="40" fill="#C9D5E6">And one handwritten page to argue with.</text>
+
+  <!-- the handwritten page -->
+  <g transform="translate(1060 280) rotate(5)" filter="url(#sh)">
+    <rect width="470" height="430" rx="10" fill="#F3EEE2"/>
+    <rect x="0" y="0" width="470" height="56" rx="10" fill="#E6DFCD"/>
+    <text x="28" y="36" font-family="IBM Plex Mono, monospace" font-size="17" letter-spacing="3" fill="#5C5240">STATEMENT OF FACTS</text>
+    <g fill="none" stroke="#6F6450" stroke-width="3" stroke-linecap="round">
+      <path d="M30 100c18-10 28 8 46-2s30 6 50-3 34 8 60-2 40 6 70 0"/>
+      <path d="M30 148c24-8 34 6 56-2s26 8 52-1 44 7 76-2"/>
+      <path d="M30 196c14-9 30 7 52-1s34 5 58-2 36 7 66-1 46 4 78-2 40 5 60 0"/>
+      <path d="M30 244c22-7 28 8 54-1s38 6 62-2 30 7 58-1"/>
+      <path d="M30 292c16-9 32 6 50-2s34 7 60-1 40 5 70-1 40 6 62 0"/>
+      <path d="M30 340c20-8 26 7 50-1s32 6 56-2"/>
+    </g>
+    <path d="M26 197H410" stroke="#E5484D" stroke-width="4" stroke-linecap="round"/>
+    <text x="30" y="396" font-family="IBM Plex Mono, monospace" font-size="19" fill="#8A7D63">NOR 02:40 ???   snow, twice?</text>
+  </g>
+  <g transform="translate(1200 480) rotate(-12)"><rect width="270" height="76" rx="12" fill="#1C1018" fill-opacity=".92" stroke="#FF6B70" stroke-width="3"/><text x="135" y="53" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="38" letter-spacing="6" fill="#FF6B70">DISPUTED</text></g>
+
+  <g transform="translate(80 700)">
+    <rect width="780" height="86" rx="43" fill="#0A1A2E" stroke="#19D3FF" stroke-opacity=".5"/>
+    <circle cx="43" cy="43" r="14" fill="#19D3FF"/><path d="M36 43l5 5 9-10" fill="none" stroke="#06101D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="78" y="55" font-family="Instrument Sans, sans-serif" font-size="30" font-weight="600" fill="#fff">Wharfinger buys the proof while it is true.</text>
+  </g>
+  <text x="80" y="860" font-family="Instrument Sans, sans-serif" font-size="20" fill="#7E91AC">Rate and hours are an invented example. Telegraph testnet. Hackathon entry. Built with AI assistance.</text>
+</svg>
