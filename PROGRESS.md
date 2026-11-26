@@ -30,13 +30,13 @@ Answers 2, 4 (browser), 7 and 8 (live drain) gate Phase 7 polishing.
 | 4 | Owner recomputes, online and offline | **yes** | Browser recompute on `/verify/*` and `/judge`; tamper fails at the changed line; wallet suite ALL PASSED |
 | 7 | Judge path in 60 seconds, no login, on a phone | **yes** | Deployed; six viewport suite ALL PASSED on production |
 | 8 | Spend capped by the escrow; drain recorded | **yes** | `/api/judge/fault?mode=drain` recorded live run |
-| 11 | Claim the deployed app cannot demonstrate | none | Solana is devnet with a test token; Visa and Pay.sh are not claimed |
+| 11 | Claim the deployed app cannot demonstrate | none | Solana is devnet with a test token; Pay.sh is not claimed |
 
 New since the first table: settlement gate and `/settle`, two real screening receipts, one released payment on Solana devnet
 read back from the chain, production secrets and database, house escrow funded, issue 196 read.
 
 Still open: finish of the unattended voyage, six week replay, red team rounds, evaluator and miner entries, chart-derived port
-limits, Visa and Pay.sh rails, video, posts.
+limits, Pay.sh rail, video, posts.
 
 ## Honest gaps found by building
 

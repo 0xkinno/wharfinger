@@ -55,7 +55,7 @@ Showcase permission: yes. Built with substantial AI assistance (`DISCLOSURES.md`
 
 Done since the first draft: settlement gate (`/settle`, `packages/settle`) with two real screening receipts; a released payment on Solana devnet read back from the chain; an unattended production voyage (MV Kraftca) started and ticking; the Mission 08 issue body read and mapped.
 
-Not done: the unattended voyage finishing at sailing, six week replay, Visa CLI rail, Pay.sh, red team rounds, evaluator and miner
+Not done: the unattended voyage finishing at sailing, six week replay, Pay.sh, red team rounds, evaluator and miner
 entries, H2 gallery check, BIMCO text, chart-derived port limits, `executeWithdraw` sweep (requested, waits
 for the node's ledger root). None of these is claimed anywhere in the app or the README.
 

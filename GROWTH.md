@@ -12,7 +12,7 @@ Likes and follower counts are not recorded as evidence.
 
 | Date (UTC) | Channel | Link | What it covers | Independent action that followed |
 |---|---|---|---|---|
-| none yet | | | | |
+| 2026-11-26 | X thread (3 posts), posted by the owner | https://x.com/0xkiddok/status/2125900333683482939 | The problem, the watcher and the recompute check, with cover and tamper images | none yet |
 
 ## Independent developer evidence
 
@@ -61,10 +61,10 @@ Repo: github.com/0xkinno/wharfinger
 The organisers say to aim for at least three useful updates on different dates. Post the thread above first, then these on later days.
 
 ```text
-Update 2 (around Nov 28 to 29, with the /settle screenshot)
-Wharfinger can now hold a payment. A demurrage invoice passes a gate: the statement must recompute, both signing keys must match, and the payee needs a clean paid sanctions receipt from @Telegraphprotoc. Tampered: blocked. Sanctions hit: escalated. Clean: released on Solana devnet.
+Update 2 (around Nov 28 to 29, with gate.jpg)
+Wharfinger can now hold a payment. A demurrage invoice passes a gate: the statement must recompute, both signing keys must match, and the payee needs a clean paid sanctions receipt from @Telegraphprotoc. Tampered: blocked. Sanctions hit: escalated. Clean: released on @solana devnet, statement hash in the memo.
 https://wharfinger-kinnoskis-projects.vercel.app/settle
-Hackathon entry, prize incentive applies. AI assisted.
+Hackathon entry. AI assisted.
 
 Update 3 (around Nov 30, with the demo video if it exists)
 Ask Telegraph for the Kotka port queue and miners answered for Hanko. So I registered a provider that does not: Wharfinger Port Queue, for LIVE_PORT_CONGESTION. I also bought 150+ answers from other miners and labelled them for evaluators.
@@ -132,11 +132,11 @@ Attach `apps/web/public/readme/judge-break.jpg` or the video. The card image is 
 Mission 08 Commodities, Apps & Agents: Wharfinger (repo and live app below). It already buys vessel position, port queue and
 weather on Telegraph, refuses wrong and stale answers, and produces a statement the counterparty can recompute.
 
-Closest fits, stated plainly: Solana #4 (Verified Global Trade) and Visa #12 (verify what was delivered) need the same layer:
+Closest fit, stated plainly: Solana use case 4 (Verified Global Trade and Autonomous Commerce) needs the same layer:
 independent evidence of a shipment or a port stay before money moves. Wharfinger supplies that evidence and a recompute check
 today on Sepolia, and a settlement gate now holds, escalates, blocks or releases a payment on that evidence. A released
 payment was sent on Solana devnet (test token, not USDC) and read back from the chain: https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet
-No Pay.sh and no Visa rail yet; looking for a Pay.sh or Visa CLI adapter author.
+Pay.sh is not integrated yet; looking for a Pay.sh adapter author.
 
 Repo: https://github.com/0xkinno/wharfinger | Live: https://wharfinger-kinnoskis-projects.vercel.app
 ```

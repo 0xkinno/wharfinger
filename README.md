@@ -149,7 +149,6 @@ Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line d
 | Withdraw sweep (`executeWithdraw`) | requested; waits for the node's ledger root |
 | Settlement gate (hold, escalate, block, release) | **live** as code and page; two real screening receipts from Telegraph |
 | Solana devnet transfer of a released amount, read back from the chain | **live on devnet**: [transaction](https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet) pays $4,500.00 of a devnet test token with the statement hash in the memo; the amount, payee and memo are read back from the chain and checked (`scripts/solana-settle.ts`) |
-| Visa CLI rail | not built: needs Visa CLI beta access and a card, neither of which this project has |
 | Unattended voyage | **running**: MV Kraftca at Kotka, funded with $5, bought answers every 30 minutes by the scheduler; complete when the ship sails |
 | Mission 08 issue body | read in full and mapped to the routes (`MISSION_FIT.md`) |
 | Miner: Wharfinger Port Queue (`LIVE_PORT_CONGESTION_GENERAL`, Kotka answered correctly) | **built and live**, endpoint tested; registration is the owner's step on Anjoman (`MINER.md`) |
