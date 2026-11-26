@@ -35,7 +35,7 @@ owner recomputes every line without trusting us.
 | One flipped minute is caught at that line | Press **Tamper one minute** on `/judge` |
 | A voyage key spends funds another wallet deposited, capped by the escrow | `evidence/probe/paid/stage_limit.json`, and the wallet suite below |
 | Funded with $0.05, the watcher stops: 5 paid answers, then the node's own refusal | `/api/judge/fault?mode=drain` (recorded live run) |
-| Wrong, stale and empty answers are refused and re-bought, not trusted | `/evidence`: 15 refusals with reasons, from real purchases |
+| Wrong, stale and empty answers are refused and re-bought, not trusted | `/evidence`: every refusal with its reason, from real purchases |
 | Every wallet action works for real: connect, fund, sign, countersign | `node e2e/wallet.mjs` (real Sepolia transactions and signatures) |
 | Every number on the site comes from stored purchases | `/api/stats`, `/api/status`, `/trace` |
 
