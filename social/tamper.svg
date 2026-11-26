@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="A 48 hour port stay to scale. Unchanged it passes the recompute; one minute added and it fails.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06101D"/><stop offset="1" stop-color="#0D2240"/></linearGradient>
+    <linearGradient id="count" x1="0" x2="1"><stop offset="0" stop-color="#19D3FF" stop-opacity=".85"/><stop offset="1" stop-color="#7BE6FF"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity=".035"/></pattern>
+    <radialGradient id="glow" cx=".85" cy=".1" r=".6"><stop offset="0" stop-color="#C29A45" stop-opacity=".22"/><stop offset="1" stop-color="#C29A45" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grid)"/><rect width="1600" height="900" fill="url(#glow)"/>
+  <g transform="translate(80 70)"><rect width="52" height="52" rx="13" fill="#0B1B33" stroke="#19D3FF" stroke-opacity=".5"/><path d="M12 16l7 21 7-15 7 15 7-21" fill="none" stroke="#19D3FF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="14" r="3" fill="#C29A45"/></g>
+  <text x="148" y="106" font-family="Fraunces, serif" font-size="40" fill="#fff" font-weight="600">Wharfinger</text>
+  <g transform="translate(1100 72)"><rect width="420" height="46" rx="23" fill="none" stroke="#C29A45" stroke-opacity=".7"/><text x="210" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="3" fill="#C29A45">TELEGRAPH TESTNET · MISSION 08</text></g>
+
+  <text x="80" y="270" font-family="Fraunces, serif" font-size="108" font-weight="600" fill="#fff" letter-spacing="-2">Change one minute.</text>
+  <text x="80" y="378" font-family="Fraunces, serif" font-size="108" font-weight="600" fill="#C29A45" letter-spacing="-2">The check fails.</text>
+  <text x="80" y="438" font-family="Instrument Sans, sans-serif" font-size="30" fill="#9FB0C7">A 48 hour port stay, recomputed from paid receipts in the owner's browser.</text>
+
+  <!-- the stay, to scale: 30 px per hour, 48 h = 1440 px -->
+  <g transform="translate(80 490)">
+    <rect x="0" y="0" width="180" height="56" rx="10" fill="#3A4A63"/>
+    <rect x="186" y="0" width="1074" height="56" rx="10" fill="url(#count)"/>
+    <rect x="1266" y="0" width="174" height="56" rx="10" fill="#E5484D"/>
+    <g stroke="#06101D" stroke-opacity=".45" stroke-width="2"><path d="M246 0v56M486 0v56M846 0v56M1086 0v56"/></g>
+    <g font-family="IBM Plex Mono, monospace" font-size="17" fill="#9FB0C7"><text x="0" y="90">BEFORE LAYTIME</text><text x="186" y="90">LAYTIME COUNTING</text><text x="1440" y="90" text-anchor="end">DEMURRAGE</text></g>
+    <g font-family="Instrument Sans, sans-serif" font-size="28" font-weight="600" fill="#fff"><text x="0" y="124">6.0 h</text><text x="186" y="124">36.0 h</text><text x="1440" y="124" text-anchor="end" fill="#FF8A8E">6.0 h · $4,500.00</text></g>
+  </g>
+
+  <g transform="translate(80 660)">
+    <rect width="700" height="150" rx="22" fill="#0A1A2E" stroke="#2BB88A" stroke-opacity=".6"/>
+        <text x="40" y="48" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="3" fill="#8FA3BD">AS SIGNED</text>
+    <text x="40" y="112" font-family="Fraunces, serif" font-size="68" font-weight="700" fill="#2BB88A">PASS</text>
+    <text x="250" y="96" font-family="Instrument Sans, sans-serif" font-size="24" fill="#C9D5E6">every interval, hash and signal</text>
+    <text x="250" y="126" font-family="Instrument Sans, sans-serif" font-size="24" fill="#C9D5E6">recomputes from the receipts</text>
+  </g>
+  <g transform="translate(820 660)">
+    <rect width="700" height="150" rx="22" fill="#1C1018" stroke="#E5484D" stroke-opacity=".7"/>
+        <text x="40" y="48" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="3" fill="#C99AA0">ONE MINUTE ADDED</text>
+    <text x="40" y="112" font-family="Fraunces, serif" font-size="68" font-weight="700" fill="#FF6B70">FAIL</text>
+    <text x="250" y="96" font-family="Instrument Sans, sans-serif" font-size="24" fill="#E6CFD2">interval 7 of 7 no longer matches</text>
+    <text x="250" y="126" font-family="Instrument Sans, sans-serif" font-size="24" fill="#E6CFD2">and the statement hash breaks</text>
+  </g>
+  <text x="80" y="868" font-family="IBM Plex Mono, monospace" font-size="19" fill="#19D3FF">wharfinger-kinnoskis-projects.vercel.app/judge</text>
+  <text x="1520" y="868" text-anchor="end" font-family="Instrument Sans, sans-serif" font-size="20" fill="#7E91AC">Testnet. Hackathon entry. Built with AI assistance.</text>
+</svg>
