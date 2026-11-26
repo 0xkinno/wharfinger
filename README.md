@@ -152,7 +152,8 @@ Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line d
 | Visa CLI rail | not built: needs Visa CLI beta access and a card, neither of which this project has |
 | Unattended voyage | **running**: MV Kraftca at Kotka, funded with $5, bought answers every 30 minutes by the scheduler; complete when the ship sails |
 | Mission 08 issue body | read in full and mapped to the routes (`MISSION_FIT.md`) |
-| Evaluator and Miner entries | not built; need the owner's Anjoman account |
+| Miner: Wharfinger Port Queue (`LIVE_PORT_CONGESTION_GENERAL`, Kotka answered correctly) | **built and live**, endpoint tested; registration is the owner's step on Anjoman (`MINER.md`) |
+| Evaluator material: real preference pairs for `VESSEL_TELEMETRY_VERIFY_GENERAL` | **built**, labelled against Digitraffic AIS; upload is the owner's step on Anjoman (`EVALUATOR.md`) |
 
 ## Commercial summary
 

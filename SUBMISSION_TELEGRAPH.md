@@ -59,6 +59,10 @@ Not done: the unattended voyage finishing at sailing, six week replay, Visa CLI 
 entries, H2 gallery check, BIMCO text, chart-derived port limits, `executeWithdraw` sweep (requested, waits
 for the node's ledger root). None of these is claimed anywhere in the app or the README.
 
+## Other tracks
+
+Miner (Track 02): Wharfinger Port Queue, `LIVE_PORT_CONGESTION_GENERAL`, see `MINER.md`. Evaluator (Track 03): 28 real preference pairs for `VESSEL_TELEMETRY_VERIFY_GENERAL`, see `EVALUATOR.md`. Registration and upload IDs go here once the owner has done both on Anjoman.
+
 ## Before submitting
 
 1. List Wharfinger in the Anjoman Apps directory (https://anjoman.ai/dashboard/apps): description, repository, live URL; update it

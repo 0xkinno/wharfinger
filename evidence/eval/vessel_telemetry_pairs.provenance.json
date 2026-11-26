@@ -58,5 +58,15 @@
   "rejectedReceipt": "0x032df2e656f080877fa13f09e76a9e03c4b0f46a429e2f1a44b9c307195baa79",
   "chosenMiner": "302",
   "chosenReceipt": "0x7f03e2c1ceacfa6e25539a84cac46d12e83a51253942ec5f305e01681d203ed7"
+ },
+ {
+  "mmsi": "244554000",
+  "rejectedMiner": "8818818",
+  "rejectedWhy": [
+   "STALE"
+  ],
+  "rejectedReceipt": "0x573f7ef16e9ad7a267a8e97e928ceb8e74a4440592f9061a1d07b5b73b3feee8",
+  "chosenMiner": "302",
+  "chosenReceipt": "0x916dac8837173bb0e2e0aedcca17d5f58571d6a8c0a23b9df6f80de521a6147d"
  }
 ]
