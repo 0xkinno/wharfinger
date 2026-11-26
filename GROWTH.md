@@ -62,14 +62,15 @@ The organisers say to aim for at least three useful updates on different dates. 
 
 ```text
 Update 2 (around Nov 28 to 29, with gate.jpg)
-Wharfinger can now hold a payment. A demurrage invoice passes a gate: the statement must recompute, both signing keys must match, and the payee needs a clean paid sanctions receipt from @Telegraphprotoc. Tampered: blocked. Sanctions hit: escalated. Clean: released on @solana devnet, statement hash in the memo.
+Wharfinger can now hold a payment. The gate checks the statement recomputes, both keys match and the payee has a clean paid sanctions receipt from @Telegraphprotoc.
+Tampered: blocked. Sanctions hit: escalated. Clean: released on @solana devnet, statement hash in the memo.
 https://wharfinger-kinnoskis-projects.vercel.app/settle
-Hackathon entry. AI assisted.
+Hackathon entry.
 
 Update 3 (around Nov 30, with the demo video if it exists)
 Ask Telegraph for the Kotka port queue and miners answered for Hanko. So I registered a provider that does not: Wharfinger Port Queue, for LIVE_PORT_CONGESTION. I also bought 150+ answers from other miners and labelled them for evaluators.
 https://github.com/0xkinno/wharfinger
-Hackathon entry for @Telegraphprotoc, prize incentive applies. AI assisted.
+Hackathon entry for @Telegraphprotoc. AI assisted.
 ```
 
 ### Later option: tutorial post (the tutorial exists and was run live)
