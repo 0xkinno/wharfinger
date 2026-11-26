@@ -5,6 +5,7 @@ import { cents } from "@/lib/fmt";
 import { summary, voyages } from "@/lib/store";
 import { statementDemo } from "@/lib/demo";
 import { Tour } from "@/components/Tour";
+import { ThreeClocks } from "@/components/ThreeClocks";
 import { VerifyBox } from "@/components/VerifyPanel";
 export const dynamic = "force-dynamic";
 
@@ -41,14 +42,16 @@ export default async function Home() {
             <GlowCard key={n} className="p-6"><span className="mono text-muted">{n}</span><h3 className="text-2xl mt-2 mb-2">{t}</h3><p className="text-[15px] text-muted">{b}</p></GlowCard>))}
         </div></section>
 
+      <section aria-label="Three clocks"><div className="card p-6 sm:p-10"><ThreeClocks /><p className="mt-4 text-[15px] text-muted max-w-[52em]">A paid answer is more than data. It carries the window it was authorized in, the time the node recorded it, and the epoch that bills it. The owner can check all three against the node without trusting us.</p></div></section>
+
       <section data-tour="board"><div className="flex items-end justify-between mb-5"><div><p className="eyebrow mb-2">Harbour board</p><h2 className="text-4xl">Watched now.</h2></div><Link className="underline text-sm" href="/harbour">All voyages</Link></div>
         <div className="grid md:grid-cols-2 gap-4">{board.length ? board.map((v) => (
           <Link key={v.id} href={`/voyage/${v.id}`}><GlowCard className="p-5 flex items-center justify-between"><div><div className="font-display text-2xl">{v.vessel}</div><div className="mono text-muted">{v.port_locode} {v.label ? `, ${v.label}` : ""}</div></div><Chip s={v.status} /></GlowCard></Link>)) : <GlowCard className="p-6 text-muted">No voyage is being watched yet. <Link className="underline" href="/voyage/new">Start one</Link>.</GlowCard>}</div></section>
 
-      <section className="grid md:grid-cols-[.9fr_1.1fr] gap-10 items-start" data-tour="sheet">
+      <section className="grid grid-cols-1 md:grid-cols-[.9fr_1.1fr] gap-10 items-start [&>*]:min-w-0" data-tour="sheet">
         <div data-text><p className="eyebrow mb-2">A time sheet, stapled</p><h2 className="text-4xl mb-4">One real statement.</h2><p className="text-muted mb-5">Built from answers bought on Telegraph testnet: the receipts and signals are real; the charter terms and Statement of Facts are illustrative. Download it in the formats desks already exchange.</p>
           <div className="flex flex-wrap gap-2 text-sm">{demo && <><Link className="btn ghost" href={`/statement/${demo.id}`}>Open statement</Link><a className="btn ghost" href={`/api/statement/${demo.id}/pdf`}>PDF</a><a className="btn ghost" href={`/api/statement/${demo.id}/xlsx`}>XLSX</a><a className="btn ghost" href={`/api/statement/${demo.id}?download=1`}>JSON</a></>}</div></div>
-        {demo ? (<GlowCard className="p-6"><table className="sheet"><thead><tr><th>From (UTC)</th><th>Min</th><th>Class</th><th>Receipts</th></tr></thead><tbody>{demo.rows.map((r, i) => (<tr key={i}><td className="num">{r.from}</td><td className="num">{r.minutes}</td><td><Chip s={r.cls === "COUNTS" ? "WATCHING" : r.cls === "EXCEPTED" ? "CORROBORATED" : r.cls === "REVIEW" ? "REVIEW" : "INSUFFICIENT"} label={r.cls} /></td><td className="mono">{r.receipts ? <span className="chip brass"><i />{r.receipts} stapled</span> : ""}</td></tr>))}</tbody></table>
+        {demo ? (<GlowCard className="p-6"><div className="scroll-x" tabIndex={0}><table className="sheet"><thead><tr><th>From (UTC)</th><th>Min</th><th>Class</th><th>Receipts</th></tr></thead><tbody>{demo.rows.map((r, i) => (<tr key={i}><td className="num">{r.from}</td><td className="num">{r.minutes}</td><td><Chip s={r.cls === "COUNTS" ? "WATCHING" : r.cls === "EXCEPTED" ? "CORROBORATED" : r.cls === "REVIEW" ? "REVIEW" : "INSUFFICIENT"} label={r.cls} /></td><td className="mono">{r.receipts ? <span className="chip brass"><i />{r.receipts} stapled</span> : ""}</td></tr>))}</tbody></table></div>
           <p className="mt-4 text-sm"><b>{demo.demurrage}</b> on demurrage, statement hash <span className="mono">{demo.hash}</span></p></GlowCard>) : <GlowCard className="p-6 text-muted">The sample statement is unavailable right now.</GlowCard>}
       </section>
 

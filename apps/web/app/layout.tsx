@@ -4,7 +4,7 @@ import { Providers } from "@/components/providers";
 import { Nav } from "@/components/Nav";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Wharfinger: every disputed hour of a port call, with a receipt", description: "Wharfinger watches a ship in port and buys the facts on Telegraph while they are still true, so a laytime statement settles instead of arguing. Telegraph testnet.", icons: { icon: "/icon.svg" } };
+export const metadata: Metadata = { metadataBase: new URL("https://wharfinger-kinnoskis-projects.vercel.app"), openGraph: { title: "Wharfinger", description: "Every disputed hour of a port call, with a receipt the shipowner can check.", images: [{ url: "/og.png", width: 1200, height: 630 }], type: "website" }, twitter: { card: "summary_large_image", title: "Wharfinger", description: "Every disputed hour of a port call, with a receipt the shipowner can check.", images: ["/og.png"] }, title: "Wharfinger: every disputed hour of a port call, with a receipt", description: "Wharfinger watches a ship in port and buys the facts on Telegraph while they are still true, so a laytime statement settles instead of arguing. Telegraph testnet.", icons: { icon: "/icon.svg" } };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#F3F1EC" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,176 +1,190 @@
-<p align="center"><img src="apps/web/public/icon.svg" width="72" alt="Wharfinger"></p>
+<p align="center"><img src="apps/web/public/icon.svg" width="64" alt="Wharfinger"></p>
 
-# Wharfinger
+<h1 align="center">Wharfinger</h1>
 
-**Every disputed hour of a port call, with a receipt the shipowner can check.**
+<p align="center"><b>Every disputed hour of a port call, with a receipt the shipowner can check.</b></p>
 
-[Live app](https://wharfinger-kinnoskis-projects.vercel.app) · [For judges](https://wharfinger-kinnoskis-projects.vercel.app/judge) · MIT licence · Telegraph testnet only
+<p align="center">
+  <a href="https://wharfinger-kinnoskis-projects.vercel.app">Live app</a> ·
+  <a href="https://wharfinger-kinnoskis-projects.vercel.app/judge">60 second judge path</a> ·
+  <a href="TUTORIAL.md">20 line tutorial</a> ·
+  <a href="PLATFORM_PROBE.md">What the network got wrong</a>
+</p>
 
-![The Wharfinger landing page](apps/web/public/readme/hero.png)
+<p align="center">
+  <a href="https://github.com/0xkinno/wharfinger/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/0xkinno/wharfinger/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Licence MIT" src="https://img.shields.io/badge/licence-MIT-0B1B33">
+  <img alt="Telegraph testnet only" src="https://img.shields.io/badge/Telegraph-testnet%20only-19D3FF">
+  <img alt="Mission 08 Commodities" src="https://img.shields.io/badge/mission-08%20Commodities-C29A45">
+</p>
 
-Wharfinger watches a ship in port and buys the facts on Telegraph while they are still true: where the ship is, how long the
-queue is, whether the loaders stopped for snow. When the demurrage invoice arrives three weeks later, the laytime analyst signs
-a time sheet where every contested hour is backed by paid answers, and the owner recomputes it.
+![Wharfinger landing page](apps/web/public/readme/hero.jpg)
 
-| | |
+A ship sits in port for three days. Three weeks later the owner bills 41 hours of demurrage, and the charterer's analyst has one
+handwritten page to argue with. **Wharfinger was watching.** It bought the facts on Telegraph while they were still true: where
+the ship was, how long the queue was, whether the loaders stopped for snow. Each contested hour carries paid receipts, and the
+owner recomputes every line without trusting us.
+
+> *Wharfinger: the harbour officer who keeps the record of when ships arrive, berth and sail.* Pronounced WOR-fin-jer.
+
+## Claims you can check today
+
+| Claim | Check it |
 |---|---|
-| Live app | https://wharfinger-kinnoskis-projects.vercel.app (no login to read; a wallet only to fund or sign) |
-| For judges | `/judge`, a 60 second walk with failure buttons |
-| Track and mission | Apps and Agents, Mission 08 Commodities |
-| Built with | Telegraph escrow rail, Engine Ask, signal, ledger and epoch block endpoints; Next.js; viem; Neon Postgres |
-| Measured | `/api/stats` recomputes every number from the stored purchases |
+| A signed laytime statement recomputes from its own receipts, in a browser or offline | `/verify/iceland-fiktk-preloaded`, or `pnpm verify examples/statement.sample.json` |
+| One flipped minute is caught at that line | Press **Tamper one minute** on `/judge` |
+| A voyage key spends funds another wallet deposited, capped by the escrow | `evidence/probe/paid/stage_limit.json`, and the wallet suite below |
+| Funded with $0.05, the watcher stops: 5 paid answers, then the node's own refusal | `/api/judge/fault?mode=drain` (recorded live run) |
+| Wrong, stale and empty answers are refused and re-bought, not trusted | `/evidence`: 15 refusals with reasons, from real purchases |
+| Every wallet action works for real: connect, fund, sign, countersign | `node e2e/wallet.mjs` (real Sepolia transactions and signatures) |
+| Every number on the site comes from stored purchases | `/api/stats`, `/api/status`, `/trace` |
 
-| Voyage evidence timeline | Judge page |
+## See it
+
+| The stay, to scale, with every purchase behind it | The statement the analyst signs |
 |---|---|
-| ![Voyage](apps/web/public/readme/voyage.png) | ![Judge](apps/web/public/readme/judge.png) |
+| ![Voyage page](apps/web/public/readme/voyage.jpg) | ![Statement page](apps/web/public/readme/statement.jpg) |
+| **The owner recomputes it in the browser** | **Break it: one minute changed** |
+| ![Verify page](apps/web/public/readme/verify.jpg) | ![Tamper fails](apps/web/public/readme/judge-break.jpg) |
 
-## The problem
+## What the network got wrong, live
 
-At 02:40 on a Saturday a bulk carrier tenders Notice of Readiness (NOR) at Kotka. Snow stops the loaders twice before dawn. Three
-weeks later the owner bills 41 hours of demurrage at $18,000 a day, which is $750 an hour, and the analyst has one handwritten
-Statement of Facts (SOF) to argue with. The rate and hours are an invented example; Mira Kallio, the analyst, is fictional.
+Telegraph is a young market. Every answer Wharfinger buys passes through rules written from real failures, all of them bought and
+receipted on the testnet on 2026-11-25 (`PLATFORM_PROBE.md`, `packages/evidence`):
 
-| What is true | Source |
-|---|---|
-| Dry bulk accounts for $8 to 10 billion in demurrage fees a year, roughly 6 to 8% of freight spend; rates run $15,000 to $30,000 a day | Marcura, "Demurrage claims leakage" |
-| 99% of statements of facts are processed manually, an estimated 12 million hours a year | same page |
-| A single miscategorised six-hour weather event at $20,000 a day changes a claim by $5,000 | Voyager, "The Basics of Bulk Shipping Demurrage" |
-
-Every figure is asserted by `tests/sources.test.ts` against the exact quoted sentence in `docs/sources/quotes.json`. These
-sources are vendors that sell demurrage software; see `MOMENT.md`.
-
-## What Wharfinger does
-
-1. The analyst enters the vessel and the charter-party terms and funds a per-voyage key from her own wallet with
-   `depositUSDCFor`. The cap lives in the escrow, not in our code.
-2. Every 30 minutes the watcher buys vessel position, port queue and conditions on Telegraph, unattended.
-3. Two operators must agree before a fact can move an hour. Wrong place, stale, empty and disagreeing answers are refused, kept
-   with a reason, and re-bought from another operator.
-4. Code, not a model, classifies each interval as counting, excepted, or REVIEW. The analyst resolves REVIEW with a reason and
-   signs with her wallet (EIP-712). The owner recomputes every line and countersigns or disputes named lines.
-5. The statement leaves as PDF, XLSX (the column layout desks use) and JSON.
-
-## Explore it in 2 minutes
-
-1. Open `/judge`, pick a ship that is in port now, press **Buy two answers**. The house key (labelled, capped) buys live; you see
-   the miners, receipts, and which operators agreed.
-2. Open the preloaded voyage: real receipts and signals for MV Iceland at Kotka, with illustrative terms and SOF.
-3. Open `/verify/iceland-fiktk-preloaded` and press **Recompute in this browser**.
-4. Press **Tamper one minute** on `/judge`: the same recompute fails at that line.
-5. Offline, from a clean clone with no keys:
-
-```bash
-pnpm install
-pnpm verify examples/statement.sample.json
-```
+| What a miner returned | Looked like | What Wharfinger did |
+|---|---|---|
+| Latitude equal to longitude, 3,710 km from the ship | A valid answer, every field `ok` | Refused `WRONG_PLACE` |
+| A position 25 hours old, for a ship that was moored | A valid answer, every field `ok` | Refused `STALE` |
+| A list of other vessels instead of the one asked | A valid answer | Refused `WRONG_VESSEL` |
+| Port queue for "Kotka": the port code for Hanko | A valid answer at rank 2 | Refused `WRONG_PLACE`; Kotka's queue is shown as not purchasable |
+| Four operator wallets agreeing on a position | Independent corroboration | Labelled **one upstream**: all four relay one public feed |
 
 ## How it works
 
-Telegraph miners perceive the port, code decides each interval, a person signs.
+*Telegraph miners perceive the port, code decides each interval, a person signs.*
 
 ```mermaid
-flowchart LR
-  W["Analyst wallet (Sepolia)"] -- "depositUSDCFor(voyage key, cap)" --> D["Escrow Diamond"]
-  GH["GitHub Actions, every 30 min"] --> T["watch tick"]
-  T -- "signed X-PAYMENT (voyage key)" --> N["Telegraph engine"] --> M["Ranked miners"]
-  N -- "answer, signal hash, receipt" --> E["evidence rules"]
-  E --> DB[("Neon Postgres, append-only")] --> L["laytime engine"] --> S["statement"]
-  S -- "EIP-712" --> W
-  S --> O["Owner verify page"] -- "recompute from signals" --> N
+sequenceDiagram
+  participant W as Watch tick (voyage key)
+  participant N as Telegraph engine
+  participant E as Evidence rules
+  participant L as Laytime engine
+  participant A as Analyst (wallet)
+  participant O as Owner (wallet)
+  W->>N: ask (routed), then 402 challenge
+  W->>N: same ask + signed X-PAYMENT (window <= 2 min, one-use nonce)
+  N-->>W: answer + signal hash + receipt (epoch)
+  W->>E: place, time, vessel, range, clock bracket
+  E->>N: re-buy from a different operator if a check fails
+  E-->>L: fact corroborated by two operators (source family kept visible)
+  L-->>A: each interval COUNTS, EXCEPTED or REVIEW, with receipts
+  A->>A: resolve REVIEW with a reason, sign (EIP-712)
+  O->>N: recompute every signal from the node
+  O->>O: accept, or dispute named lines (EIP-712)
 ```
 
-```text
-tick: lease (voyage, 30 min slot) -> escrow available? -> routed ask -> checks -> pinned re-buy from another operator
-      -> corroborate (two operators, source family kept visible) -> store append-only -> engine snapshot
-```
+A paid answer is a timestamped fact because Telegraph sells it only while it is current: the authorization lives at most two
+minutes and its nonce works once. Each purchase keeps **three clocks** that nobody on our side controls: the authorization window,
+the node's signal time, and the epoch that bills it.
 
-Packages: `laytime` (pure engine), `evidence` (rules), `telegraph` (escrow client), `watch` (tick), `statement` (signing and
-verification), `truth` (public-record readers), `db` (schema). The app is `apps/web`.
+The weather rule is the clearest example of "code decides". Hourly rain cannot be bought, so an hour is excepted for weather only
+with an SOF stop line **and** two operators reporting at least 1 mm for the day; otherwise it goes to REVIEW (`THESIS.md`).
+
+## Explore it in two minutes
+
+1. `/judge`: pick a ship that is in port now and press **Buy two answers**. The labelled house key buys live; you see miners,
+   receipts and which operators agreed. A stale first answer is refused and re-bought on screen.
+2. `/voyage/iceland-fiktk-preloaded`: the whole stay as a bar, every purchase with its three clocks.
+3. `/verify/iceland-fiktk-preloaded`: **Recompute in this browser**. PASS means the engine, every signal hash and every signal on
+   the node agree.
+4. `/judge`: **Tamper one minute**, and the same recompute fails at that line.
+
+```bash
+pnpm install && pnpm verify examples/statement.sample.json   # offline, no keys
+```
 
 ## Why Telegraph
 
-- **The receipt is a timestamped fact.** A paid authorization lives at most two minutes and its nonce works once, so an answer
-  is bound to the minute it was bought (`DISCOVERY.md`). Each purchase keeps three clocks: the authorization window, the signal
-  time and the epoch.
-- **Escrow caps.** The node refuses the next answer when the deposit runs out, and `setMyChargeLimit` caps each block.
-- **Signals recompute.** keccak256 of the signal payload re-derives offline (`packages/telegraph/src/index.ts`).
-- Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line drifts.
+| Telegraph feature | What Wharfinger does with it | Where |
+|---|---|---|
+| Routed ask, then pinned ask | First buy is always routed; a pinned ask is only a re-buy after a failed check | `packages/watch` |
+| Escrow authorization (EIP-191) | Fresh nonce each call, window capped at 120 s, per-answer cap in code | `packages/telegraph` |
+| `depositUSDCFor` and `setMyChargeLimit` | The analyst's wallet funds a per-voyage key; the cap lives in the escrow | `apps/web/app/api/voyages` |
+| Receipts, signals, ledger, epoch blocks | Stored per purchase; signals re-derived offline and in the browser | `packages/statement` |
+
+Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line drifts.
 
 ## What it will not do
 
-| Refusal | Where |
+| Refusal | Enforced in |
 |---|---|
-| No hour moves without a receipt bought while it happened | `packages/laytime`, tested |
-| An answer that is stale, for the wrong place, for the wrong vessel, empty or out of range is refused | `packages/evidence` |
-| Our own miner never counts toward corroboration | `packages/evidence`, `packages/statement` |
-| A model never sets a number | no model is called anywhere |
-| Never retry a refused payment with another key | `packages/watch` |
-
-## Measured
-
-Phase 1 probe, 2026-11-25 (`PLATFORM_PROBE.md`): 28 paid asks, 22 answers. Four operator wallets returned the right position at
-95 to 161 seconds old, but all four relay one public feed, so every receipt shows its source family and "one upstream" where it
-applies. Five answers were wrong, stale or empty (latitude equal to longitude, a list of other ships, a 25 hour old position, null
-coordinates) and one miner errored. A routed port ask for Kotka returned Hanko. Misses are named, not hidden.
+| Move an hour without a receipt bought while it happened | `packages/laytime`, 10,000-run property tests |
+| Trust a miner: stale, wrong place, wrong ship, empty, out of range, disagreeing | `packages/evidence` |
+| Count our own miner toward corroboration | `packages/evidence`, `packages/statement` |
+| Let a model set a number | no model is called anywhere |
+| Retry a refused payment with another key | `packages/watch` |
 
 ## Live, substituted, designed
 
 | Item | Status |
 |---|---|
-| Routed and pinned asks, escrow authorization, receipts, signals | live |
-| `depositUSDCFor` funding and `setMyChargeLimit` from a voyage key | live (tested end to end on the node) |
-| `requestWithdraw` sweep | requested; `executeWithdraw` waits for the node's ledger root |
-| Position corroboration across independent sources | designed; today operators share one feed |
-| Hourly rain | not purchasable; weather rule uses a daily fact plus an SOF line (`THESIS.md`) |
-| Kotka port queue | not purchasable (miners answer for Hanko or return empty figures) |
-| Zone geometry | draft derived from ships at berth, not chart-derived port limits |
-| Evaluator and Miner entries | not started |
-
-## Judging criteria map
-
-| Criterion (weight) | Where to look |
-|---|---|
-| Technical quality and mainnet readiness (35) | `packages/*/test` (108 tests, 10,000-run property tests), `MAINNET.md`, `SECURITY.md`, `RUNBOOK.md`, `e2e/smoke.mjs` |
-| Commercial viability (25) | Commercial summary below, `MOMENT.md`, `RISK.md` |
-| Independent adoption (10) | none yet; stated plainly in `GROWTH.md` |
-| Telegraph integration (5) | `SDK_SURFACE.md`, `PLATFORM_PROBE.md` |
-| Reproducibility and proof (5) | `pnpm verify`, `TUTORIAL.md`, `JUDGE.md` |
-| Growth, education, activation (20) | `TUTORIAL.md`, `GROWTH.md` |
+| Routed and pinned asks, escrow rail, receipts, signals, epoch reads | **live** |
+| Voyage funding, per-block cap, watcher tick, signed statements, countersignature | **live**, run end to end with real transactions |
+| PDF, XLSX and JSON export; browser and offline verification | **live** |
+| Corroboration across independent sources | **designed**: today operators share one feed, shown as one upstream |
+| Hourly rain | **not purchasable**; daily fact plus SOF line |
+| Kotka port queue | **not purchasable**; Helsinki and Turku work |
+| Zone geometry | **draft**, derived from ships at berth, not chart-derived port limits |
+| Withdraw sweep (`executeWithdraw`) | requested; waits for the node's ledger root |
+| Evaluator and Miner entries | not built |
 
 ## Commercial summary
 
-1. **Who is it for?** A post-fixture demurrage analyst at a physical commodity trading desk; each handles dozens of voyages a month.
-2. **What does it improve?** Today she retypes a handwritten SOF and argues from memory; here each contested hour carries paid receipts the owner can recompute. Cost: about $0.01 per answer; an estimated $1.20 to $1.60 per 48 hour stay (to be measured on a recorded voyage).
-3. **What does it do today?** Watches a vessel, buys and checks answers, builds and signs a statement, verifies it in the browser and offline. Testnet only.
-4. **Why adopt it?** Demurrage disputes are decided on timestamped evidence and missed time bars are expensive. What remains: chart-derived port limits, independent position sources, a real customer.
+1. **Who is it for?** A post-fixture demurrage analyst at a physical commodity trading desk, who argues dozens of invoices a month.
+2. **What does it improve?** Today she retypes a handwritten Statement of Facts and argues from memory. Here each contested hour has
+   receipts the owner can recompute. Cost: $0.01 per answer; an estimated $1.20 to $1.60 per 48 hour stay.
+3. **What does it do today?** Watches a ship in port, buys and checks answers, builds a statement, signs it, verifies it. Testnet only.
+4. **Why adopt it?** Disputes are won on timestamped evidence and time bars are expensive. Still missing: chart-derived port
+   limits, independent position sources, a real customer.
 5. **How can someone try it?** The live app and `pnpm verify`. Maintained by 0xkinno.
+
+## Judging criteria map
+
+| Criterion | Where to look |
+|---|---|
+| Technical quality and mainnet readiness | tests and property tests in `packages/*/test`, `e2e/`, `MAINNET.md`, `SECURITY.md`, `RUNBOOK.md` |
+| Commercial viability | the summary above, `MOMENT.md` (every figure asserted by a test), `RISK.md` |
+| Independent adoption | none yet; stated plainly in `GROWTH.md` |
+| Telegraph integration | `SDK_SURFACE.md`, `PLATFORM_PROBE.md`, `FRICTION_REPORT.md` |
+| Reproducibility and proof | `pnpm verify`, `TUTORIAL.md`, `JUDGE.md` |
+| Growth and education | `TUTORIAL.md`, `GROWTH.md` |
 
 ## Recovery
 
-Duplicate tick: a lease per voyage per slot refuses it. Node refusal for balance: the watcher marks BUDGET_SPENT and holds. Miner
-error: not billed; the next operator is tried. Withdraw stalls: shown as pending since. Restart: leases and purchases are durable.
+A duplicate tick is refused by a lease per voyage per 30 minute slot. A node refusal for balance marks BUDGET_SPENT and holds.
+A miner error is not billed and the next operator is tried. A restart loses nothing: leases and purchases are durable.
 
 ## Run it
 
 ```bash
 git clone https://github.com/0xkinno/wharfinger && cd wharfinger
 pnpm install
-pnpm test                       # 108 tests, no keys
+pnpm test                 # unit and property tests, no keys
 pnpm verify examples/statement.sample.json
+BASE=<url> node e2e/smoke.mjs   # browser suite: console, overflow, overlap, accessibility
 ```
 
-Deploy and environment variables: `DEPLOY.md`. The app works without secrets by serving committed real fixtures; add
-`DATABASE_URL` and keys to turn on live voyages.
+The app works without secrets by serving committed real fixtures. `DEPLOY.md` lists the variables that turn on live voyages.
 
 ## Disclosures
 
-Built with substantial AI assistance (`DISCLOSURES.md`). Hackathon entry; the prize incentive applies. Mira is fictional; the
-charter terms and SOF in the sample are illustrative; receipts and signals are real testnet answers.
+Built with substantial AI assistance (`DISCLOSURES.md`). Hackathon entry; the prize incentive applies. Mira Kallio is a fictional
+analyst; the charter terms and Statement of Facts in the sample are illustrative; receipts and signals are real testnet answers.
+Industry figures come from vendors that sell demurrage software.
 
 ## Documentation
 
-`MOMENT.md`, `DISCOVERY.md`, `THESIS.md`, `RISK.md`, `SPONSOR_INTEL.md`, `PLATFORM_PROBE.md`, `FINDINGS.md`, `FRICTION_REPORT.md`,
-`SDK_SURFACE.md`, `MISSION_FIT.md`, `LANE_MAP.md`, `JUDGE_TASTE.md`, `DESIGN.md`, `JUDGE.md`, `TUTORIAL.md`, `GROWTH.md`,
-`SECURITY.md`, `MAINNET.md`, `RUNBOOK.md`, `DEPLOY.md`, `DISCLOSURES.md`, `RULES_EXTRACT.md`, `PROGRESS.md`, `task.md`.
-
-MIT licence.
+`MOMENT` · `DISCOVERY` · `THESIS` · `RISK` · `MISSION_FIT` · `SPONSOR_INTEL` · `PLATFORM_PROBE` · `FINDINGS` · `FRICTION_REPORT` ·
+`SDK_SURFACE` · `DESIGN` · `JUDGE` · `TUTORIAL` · `GROWTH` · `SUBMISSION_TELEGRAPH` · `SECURITY` · `MAINNET` · `RUNBOOK` · `DEPLOY` ·
+`DISCLOSURES` · `RULES_EXTRACT` · `LANE_MAP` · `JUDGE_TASTE` · `PROGRESS`. MIT licence.

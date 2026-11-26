@@ -1,0 +1,65 @@
+# Submission pack: Telegraph Hackathon Season II
+
+Pre-filled answers for the final form, which the organisers say opens near the end of the hackathon (deadline 2026-12-01 23:59 UTC;
+submit at least two hours early). Everything below is checked against the repository.
+
+## Project details
+
+| Field | Answer |
+|---|---|
+| Project name | Wharfinger |
+| Track | Apps & Agents |
+| Mission | 08 Commodities (bounties issue 196) |
+| Tagline | Every disputed hour of a port call, with a receipt the shipowner can check. |
+| Live app | https://wharfinger-kinnoskis-projects.vercel.app |
+| Repository | https://github.com/0xkinno/wharfinger (MIT) |
+| GitHub username (starred the bounties repo) | 0xkinno |
+| Network | Telegraph testnet (Sepolia). Nothing here is mainnet. |
+| Demo video | to be added after recording (kept in `reference/video/`, not in the repository) |
+| Run it | `pnpm install && pnpm verify examples/statement.sample.json`; hosted path `/judge` |
+
+## Short public summary
+
+Wharfinger watches a ship in port and buys vessel position, port queue and weather facts on Telegraph while they are still true.
+Code classifies every hour of the stay as counting, excepted or review; the analyst signs; the shipowner recomputes every line
+from the stored receipts and signals, in a browser or offline. Wrong, stale and empty miner answers are refused and re-bought, and
+operators that relay one public feed are labelled as one upstream.
+
+## Evidence to point at
+
+| Claim | Where |
+|---|---|
+| Real paid answers with receipts and signal hashes | `/voyage/iceland-fiktk-preloaded`, `/evidence` |
+| Browser recompute PASS, and FAIL after a one minute change | `/verify/iceland-fiktk-preloaded`, `/judge` |
+| Real wallet flows end to end | `node e2e/wallet.mjs` (ALL PASSED on 2026-11-26) |
+| Six viewport browser suite | `node e2e/smoke.mjs` (ALL PASSED) |
+| 108 unit and property tests | `pnpm test` |
+| What the network got wrong | `PLATFORM_PROBE.md`, `FINDINGS.md`, `FRICTION_REPORT.md` |
+
+## Commercial summary
+
+1. Who is it for? Post-fixture demurrage analysts at physical commodity trading desks.
+2. What does it improve? Replaces a retyped, handwritten Statement of Facts with receipts the owner can recompute. About $0.01
+   per answer and an estimated $1.20 to $1.60 per 48 hour stay.
+3. What does it do today? Watches, buys, checks, classifies, signs, verifies, exports PDF, XLSX and JSON. Testnet only.
+4. Why adopt it? Demurrage disputes are won on timestamped evidence and lost on time bars. Missing: chart-derived port limits,
+   independent position sources, a real customer.
+5. How can someone try it? The live app and `pnpm verify`.
+
+## Showcase permission and disclosures
+
+Showcase permission: yes. Built with substantial AI assistance (`DISCLOSURES.md`). Hackathon entry; the prize incentive applies.
+
+## Honest status
+
+Not done: one unattended voyage from notice of readiness to sailing, six week replay, red team rounds, evaluator and miner
+entries, Mission 08 issue body, H2 gallery check, BIMCO text, chart-derived port limits, `executeWithdraw` sweep (requested, waits
+for the node's ledger root). None of these is claimed anywhere in the app or the README.
+
+## Before submitting
+
+1. List Wharfinger in the Anjoman Apps directory (https://anjoman.ai/dashboard/apps): description, repository, live URL; update it
+   when the video exists. The organisers asked for this before the final form.
+2. Post in the Discord `showcase` channel with the live link, repository and screenshots.
+3. Reply in the Commercial Use Cases thread with the use case, what is built and what is not (see `GROWTH.md`).
+4. Fill the final form from this file when it opens.

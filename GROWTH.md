@@ -62,3 +62,39 @@ Repo: github.com/0xkinno/wharfinger
 
 Open questions for Kinnoski before posting: the exact repo URL once public; whether to include a screenshot of the first
 signal page; the account to post from (`@0xkinno`).
+
+### Draft 2: first post on X (awaiting approval)
+
+Discloses the hackathon and the prize incentive, as the rules require.
+
+```text
+A ship sits in port for three days. Three weeks later the owner bills 41 hours of demurrage and the analyst has one handwritten page.
+
+Wharfinger buys the facts on @Telegraphprotoc while they are still true (position, port queue, weather), classifies every hour
+in code, and lets the owner recompute each line from the receipts. Press "tamper one minute" and the check fails at that line.
+
+Telegraph testnet entry for the Season II hackathon (prize incentive applies). Built with AI assistance.
+Live: https://wharfinger-kinnoskis-projects.vercel.app
+Code: https://github.com/0xkinno/wharfinger
+```
+
+Attach `apps/web/public/readme/judge-break.jpg` or the video. The card image is `/og.png`.
+
+### Draft 3: reply in the Commercial Use Cases thread (awaiting approval)
+
+```text
+Mission 08 Commodities, Apps & Agents: Wharfinger (repo and live app below). It already buys vessel position, port queue and
+weather on Telegraph, refuses wrong and stale answers, and produces a statement the counterparty can recompute.
+
+Closest fits, stated plainly: Solana #4 (Verified Global Trade) and Visa #12 (verify what was delivered) need the same layer:
+independent evidence of a shipment or a port stay before money moves. Wharfinger supplies that evidence and a recompute check
+today on Sepolia. It has no Solana or Visa settlement and we are not claiming any. Looking for a Pay.sh or escrow adapter
+author to connect a verified statement to a payment hold.
+
+Repo: https://github.com/0xkinno/wharfinger | Live: https://wharfinger-kinnoskis-projects.vercel.app
+```
+
+### Discord notes (2026-11-26)
+
+The organiser asked for apps to be listed in the Anjoman Apps directory now, the final form opens near the end, and showcase posts go
+in the `showcase` channel. Use cases outside Mission 08 are optional; one application may address several.
