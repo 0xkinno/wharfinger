@@ -118,8 +118,9 @@ weather on Telegraph, refuses wrong and stale answers, and produces a statement 
 
 Closest fits, stated plainly: Solana #4 (Verified Global Trade) and Visa #12 (verify what was delivered) need the same layer:
 independent evidence of a shipment or a port stay before money moves. Wharfinger supplies that evidence and a recompute check
-today on Sepolia. It has no Solana or Visa settlement and we are not claiming any. Looking for a Pay.sh or escrow adapter
-author to connect a verified statement to a payment hold.
+today on Sepolia, and a settlement gate now holds, escalates, blocks or releases a payment on that evidence. A released
+payment was sent on Solana devnet (test token, not USDC) and read back from the chain: https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet
+No Pay.sh and no Visa rail yet; looking for a Pay.sh or Visa CLI adapter author.
 
 Repo: https://github.com/0xkinno/wharfinger | Live: https://wharfinger-kinnoskis-projects.vercel.app
 ```

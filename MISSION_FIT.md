@@ -14,3 +14,12 @@ complete separately; a route that is not built says so.
 Intents the official page lists for Intelligence ROI: `LIVE_PORT_CONGESTION`, `VESSEL_TELEMETRY_VERIFY`,
 `WEATHER_FORECAST_VERIFY`, `SHIP_RATE_ETA`, `WEB_SEARCH`. Wharfinger buys the first three. It does not buy
 `SHIP_RATE_ETA` (a parcel rate, F5) or `WEB_SEARCH` (no intent of that name is served, per the bounties repository).
+
+## Mission 08 issue body, read 2026-11-26
+
+The issue (bounties 196) names three example routes: intelligence ROI on paper positions, cargo and counterparty provenance, and
+scarce-answer price discovery. Wharfinger sits closest to route 2: vessel history from `VESSEL_TELEMETRY_VERIFY`, sanctions checks
+from `SANCTIONS_SCREENING_MATCH`, a recomputable statement as the trade file, and a settlement gate (`/settle`) that holds or
+releases a payment on that evidence. The issue asks for one failure case (stale AIS reading, ambiguous vessel, inconsistent port
+data), a cost per useful outcome, and never to claim a paper trade as real profit. Wharfinger records its failures on `/evidence`,
+shows cost per answer and per stay, and makes no profit claim. Not covered: `CORPORATE_REGISTRY_LOOKUP` and `DOCUMENT_AUTHENTICITY`.

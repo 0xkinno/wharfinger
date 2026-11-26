@@ -1,7 +1,7 @@
 # PROGRESS
 
-Self-judging after each phase (build instruction section 18). A "no" stops polishing. Scored honestly; nothing is
-built yet, so most answers describe the design.
+Self-judging after each phase (build instruction section 18). A "no" stops polishing. Scored honestly. The first table is the
+state at the end of the statement core; the update below supersedes it.
 
 ## After Phase 4 and the statement core (2026-11-25, 107 tests)
 
@@ -21,6 +21,22 @@ built yet, so most answers describe the design.
 | 12 | Rubric score | not meaningful yet | Growth, adoption and UI are the large gaps |
 
 Answers 2, 4 (browser), 7 and 8 (live drain) gate Phase 7 polishing.
+
+## Update 2026-11-26 (117 tests)
+
+| # | Question | Answer | Basis |
+|---|---|---|---|
+| 2 | Real purchase, autonomous, unattended | **running** | Production voyage `kraftca-fiktk-1000004` is funded and ticks every 30 minutes through the scheduler; it is complete only when the ship sails |
+| 4 | Owner recomputes, online and offline | **yes** | Browser recompute on `/verify/*` and `/judge`; tamper fails at the changed line; wallet suite ALL PASSED |
+| 7 | Judge path in 60 seconds, no login, on a phone | **yes** | Deployed; six viewport suite ALL PASSED on production |
+| 8 | Spend capped by the escrow; drain recorded | **yes** | `/api/judge/fault?mode=drain` recorded live run |
+| 11 | Claim the deployed app cannot demonstrate | none | Solana is devnet with a test token; Visa and Pay.sh are not claimed |
+
+New since the first table: settlement gate and `/settle`, two real screening receipts, one released payment on Solana devnet
+read back from the chain, production secrets and database, house escrow funded, issue 196 read.
+
+Still open: finish of the unattended voyage, six week replay, red team rounds, evaluator and miner entries, chart-derived port
+limits, Visa and Pay.sh rails, video, posts.
 
 ## Honest gaps found by building
 

@@ -33,7 +33,8 @@ operators that relay one public feed are labelled as one upstream.
 | Browser recompute PASS, and FAIL after a one minute change | `/verify/iceland-fiktk-preloaded`, `/judge` |
 | Real wallet flows end to end | `node e2e/wallet.mjs` (ALL PASSED on 2026-11-26) |
 | Six viewport browser suite | `node e2e/smoke.mjs` (ALL PASSED) |
-| 108 unit and property tests | `pnpm test` |
+| 117 unit and property tests | `pnpm test` |
+| Settlement gate, four real decisions, one Solana devnet payment | `/settle`, [transaction](https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet), `evidence/settlement/run.json` |
 | What the network got wrong | `PLATFORM_PROBE.md`, `FINDINGS.md`, `FRICTION_REPORT.md` |
 
 ## Commercial summary
@@ -52,8 +53,10 @@ Showcase permission: yes. Built with substantial AI assistance (`DISCLOSURES.md`
 
 ## Honest status
 
-Not done: one unattended voyage from notice of readiness to sailing, six week replay, red team rounds, evaluator and miner
-entries, Mission 08 issue body, H2 gallery check, BIMCO text, chart-derived port limits, `executeWithdraw` sweep (requested, waits
+Done since the first draft: settlement gate (`/settle`, `packages/settle`) with two real screening receipts; a released payment on Solana devnet read back from the chain; an unattended production voyage (MV Kraftca) started and ticking; the Mission 08 issue body read and mapped.
+
+Not done: the unattended voyage finishing at sailing, six week replay, Visa CLI rail, Pay.sh, red team rounds, evaluator and miner
+entries, H2 gallery check, BIMCO text, chart-derived port limits, `executeWithdraw` sweep (requested, waits
 for the node's ledger root). None of these is claimed anywhere in the app or the README.
 
 ## Before submitting

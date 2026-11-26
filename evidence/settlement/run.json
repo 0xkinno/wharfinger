@@ -1,0 +1,118 @@
+{
+ "at": "2026-11-26T04:14:30.702Z",
+ "network": "solana-devnet",
+ "token": "devnet test mint, not USDC",
+ "statementHash": "0x6124859e5fa562088c1f7c4d714fd884784c3ba151012ff3378fb23982cbf212",
+ "results": [
+  {
+   "label": "1 tampered statement: one minute added",
+   "decision": "BLOCK",
+   "payUusdc": "0",
+   "heldUusdc": "4500000000",
+   "reasons": [
+    {
+     "code": "DOES_NOT_RECOMPUTE",
+     "text": "statement hash: keccak256 of the canonical body"
+    }
+   ],
+   "screening": {
+    "name": "Nordic Bulk Owners Oy",
+    "matched": false,
+    "receipt": "0x4560e30d0d62878184ac74530745b9e5fa5a1970b76a6f7e0698038edbe26c52",
+    "signal": "0xf8068cca8321625bab149dcc62eb3b74202306d7e682b89d9a1d3b7ebd09a9d5"
+   },
+   "settlement": null
+  },
+  {
+   "label": "2 owner has not countersigned",
+   "decision": "HOLD",
+   "payUusdc": "0",
+   "heldUusdc": "4500000000",
+   "reasons": [
+    {
+     "code": "NO_COUNTERSIGNATURE",
+     "text": "the owner has not agreed or disputed the statement"
+    }
+   ],
+   "screening": {
+    "name": "Nordic Bulk Owners Oy",
+    "matched": false,
+    "receipt": "0x4560e30d0d62878184ac74530745b9e5fa5a1970b76a6f7e0698038edbe26c52",
+    "signal": "0xf8068cca8321625bab149dcc62eb3b74202306d7e682b89d9a1d3b7ebd09a9d5"
+   },
+   "settlement": null
+  },
+  {
+   "label": "3 payee matches a sanctions list",
+   "decision": "ESCALATE",
+   "payUusdc": "0",
+   "heldUusdc": "4500000000",
+   "reasons": [
+    {
+     "code": "SCREENING_MATCH",
+     "text": "Rosoboronexport matched a sanctions list entry (receipt 0x997ededd66); a person must clear or reject it"
+    }
+   ],
+   "screening": {
+    "name": "Rosoboronexport",
+    "matched": true,
+    "receipt": "0x997ededd66a6117fab8419cd13b662e21209a7b9c30b090f24e57b9072738171",
+    "signal": "0x4137db02b06fdc6094b3c886577875949a45286a0515b7931d3eca3a418c6eae"
+   },
+   "settlement": null
+  },
+  {
+   "label": "4 everything checks: pay on Solana devnet",
+   "decision": "RELEASE",
+   "payUusdc": "4500000000",
+   "heldUusdc": "0",
+   "reasons": [
+    {
+     "code": "ALL_CHECKS_PASS",
+     "text": "statement recomputes, both keys match the mandate, payee screened clear, amount within authority"
+    }
+   ],
+   "screening": {
+    "name": "Nordic Bulk Owners Oy",
+    "matched": false,
+    "receipt": "0x4560e30d0d62878184ac74530745b9e5fa5a1970b76a6f7e0698038edbe26c52",
+    "signal": "0xf8068cca8321625bab149dcc62eb3b74202306d7e682b89d9a1d3b7ebd09a9d5"
+   },
+   "settlement": {
+    "txid": "3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5",
+    "explorer": "https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet",
+    "mint": "5k6XrXncVbgeAc7vHVSnxDG9eaM2ZWoYUasfzRwrj6oc",
+    "payee": "AXkrxT6qfeyQceJXjvqXWEnb2xtdUXYdK51YGptHHrZo",
+    "slot": 526385569,
+    "blockTime": 1795666470,
+    "readBack": {
+     "amount": "4500000000",
+     "memo": "wharfinger:0x6124859e5fa562088c1f7c4d714fd884784c3ba151012ff3378fb23982cbf212:RELEASE:4500000000"
+    },
+    "verified": true,
+    "checks": [
+     {
+      "name": "decision allows payment",
+      "pass": true,
+      "detail": "RELEASE"
+     },
+     {
+      "name": "amount equals the gate",
+      "pass": true,
+      "detail": "4500000000 vs 4500000000"
+     },
+     {
+      "name": "paid to the mandate address",
+      "pass": true,
+      "detail": "AXkrxT6qfeyQceJXjvqXWEnb2xtdUXYdK51YGptHHrZo"
+     },
+     {
+      "name": "memo anchors the statement hash",
+      "pass": true,
+      "detail": "wharfinger:0x6124859e5fa562088c1f7c4d714fd884784c3ba151012ff3378fb23982cbf212:RELEASE:4500000000"
+     }
+    ]
+   }
+  }
+ ]
+}

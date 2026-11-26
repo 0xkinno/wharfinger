@@ -98,7 +98,8 @@ A demurrage invoice is only as good as the statement behind it. `/settle` shows 
 the statement must recompute, the analyst and owner keys must match the mandate, the payee must have a clear, paid sanctions
 screening receipt, and the amount must sit inside the payer's authority. A tampered statement is **blocked**, a missing
 countersignature **holds**, a sanctions match **escalates** to a person, and only a clean case **releases**. The gate never moves
-money; a rail does (Solana devnet in `scripts/solana-settle.ts`), and the gate then checks what the chain recorded.
+money; a rail does, and the gate then checks what the chain recorded. The released case was paid on Solana devnet in
+[this transaction](https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet); the same run shows the other three cases paying nothing.
 
 ## Explore it in two minutes
 
@@ -147,9 +148,11 @@ Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line d
 | Zone geometry | **draft**, derived from ships at berth, not chart-derived port limits |
 | Withdraw sweep (`executeWithdraw`) | requested; waits for the node's ledger root |
 | Settlement gate (hold, escalate, block, release) | **live** as code and page; two real screening receipts from Telegraph |
-| Solana devnet transfer of a released amount, read back from the chain | **pending**: needs devnet SOL in the settlement wallet (`scripts/solana-settle.ts`) |
-| Visa CLI rail | not built; needs Visa CLI beta access |
-| Evaluator and Miner entries | not built |
+| Solana devnet transfer of a released amount, read back from the chain | **live on devnet**: [transaction](https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet) pays $4,500.00 of a devnet test token with the statement hash in the memo; the amount, payee and memo are read back from the chain and checked (`scripts/solana-settle.ts`) |
+| Visa CLI rail | not built: needs Visa CLI beta access and a card, neither of which this project has |
+| Unattended voyage | **running**: MV Kraftca at Kotka, funded with $5, bought answers every 30 minutes by the scheduler; complete when the ship sails |
+| Mission 08 issue body | read in full and mapped to the routes (`MISSION_FIT.md`) |
+| Evaluator and Miner entries | not built; need the owner's Anjoman account |
 
 ## Commercial summary
 
