@@ -56,6 +56,22 @@ First paid vessel answer, with its signal: [SIGNAL LINK, added after the first p
 Repo: github.com/0xkinno/wharfinger
 ```
 
+### Draft 2b and 2c: follow-up updates on later dates (awaiting approval)
+
+The organisers say to aim for at least three useful updates on different dates. Post the thread above first, then these on later days.
+
+```text
+Update 2 (around Nov 28 to 29, with the /settle screenshot)
+Wharfinger can now hold a payment. A demurrage invoice passes a gate: the statement must recompute, both signing keys must match, and the payee needs a clean paid sanctions receipt from @Telegraphprotoc. Tampered: blocked. Sanctions hit: escalated. Clean: released on Solana devnet.
+https://wharfinger-kinnoskis-projects.vercel.app/settle
+Hackathon entry, prize incentive applies. AI assisted.
+
+Update 3 (around Nov 30, with the demo video if it exists)
+Ask Telegraph for the Kotka port queue and miners answered for Hanko. So I registered a provider that does not: Wharfinger Port Queue, for LIVE_PORT_CONGESTION. I also bought 150+ answers from other miners and labelled them for evaluators.
+https://github.com/0xkinno/wharfinger
+Hackathon entry for @Telegraphprotoc, prize incentive applies. AI assisted.
+```
+
 ### Draft 3: tutorial post (ready; the tutorial exists and was run live)
 
 `TUTORIAL.md` and `examples/buy-a-fact.ts` (9 lines) are in the repository. A post linking them, disclosing the hackathon and prize incentive and tagging `@Telegraphprotoc`, waits for approval. Independent reproduction by another developer is the evidence that earns points; none yet.
