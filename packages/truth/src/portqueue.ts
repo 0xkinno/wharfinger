@@ -1,12 +1,21 @@
 // Port queue provider logic for the Wharfinger miner (LIVE_PORT_CONGESTION_GENERAL). Pure functions plus one fetch-injected reader.
 // Source: Fintraffic Digitraffic (CC BY 4.0): AIS locations and port calls. A vessel counts as waiting when its AIS status is "at anchor"
 // (navStat 1) and it is within the port's anchorage radius. Its wait is the time since its planned arrival (ETA) on a port call that has
-// no recorded arrival yet. The radius and centre are a labelled draft, not chart anchorage limits.
+// no recorded arrival yet. The radius and centre are a labelled draft, not chart anchorage limits. Neighbouring ports (Turku and Naantali) overlap,
+// so a ship at anchor between them is counted for both.
 export type PortDef = { locode: string; name: string; lat: number; lon: number; radiusKm: number; aliases: string[] };
 export const PORTS: PortDef[] = [
   { locode: "FIKTK", name: "Kotka-Hamina", lat: 60.4663, lon: 26.9458, radiusKm: 40, aliases: ["fiktk", "kotka", "haminakotka", "hamina kotka", "hamina-kotka", "port of kotka", "kotka finland", "kotka, finland", "fihmn", "hamina"] },
   { locode: "FIHEL", name: "Helsinki", lat: 60.1699, lon: 24.9384, radiusKm: 30, aliases: ["fihel", "helsinki", "port of helsinki", "helsinki finland", "helsinki, finland", "helsingfors"] },
   { locode: "FITKU", name: "Turku", lat: 60.4352, lon: 22.2266, radiusKm: 30, aliases: ["fitku", "turku", "port of turku", "turku finland", "turku, finland", "abo"] },
+  { locode: "FIRAU", name: "Rauma", lat: 61.1275, lon: 21.485, radiusKm: 30, aliases: ["firau", "rauma", "port of rauma", "rauma finland", "rauma, finland"] },
+  { locode: "FIPOR", name: "Pori", lat: 61.593, lon: 21.467, radiusKm: 30, aliases: ["fipor", "pori", "port of pori", "mantyluoto", "mäntyluoto", "pori finland", "pori, finland"] },
+  { locode: "FIUKI", name: "Uusikaupunki", lat: 60.8, lon: 21.4, radiusKm: 30, aliases: ["fiuki", "uusikaupunki", "nystad", "port of uusikaupunki"] },
+  { locode: "FINLI", name: "Naantali", lat: 60.467, lon: 21.971, radiusKm: 25, aliases: ["finli", "naantali", "nadendal", "port of naantali", "naantali finland", "naantali, finland"] },
+  { locode: "FIHKO", name: "Hanko", lat: 59.824, lon: 22.95, radiusKm: 30, aliases: ["fihko", "hanko", "hango", "port of hanko", "hanko finland", "hanko, finland"] },
+  { locode: "FIKOK", name: "Kokkola", lat: 63.835, lon: 23.03, radiusKm: 30, aliases: ["fikok", "kokkola", "karleby", "port of kokkola", "kokkola finland", "kokkola, finland"] },
+  { locode: "FIOUL", name: "Oulu", lat: 65.03, lon: 25.4, radiusKm: 30, aliases: ["fioul", "oulu", "uleaborg", "port of oulu", "oulu finland", "oulu, finland"] },
+  { locode: "FIKEM", name: "Kemi", lat: 65.67, lon: 24.515, radiusKm: 30, aliases: ["fikem", "kemi", "port of kemi", "ajos", "kemi finland", "kemi, finland"] },
 ];
 export const resolvePort = (q: string): PortDef | null => { const k = q.trim().toLowerCase().replace(/\s+/g, " "); return PORTS.find((p) => p.aliases.includes(k) || p.locode.toLowerCase() === k) ?? null; };
 

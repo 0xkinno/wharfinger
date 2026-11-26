@@ -2,10 +2,11 @@ import { describe, it, expect } from "vitest";
 import { resolvePort, congestionLevel, portQueue, PORTS } from "../packages/truth/src/portqueue.ts";
 
 describe("port queue provider", () => {
-  it("resolves the names that routed asks use, Kotka and HaminaKotka to FIKTK, never Hanko", () => {
+  it("resolves the names that routed asks use, Kotka and HaminaKotka to FIKTK, and Hanko to its own port", () => {
     for (const q of ["Kotka", "HaminaKotka", "Kotka, Finland", "Port of Kotka", "FIKTK", " kotka "]) expect(resolvePort(q)?.locode).toBe("FIKTK");
     expect(resolvePort("Helsinki")?.locode).toBe("FIHEL"); expect(resolvePort("Turku")?.locode).toBe("FITKU");
-    expect(resolvePort("Hanko")).toBeNull(); expect(resolvePort("FIHKO")).toBeNull(); expect(resolvePort("Rotterdam")).toBeNull();
+    expect(resolvePort("Hanko")?.locode).toBe("FIHKO"); expect(resolvePort("Hanko")?.locode).not.toBe("FIKTK"); expect(resolvePort("Rauma")?.locode).toBe("FIRAU"); expect(resolvePort("Oulu")?.locode).toBe("FIOUL");
+    expect(resolvePort("Rotterdam")).toBeNull(); expect(resolvePort("Tallinn")).toBeNull();
   });
   it("levels are monotone in both ships and wait", () => {
     expect(congestionLevel(0, 0)).toBe("low"); expect(congestionLevel(1, 2)).toBe("low"); expect(congestionLevel(2, 20)).toBe("moderate");

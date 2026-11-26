@@ -11,7 +11,7 @@ time (`PLATFORM_PROBE.md`, F24). It runs inside the same deployment as the app.
 | Descriptor | `apps/web/public/miner/wharfinger-port-queue.yaml`, served at `/miner/wharfinger-port-queue.yaml` |
 | Descriptor SHA-256 | `0xbf5aeddae01947595317c797ba5b56e0d44e1325ad45a7d36b1b8fafecf382c3` |
 | Auth | none |
-| Ports | Kotka-Hamina `FIKTK`, Helsinki `FIHEL`, Turku `FITKU`; anything else is `404 port_not_covered` |
+| Ports | Kotka-Hamina `FIKTK`, Helsinki `FIHEL`, Turku `FITKU`, plus (added 2026-11-26) Rauma `FIRAU`, Pori `FIPOR`, Uusikaupunki `FIUKI`, Naantali `FINLI`, Hanko `FIHKO`, Kokkola `FIKOK`, Oulu `FIOUL`, Kemi `FIKEM`; anything else is `404 port_not_covered` |
 
 ## What it answers
 `port`, `vessels_waiting`, `wait_hours`, `congestion_level`, `as_of` (the intent's response fields) plus `vessels_at_berth`, `method` and
@@ -28,3 +28,9 @@ level are in `packages/truth/src/portqueue.ts` and tested in `tests/portqueue.te
 1. YAML URL: the descriptor URL above. 2. YAML hash: the SHA-256 above (it must equal `sha256sum` of the served file). 3. Untick
 "Requires API key". 4. Validate endpoints. 5. Register miner (adds to your USDC bond, about $1 for the first intent; the Faucet covers it).
 Registration is on-chain and cannot be edited, so change the YAML only by registering an update and recomputing the hash.
+
+## The registered descriptor is frozen on purpose
+The node checks the served YAML against the hash that was registered, so `wharfinger-port-queue.yaml` must not change. Its text still lists
+the first three ports and says other ports are refused. The endpoint now answers eight more ports; the descriptor is out of date by that
+much. Refreshing it later means an `updateMiner` transaction from the registering wallet with the new URL and hash (the bond does not
+change); do that only if routing shows the longer list is worth it.
