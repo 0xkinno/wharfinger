@@ -42,7 +42,7 @@ Network: Telegraph testnet, Ethereum Sepolia escrow. Nothing here is a mainnet o
 Hackathon entry; the prize incentive applies.
 ```
 
-### Draft 2: first public post on X (hold until the first paid vessel answer exists, so it can carry the signal link)
+### Superseded: the earlier single-post draft (use the three-post thread above instead)
 
 ```text
 Build log 1, Telegraph Hackathon Season II (hackathon entry, prize incentive applies) @Telegraphprotoc
@@ -72,7 +72,7 @@ https://github.com/0xkinno/wharfinger
 Hackathon entry for @Telegraphprotoc, prize incentive applies. AI assisted.
 ```
 
-### Draft 3: tutorial post (ready; the tutorial exists and was run live)
+### Later option: tutorial post (the tutorial exists and was run live)
 
 `TUTORIAL.md` and `examples/buy-a-fact.ts` (9 lines) are in the repository. A post linking them, disclosing the hackathon and prize incentive and tagging `@Telegraphprotoc`, waits for approval. Independent reproduction by another developer is the evidence that earns points; none yet.
 
@@ -102,7 +102,7 @@ https://wharfinger-kinnoskis-projects.vercel.app
 
 Attach `judge-break.jpg` to post 3 (or the video once recorded). Post the repository link as a reply, not in the thread.
 
-### Draft 3: tutorial post (ready; the tutorial exists and was run live)
+### Later option: tutorial post (the tutorial exists and was run live)
 
 `TUTORIAL.md` and `examples/buy-a-fact.ts` (9 lines) are in the repository. A post linking them, disclosing the hackathon and prize incentive and tagging `@Telegraphprotoc`, waits for approval. Independent reproduction by another developer is the evidence that earns points; none yet.
 
