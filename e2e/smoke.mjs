@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 const axeSrc = readFileSync(require.resolve("axe-core/axe.min.js"), "utf8");
 const BASE = process.env.BASE ?? "http://localhost:3000";
-const PAGES = ["/", "/harbour", "/voyage/new", "/voyage/iceland-fiktk-preloaded", "/statement/iceland-fiktk-preloaded", "/verify", "/verify/iceland-fiktk-preloaded", "/evidence", "/judge", "/trace"];
+const PAGES = ["/", "/harbour", "/voyage/new", "/voyage/iceland-fiktk-preloaded", "/statement/iceland-fiktk-preloaded", "/verify", "/verify/iceland-fiktk-preloaded", "/evidence", "/judge", "/trace", "/settle"];
 const VIEWPORTS = [[375, 812], [390, 844], [412, 915], [768, 1024], [1280, 800], [1440, 900]];
 mkdirSync("e2e/screens", { recursive: true });
 const browser = await chromium.launch(); let fails = 0; const log = (ok, m) => { if (!ok) fails++; console.log(`${ok ? "PASS" : "FAIL"}  ${m}`); };

@@ -1,0 +1,20 @@
+{
+ "Nordic Bulk Owners Oy": {
+  "name": "Nordic Bulk Owners Oy",
+  "matched": false,
+  "receiptHash": "0x4560e30d0d62878184ac74530745b9e5fa5a1970b76a6f7e0698038edbe26c52",
+  "signalHash": "0xf8068cca8321625bab149dcc62eb3b74202306d7e682b89d9a1d3b7ebd09a9d5",
+  "minerId": "731002",
+  "askedAt": "2026-11-26T03:51:24.095Z",
+  "intent": "SANCTIONS_SCREENING_MATCH_GENERAL"
+ },
+ "Rosoboronexport": {
+  "name": "Rosoboronexport",
+  "matched": true,
+  "receiptHash": "0x997ededd66a6117fab8419cd13b662e21209a7b9c30b090f24e57b9072738171",
+  "signalHash": "0x4137db02b06fdc6094b3c886577875949a45286a0515b7931d3eca3a418c6eae",
+  "minerId": "731002",
+  "askedAt": "2026-11-26T03:51:35.057Z",
+  "intent": "SANCTIONS_SCREENING_MATCH_GENERAL"
+ }
+}

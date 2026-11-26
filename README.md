@@ -38,6 +38,7 @@ owner recomputes every line without trusting us.
 | Wrong, stale and empty answers are refused and re-bought, not trusted | `/evidence`: every refusal with its reason, from real purchases |
 | Every wallet action works for real: connect, fund, sign, countersign | `node e2e/wallet.mjs` (real Sepolia transactions and signatures) |
 | Every number on the site comes from stored purchases | `/api/stats`, `/api/status`, `/trace` |
+| A payment is held, escalated or blocked until the statement, both keys and a paid screening receipt check out | `/settle` (decisions recompute in your browser), `packages/settle` |
 
 ## See it
 
@@ -91,6 +92,14 @@ the node's signal time, and the epoch that bills it.
 The weather rule is the clearest example of "code decides". Hourly rain cannot be bought, so an hour is excepted for weather only
 with an SOF stop line **and** two operators reporting at least 1 mm for the day; otherwise it goes to REVIEW (`THESIS.md`).
 
+## Before money moves
+
+A demurrage invoice is only as good as the statement behind it. `/settle` shows a gate that decides whether a payment may go out:
+the statement must recompute, the analyst and owner keys must match the mandate, the payee must have a clear, paid sanctions
+screening receipt, and the amount must sit inside the payer's authority. A tampered statement is **blocked**, a missing
+countersignature **holds**, a sanctions match **escalates** to a person, and only a clean case **releases**. The gate never moves
+money; a rail does (Solana devnet in `scripts/solana-settle.ts`), and the gate then checks what the chain recorded.
+
 ## Explore it in two minutes
 
 1. `/judge`: pick a ship that is in port now and press **Buy two answers**. The labelled house key buys live; you see miners,
@@ -137,6 +146,9 @@ Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line d
 | Kotka port queue | **not purchasable**; Helsinki and Turku work |
 | Zone geometry | **draft**, derived from ships at berth, not chart-derived port limits |
 | Withdraw sweep (`executeWithdraw`) | requested; waits for the node's ledger root |
+| Settlement gate (hold, escalate, block, release) | **live** as code and page; two real screening receipts from Telegraph |
+| Solana devnet transfer of a released amount, read back from the chain | **pending**: needs devnet SOL in the settlement wallet (`scripts/solana-settle.ts`) |
+| Visa CLI rail | not built; needs Visa CLI beta access |
 | Evaluator and Miner entries | not built |
 
 ## Commercial summary

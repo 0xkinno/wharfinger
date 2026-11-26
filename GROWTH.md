@@ -63,6 +63,36 @@ Repo: github.com/0xkinno/wharfinger
 Open questions for Kinnoski before posting: the exact repo URL once public; whether to include a screenshot of the first
 signal page; the account to post from (`@0xkinno`).
 
+### Draft 2: X thread, three posts (awaiting approval)
+
+Each post is under 280 characters (a link counts as 23). The first ends with the thread emoji (written here as [thread emoji] because the repository style check bans emoji; the exact text with the emoji is in `reference/TWEETS.md`, which is not committed). The last carries the disclosure the rules
+require: hackathon entry, prize incentive, AI assistance.
+
+```text
+1/3
+A ship sat in port for three days. Three weeks later the owner billed 41 hours of demurrage, $750 an hour, and the analyst had one handwritten page to argue with.
+
+So I built a harbour officer that buys the evidence while it is still true. [thread emoji]
+
+2/3
+Wharfinger watches the ship through @Telegraphprotoc: position, port queue and weather every 30 minutes. It refuses wrong or stale miner answers (one put the ship 3,710 km away). Code classifies every hour of the stay. No model sets a number.
+
+3/3
+The owner recomputes each line in a browser from the receipts. Change one minute and it fails at that line. Now a gate holds the payment until that evidence checks out.
+
+Testnet. Season II hackathon entry, prize incentive applies. AI assisted.
+https://wharfinger-kinnoskis-projects.vercel.app
+```
+
+Attach `judge-break.jpg` to post 3 (or the video once recorded). Post the repository link as a reply, not in the thread.
+
+### Draft 3: tutorial post (ready; the tutorial exists and was run live)
+
+`TUTORIAL.md` and `examples/buy-a-fact.ts` (9 lines) are in the repository. A post linking them, disclosing the hackathon and prize incentive and tagging `@Telegraphprotoc`, waits for approval. Independent reproduction by another developer is the evidence that earns points; none yet.
+
+Open questions for Kinnoski before posting: the exact repo URL once public; whether to include a screenshot of the first
+signal page; the account to post from (`@0xkinno`).
+
 ### Draft 2: first post on X (awaiting approval)
 
 Discloses the hackathon and the prize incentive, as the rules require.

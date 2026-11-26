@@ -6,7 +6,7 @@ import { useAccount, useDisconnect } from "wagmi";
 import { useEffect, useState } from "react";
 import { Mark } from "./HarbourScene";
 
-const links = [["/harbour", "Harbour"], ["/voyage/new", "Voyage"], ["/verify", "Verify"], ["/evidence", "Evidence"], ["/judge", "Judges"]];
+const links = [["/harbour", "Harbour"], ["/voyage/new", "Voyage"], ["/verify", "Verify"], ["/evidence", "Evidence"], ["/settle", "Settle"], ["/judge", "Judges"]];
 export function Nav() {
   const path = usePathname(); const { isConnected } = useAccount(); const { disconnect } = useDisconnect();
   const [net, setNet] = useState<{ ok: boolean; ms?: number } | null>(null); const [open, setOpen] = useState(false);
