@@ -1,0 +1,40 @@
+version: "1"
+kind: miner
+id: 7310101
+slug: wharfinger-port-queue
+protocol: generic
+name: Wharfinger Port Queue
+description: >-
+  Ships waiting at anchor outside Kotka-Hamina, Helsinki and Turku, with their mean wait since planned arrival and a congestion level.
+  Built from Fintraffic Digitraffic AIS (at anchor within the port's anchorage radius) and port calls (CC BY 4.0). Asked for Kotka,
+  HaminaKotka or FIKTK it answers for Kotka-Hamina and never for Hanko. A port it does not cover is refused with port_not_covered,
+  not guessed. The radius is a labelled draft, not chart anchorage limits.
+base_url: https://wharfinger-kinnoskis-projects.vercel.app
+docs:
+  website: https://wharfinger-kinnoskis-projects.vercel.app
+  repository: https://github.com/0xkinno/wharfinger
+rate_limit_per_sec: 2
+cache_ttl_sec: 60
+circuit_threshold: 5
+circuit_cooldown_seconds: 30
+endpoints:
+  - path: /port-congestion
+    external_path: /api/miner/port-congestion
+    method: GET
+    description: >-
+      Current queue of ships waiting at anchor outside a Finnish port. Takes a port name or UN/LOCODE and returns the UN/LOCODE it
+      answered for, the number of vessels waiting, their mean waiting time in hours, a congestion level (low, moderate, high, severe)
+      and the time of the reading. Covered ports: Kotka-Hamina (FIKTK), Helsinki (FIHEL), Turku (FITKU). Other ports return 404 port_not_covered.
+    intents: [LIVE_PORT_CONGESTION_GENERAL]
+    params:
+      query:
+        required:
+          - name: port
+            type: string
+            intents: ["*"]
+            description: "Port name or UN/LOCODE, for example Kotka, HaminaKotka, FIKTK, Helsinki, FIHEL, Turku or FITKU. Finnish ports only."
+semantics:
+  signal_mapping:
+    label_field: congestion_level
+  supported_intents:
+    - LIVE_PORT_CONGESTION_GENERAL
