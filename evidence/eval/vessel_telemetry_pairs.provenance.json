@@ -1,0 +1,62 @@
+[
+ {
+  "mmsi": "246546000",
+  "rejectedMiner": "93002",
+  "rejectedWhy": [
+   "WRONG_VESSEL"
+  ],
+  "rejectedReceipt": "0x87804e5e4e2cae54a0ed2ae3dcacfbabbab732b654dadcbf69b0fa12b69d3c7f",
+  "chosenMiner": "7603",
+  "chosenReceipt": "0x491b7d69adf510dcb6ea87d344c5ba31199a629064c4c7fcc4cedc07fbf1d204"
+ },
+ {
+  "mmsi": "246546000",
+  "rejectedMiner": "93001",
+  "rejectedWhy": [
+   "WRONG_PLACE"
+  ],
+  "rejectedReceipt": "0xf5cfb3a6c9adf1bc0ac2e30d0951f8763a19eda7b7e18b5355e8565030eb444d",
+  "chosenMiner": "7603",
+  "chosenReceipt": "0x491b7d69adf510dcb6ea87d344c5ba31199a629064c4c7fcc4cedc07fbf1d204"
+ },
+ {
+  "mmsi": "246546000",
+  "rejectedMiner": "8818818",
+  "rejectedWhy": [
+   "STALE"
+  ],
+  "rejectedReceipt": "0x56983a32e57bc370f4ae9f941fb4b90207d08f59324ab7decc59baef2f62058e",
+  "chosenMiner": "9002",
+  "chosenReceipt": "0x7867c64b12f476ebad71b063304e4a6e7906aed5decdd41934f41bae4fca9e38"
+ },
+ {
+  "mmsi": "246546000",
+  "rejectedMiner": "170068",
+  "rejectedWhy": [
+   "NO_READING"
+  ],
+  "rejectedReceipt": "0x2f936ed0755255cc778869d3c3009ea8921d1d1595bf1e8f6e5b4cc85f90bad2",
+  "chosenMiner": "20260828",
+  "chosenReceipt": "0x966ccd48417f440a98fa76de8a8caf3bd5a18ecc1980cb4e6f035bc48c3d17ab"
+ },
+ {
+  "mmsi": "244554000",
+  "rejectedMiner": "8818818",
+  "rejectedWhy": [
+   "STALE"
+  ],
+  "rejectedReceipt": "0xfb4058b56e34e900350fa46e9b7a5e41d2bba03fd13c4bcf5ef8d0624e4ffe51",
+  "chosenMiner": "302",
+  "chosenReceipt": "0x454606e366cec2c0f4db7628d8f24a773c5cac002e8f236c0c0a2fc3ccabe21c"
+ },
+ {
+  "mmsi": "246554000",
+  "rejectedMiner": "8818818",
+  "rejectedWhy": [
+   "STALE"
+  ],
+  "rejectedReceipt": "0x032df2e656f080877fa13f09e76a9e03c4b0f46a429e2f1a44b9c307195baa79",
+  "chosenMiner": "302",
+  "chosenReceipt": "0x7f03e2c1ceacfa6e25539a84cac46d12e83a51253942ec5f305e01681d203ed7"
+ }
+]
