@@ -149,7 +149,7 @@ Every call, with file and line, is in `SDK_SURFACE.md`; a test fails if a line d
 | Withdraw sweep (`executeWithdraw`) | requested; waits for the node's ledger root |
 | Settlement gate (hold, escalate, block, release) | **live** as code and page; two real screening receipts from Telegraph |
 | Solana devnet transfer of a released amount, read back from the chain | **live on devnet**: [transaction](https://explorer.solana.com/tx/3uAkgU3WL2E1XrXA9JZ5ckaJhKaciMCxKu8ubRjv68iZcRTMp141VcDcAWqMVM2fcAGKQHrCjpNFDA2T6SfQ15M5?cluster=devnet) pays $4,500.00 of a devnet test token with the statement hash in the memo; the amount, payee and memo are read back from the chain and checked (`scripts/solana-settle.ts`) |
-| Unattended voyage | **running**: MV Kraftca at Kotka, funded with $5, bought answers every 30 minutes by the scheduler; complete when the ship sails |
+| Unattended voyage | **running**: MV Kraftca at Kotka, funded with $5, bought answers by a scheduled GitHub workflow with nobody involved. GitHub starts scheduled runs only a few times a day, so each run ticks every 30 minutes for about five and a half hours and there are gaps between runs; complete when the ship sails |
 | Mission 08 issue body | read in full and mapped to the routes (`MISSION_FIT.md`) |
 | Miner: Wharfinger Port Queue (`LIVE_PORT_CONGESTION_GENERAL`, Kotka answered correctly) | **built and live**, endpoint tested; registration is the owner's step on Anjoman (`MINER.md`) |
 | Evaluator material: real preference pairs for `VESSEL_TELEMETRY_VERIFY_GENERAL` | **built**, labelled against Digitraffic AIS; upload is the owner's step on Anjoman (`EVALUATOR.md`) |

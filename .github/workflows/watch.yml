@@ -1,21 +1,31 @@
 name: Watch tick
 # Calls the deployed app every 30 minutes. The tick is idempotent: a lease row per voyage per 30 minute slot.
+# GitHub starts scheduled runs only a few times a day on a quiet repository, so each run keeps ticking for about five and a half hours
+# instead of once. Runs queue behind each other (never overlap), and a push to this file starts one immediately.
 on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch: {}
+  push:
+    paths: [".github/workflows/watch.yml"]
 permissions:
   contents: read
+concurrency:
+  group: watch-tick
+  cancel-in-progress: false
 jobs:
   tick:
     runs-on: ubuntu-latest
+    timeout-minutes: 340
     env:
       URL: ${{ vars.WHARFINGER_URL }}
       SECRET: ${{ secrets.WATCH_TICK_SECRET }}
     steps:
-      - name: Tick
+      - name: Tick every 30 minutes for about five and a half hours
         run: |
           if [ -z "$URL" ] || [ -z "$SECRET" ]; then echo "WHARFINGER_URL (repository variable) and WATCH_TICK_SECRET (repository secret) are not set; skipping."; exit 0; fi
-          code=$(curl -sS -m 280 -o out.json -w '%{http_code}' -X POST "$URL/api/watch/tick" -H "authorization: Bearer $SECRET")
-          echo "HTTP $code"; cat out.json | head -c 2000
-          [ "$code" = "200" ]
+          for i in $(seq 1 11); do
+            code=$(curl -sS -m 280 -o out.json -w '%{http_code}' -X POST "$URL/api/watch/tick" -H "authorization: Bearer $SECRET" || echo 000)
+            echo "tick $i: HTTP $code at $(date -u +%H:%M:%S)"; head -c 400 out.json; echo
+            [ "$i" -lt 11 ] && sleep 1750
+          done
