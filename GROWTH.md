@@ -9,6 +9,8 @@ Likes and follower counts are not used as evidence.
 | Date (UTC) | Where | Link | What it covers |
 |---|---|---|---|
 | 2026-11-26 | X, first thread (3 posts) | https://x.com/0xkiddok/status/2125900333683482939 | The problem, how Wharfinger watches a ship, and the recompute check |
+| 2026-11-28 | X, update 2 (settlement gate) | https://x.com/0xkiddok/status/2126629693398913366 | A payment is blocked, held, escalated or released on the evidence; Solana devnet release |
+| 2026-11-26 | Discord `showcase` post (Apps & Agents) | posted by the owner | What works today, links, limits |
 
 The thread, as posted:
 
@@ -34,7 +36,7 @@ Images: `social/cover.jpg` on post 1, `social/tamper.jpg` on post 3. The exact t
 
 The organisers ask for at least three useful updates on different dates, so these go out on later days, not today.
 
-Update 2, about Nov 28 to 29, with `social/gate.jpg`:
+Update 2, posted 2026-11-28, with `social/gate.jpg`:
 
 ```text
 Wharfinger can now hold a payment. A gate checks the statement recomputes, both keys match and the payee screens clean on a paid @Telegraphprotoc receipt. Tampered: blocked. Sanctions hit: escalated. Clean: released on @solana devnet. Hackathon entry.
