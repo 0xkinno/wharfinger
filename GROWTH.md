@@ -11,6 +11,7 @@ Likes and follower counts are not used as evidence.
 | 2026-11-26 | X, first thread (3 posts) | https://x.com/0xkiddok/status/2125900333683482939 | The problem, how Wharfinger watches a ship, and the recompute check |
 | 2026-11-28 | X, update 2 (settlement gate) | https://x.com/0xkiddok/status/2126629693398913366 | A payment is blocked, held, escalated or released on the evidence; Solana devnet release |
 | 2026-11-26 | Discord `showcase` post (Apps & Agents) | posted by the owner | What works today, links, limits |
+| 2026-11-28 | GitHub issue 196 (Mission 08) | claim confirmed by the bot, posted by the owner | Scope comment and `/claim`; next `/progress` due within 72 hours, by 2026-12-01 |
 | 2026-11-28 | Anjoman Apps directory | listing live, category Commerce | The app is listed for other builders and judges |
 
 The thread, as posted:
