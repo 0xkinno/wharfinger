@@ -11,6 +11,7 @@ Likes and follower counts are not used as evidence.
 | 2026-11-26 | X, first thread (3 posts) | https://x.com/0xkiddok/status/2125900333683482939 | The problem, how Wharfinger watches a ship, and the recompute check |
 | 2026-11-28 | X, update 2 (settlement gate) | https://x.com/0xkiddok/status/2126629693398913366 | A payment is blocked, held, escalated or released on the evidence; Solana devnet release |
 | 2026-11-26 | Discord `showcase` post (Apps & Agents) | posted by the owner | What works today, links, limits |
+| 2026-11-28 | Anjoman Apps directory | listing live, category Commerce | The app is listed for other builders and judges |
 
 The thread, as posted:
 
@@ -46,9 +47,8 @@ https://wharfinger-kinnoskis-projects.vercel.app/settle
 Update 3, about Nov 30, with the demo video if it exists:
 
 ```text
-Telegraph miners answered the Kotka port queue as Hanko. So I registered a provider that gets it right: Wharfinger Port Queue on @Telegraphprotoc. I also bought 150+ answers from other miners and labelled them for evaluators.
+Wharfinger is now live on Anjoman. Also: Telegraph miners answered the Kotka port queue as Hanko, so I registered a provider that gets it right and labelled 150+ miner answers for evaluators. Hackathon entry for @Telegraphprotoc.
 https://github.com/0xkinno/wharfinger
-Hackathon entry.
 ```
 
 ## 3. Discord

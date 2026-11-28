@@ -12,6 +12,7 @@ submit at least two hours early). Everything below is checked against the reposi
 | Mission | 08 Commodities (bounties issue 196) |
 | Tagline | Every disputed hour of a port call, with a receipt the shipowner can check. |
 | Live app | https://wharfinger-kinnoskis-projects.vercel.app |
+| Anjoman Apps listing | live, category Commerce (https://anjoman.ai/dashboard/apps) |
 | Repository | https://github.com/0xkinno/wharfinger (MIT) |
 | GitHub username (starred the bounties repo) | 0xkinno |
 | Network | Telegraph testnet (Sepolia). Nothing here is mainnet. |
@@ -65,8 +66,8 @@ Miner (Track 02): Wharfinger Port Queue, `LIVE_PORT_CONGESTION_GENERAL`, see `MI
 
 ## Before submitting
 
-1. List Wharfinger in the Anjoman Apps directory (https://anjoman.ai/dashboard/apps): description, repository, live URL; update it
-   when the video exists. The organisers asked for this before the final form.
+1. Done: Wharfinger is listed and live in the Anjoman Apps directory (category Commerce, 2026-11-28). Edit the listing when the video
+   exists.
 2. Post in the Discord `showcase` channel with the live link, repository and screenshots.
 3. Reply in the Commercial Use Cases thread with the use case, what is built and what is not (see `GROWTH.md`).
 4. Fill the final form from this file when it opens.

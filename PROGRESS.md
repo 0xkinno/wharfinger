@@ -38,6 +38,8 @@ read back from the chain, production secrets and database, house escrow funded, 
 Still open: finish of the unattended voyage, six week replay, red team rounds, evaluator and miner entries, chart-derived port
 limits, Pay.sh rail, video, posts.
 
+Also 2026-11-28: the app is listed and live in the Anjoman Apps directory (category Commerce).
+
 ## Honest gaps found by building
 
 - Position corroboration is across operators that share one upstream feed (`ONE_UPSTREAM`), and the one other source was stale.
